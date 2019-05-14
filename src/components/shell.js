@@ -18,15 +18,24 @@ import AddIcon from '@material-ui/icons/Add';
 
 
 export default class Shell extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            drawer: false
+        }
+    }
     render(){
         return(
             <React.Fragment>
                 {/* <CssBaseline/> */}
-              <div>{this.props.children} <Drawer></Drawer></div>
+              <div>{this.props.children}</div>
+
               <AppBar position="fixed" color="primary"
                 style={{margin: 0, top: 'auto', bottom: 0, background: 'white', color: 'black'}}>
                 <Toolbar>
-                  <IconButton edge="start" color="inherit" aria-label="Open drawer">
+                  <IconButton edge="start" color="inherit" aria-label="Open drawer"
+                    onClick={()=>this.setState({drawer: !this.state.drawer})}
+                    onClose={()=>this.setState({drawer: false})}>
                     <MenuIcon />
                   </IconButton>
                   <IconButton color="inherit">
@@ -37,7 +46,7 @@ export default class Shell extends React.Component {
                   </IconButton>
                 </Toolbar>
               </AppBar>
-             
+<Drawer anchor="left" open={this.state.drawer}></Drawer>
             </React.Fragment>
 
         )
