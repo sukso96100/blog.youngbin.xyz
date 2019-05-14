@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import Shell from '../components/shell';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 import { auto } from "eol";
 
 class BlogIndex extends React.Component {
@@ -24,7 +25,9 @@ class BlogIndex extends React.Component {
          width: '100%', height: '80vh', marginTop: -50}}>
           <div style={{marginLeft: 'auto', marginRight: 'auto', maxWidth: 1000, padding: 16}}>
             <h2>{siteTitle}</h2><br/>
+
             <h1>{posts[0].node.frontmatter.title || posts[0].node.fields.slug}</h1>
+            <small>{posts[0].node.frontmatter.date}</small>
             <p dangerouslySetInnerHTML={{
                   __html: posts[0].node.frontmatter.description || posts[0].node.excerpt,
                 }}
@@ -36,32 +39,32 @@ class BlogIndex extends React.Component {
           </div>
           <Paper style={{borderRadius: 40, minHeight: '80vh', marginTop: -40,}}>
           <div style={{marginLeft: 'auto',marginRight: 'auto', maxWidth: 1000, padding: 16}}>
-{posts.map(({ node }) => {
-  const title = node.frontmatter.title || node.fields.slug
-  return (
-    <div key={node.fields.slug}>
-      <b
-        style={{
-          // marginBottom: rhythm(1 / 4),
-        }}
-      >
-        <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-          {title}
-        </Link>
-      </b>
-      <small>{node.frontmatter.date}</small>
-      <p
-        dangerouslySetInnerHTML={{
-          __html: node.frontmatter.description || node.excerpt,
-        }}
-      />
-    </div>
-  )
-})}
+          <Grid container spacing={24}>
+          {posts.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug
+            return (
+                <Grid item xs={12} sm={6} key={node.fields.slug}>
+                    <Paper style={{padding: 32, borderRadius: 40}}>
+                        <h2>{title}</h2>
+                        <small>{node.frontmatter.date}</small>
+                        <p
+                            dangerouslySetInnerHTML={{
+                            __html: node.frontmatter.description || node.excerpt,
+                            }}
+                        />
+                        <Link  to={node.fields.slug}>
+                        <Button variant="outlined">Read more</Button>
+                        </Link>
+                    </Paper>
+                </Grid>
+            )
+            })}
+            </Grid>
+
           </div>
- 
+
           </Paper>
-        
+
       </Shell>
     )
   }
