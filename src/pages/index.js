@@ -39,26 +39,28 @@ class BlogIndex extends React.Component {
           </div>
           <Paper style={{borderRadius: 40, minHeight: '80vh', marginTop: -40,}}>
           <div style={{marginLeft: 'auto',marginRight: 'auto', maxWidth: 1000, padding: 16}}>
-          <Grid container spacing={24}>
-          {posts.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug
-            return (
-                <Grid item xs={12} sm={6} key={node.fields.slug}>
-                    <Paper style={{padding: 32, borderRadius: 40}}>
-                        <h2>{title}</h2>
-                        <small>{node.frontmatter.date}</small>
-                        <p
-                            dangerouslySetInnerHTML={{
-                            __html: node.frontmatter.description || node.excerpt,
-                            }}
-                        />
-                        <Link  to={node.fields.slug}>
-                        <Button variant="outlined">Read more</Button>
-                        </Link>
-                    </Paper>
-                </Grid>
-            )
-            })}
+          <Grid container spacing={24} style={{paddingBottom: 64}}>
+          {posts.map(({ node }, index) => {
+            if(index > 0){
+              const title = node.frontmatter.title || node.fields.slug
+              return (
+                  <Grid item xs={12} sm={6} key={node.fields.slug}>
+                      <Paper style={{padding: 32, borderRadius: 40}}>
+                          <h2>{title}</h2>
+                          <small>{node.frontmatter.date}</small>
+                          <p
+                              dangerouslySetInnerHTML={{
+                              __html: node.frontmatter.description || node.excerpt,
+                              }}
+                          />
+                          <Link  to={node.fields.slug}>
+                          <Button>Read more</Button>
+                          </Link>
+                      </Paper>
+                  </Grid>
+              )
+            }
+          })}
             </Grid>
 
           </div>

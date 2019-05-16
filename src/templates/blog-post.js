@@ -1,10 +1,11 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
+import BackgroundImage from 'gatsby-background-image';
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import Shell from '../components/shell';
+import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -12,30 +13,47 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
+    let postCover;
+    if(post.frontmatter.image){
+      postCover = (
+        <BackgroundImage
+        style={{margin: 0, width: '100%', height: '90vh', minHeight: 650, marginTop: -50, zIndex: -1}}
+        Tag='div'
+        fluid={post.frontmatter.image.childImageSharp.fluid}
+        backgroundColor={'#040e18'}>
+        <div style={{marginLeft: 'auto', marginRight: 'auto', maxWidth: 1000, padding: 16}}>
+            <h2>{siteTitle}</h2><br/>
+            <h1>{post.frontmatter.title || post.fields.slug}</h1>
+            <small>{post.frontmatter.date}</small>
+          </div>
+        </BackgroundImage>
+      )
+    }else{
+      postCover = (
+        <div
+        style={{margin: 0, width: '100%', height: '90vh', minHeight: 650, marginTop: -50, 
+          background: 'black', color: 'white'}}>
+        <div style={{marginLeft: 'auto', marginRight: 'auto', maxWidth: 1000, padding: 16}}>
+            <h2>{siteTitle}</h2><br/>
+            <h1>{post.frontmatter.title || post.fields.slug}</h1>
+            <small>{post.frontmatter.date}</small>
+          </div>
+        </div>
+      )
+    }
+
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Shell location={this.props.location} title={siteTitle}>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <h1>{post.frontmatter.title}</h1>
-        <p
-          style={{
-            ...scale(-1 / 5),
-            display: `block`,
-            marginBottom: rhythm(1),
-            marginTop: rhythm(-1),
-          }}
-        >
-          {post.frontmatter.date}
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
-        <Bio />
+        {postCover}
+          <Paper style={{borderRadius: 40, minHeight: '90vh', marginTop: -40,}}>
+          <div style={{marginLeft: 'auto',marginRight: 'auto', maxWidth: 1000, padding: 16, paddingTop: 32}}
+           dangerouslySetInnerHTML={{ __html: post.html }} />
+          </Paper>
+    
 
         <ul
           style={{
@@ -61,7 +79,7 @@ class BlogPostTemplate extends React.Component {
             )}
           </li>
         </ul>
-      </Layout>
+      </Shell>
     )
   }
 }
@@ -82,8 +100,15 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY. MM. DD")
         description
+        image {
+          childImageSharp {
+            fluid(quality: 90, maxWidth: 2000) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
       }
     }
   }

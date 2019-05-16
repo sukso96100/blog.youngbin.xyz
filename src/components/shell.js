@@ -14,7 +14,8 @@ import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import MenuIcon from '@material-ui/icons/Menu';
-import AddIcon from '@material-ui/icons/Add';
+import MailIcon from '@material-ui/icons/Mail';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
 
 
 export default class Shell extends React.Component {
@@ -23,6 +24,14 @@ export default class Shell extends React.Component {
         this.state = {
             drawer: false
         }
+    }
+
+    toggleDrawer(event){
+      if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+        return;
+      }
+  
+      this.setState({ drawer: !this.state.drawer });
     }
     render(){
         return(
@@ -46,7 +55,35 @@ export default class Shell extends React.Component {
                   </IconButton>
                 </Toolbar>
               </AppBar>
-<Drawer anchor="left" open={this.state.drawer}></Drawer>
+              <Drawer anchor="left" open={this.state.drawer}
+              onClick={e => this.toggleDrawer(e)}
+                onKeyDown={e => this.toggleDrawer(e)}>
+                <div style={{width: 250}} role="presentation">
+                  <List>
+                    {[{label: 'Home', path: '/'}, {label: 'Tags', path: '/'}, {label: 'Archive', path: '/'}]
+                    .map((item, index) => (
+                      <Link to={item.path} onClick={e => this.toggleDrawer(e)}>
+                      <ListItem button key={item.label}>
+                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                        <ListItemText primary={item.label} />
+                      </ListItem>
+                      </Link>
+                    ))}
+                  </List>
+                  <Divider />
+                  <List>
+                    {[{label: 'GitHub', path: '/'}, {label: 'Facebook', path: '/'}, {label: 'Twitter', path: '/'}]
+                    .map((item, index) => (
+                      <Link to={item.path} onClick={e => this.toggleDrawer(e)}>
+                      <ListItem button key={item.label}>
+                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                        <ListItemText primary={item.label} />
+                      </ListItem>
+                      </Link>
+                    ))}
+                  </List>
+                </div>
+              </Drawer>
             </React.Fragment>
 
         )
