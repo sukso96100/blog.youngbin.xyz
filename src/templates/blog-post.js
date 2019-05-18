@@ -5,7 +5,9 @@ import Shell from '../components/shell';
 import PostCover from '../components/postCover';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import './header.css'
+import PostCard from '../components/postCard';
+import Grid from '@material-ui/core/Grid';
+
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
@@ -21,39 +23,29 @@ class BlogPostTemplate extends React.Component {
         <PostCover
           post={post} siteTitle={siteTitle}/>
           <Paper style={{borderRadius: 40, minHeight: '90vh', marginTop: -40,}}>
-          <div style={{marginLeft: 'auto', marginRight: 'auto', maxWidth: 1000, padding: 16, 
+          <div style={{marginLeft: 'auto', marginRight: 'auto', maxWidth: 1000, padding: 16,
           paddingTop: 32, paddingBottom: 64}}>
           <div  dangerouslySetInnerHTML={{ __html: post.html }} />
-            <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-          </div>
-          
-          </Paper>
-    
 
-       
+           <Grid container spacing={24} style={{paddingBottom: 64}}>
+           {previous && (
+                <Grid item xs={12} sm={6} key={previous.fields.slug}>
+                    <PostCard post={previous}/>
+                </Grid>
+                )}
+                 {next && (
+                <Grid item xs={12} sm={6} key={next.fields.slug}>
+                    <PostCard post={next}/>
+                </Grid>
+                )}
+            </Grid>
+
+          </div>
+
+          </Paper>
+
+
+
       </Shell>
     )
   }

@@ -8,6 +8,7 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import PostCover from '../components/postCover';
+import PostCard from '../components/postCard';
 import { auto } from "eol";
 import BackgroundImage from "gatsby-background-image";
 
@@ -30,56 +31,17 @@ class BlogIndex extends React.Component {
           <Grid container spacing={24} style={{paddingBottom: 64}}>
           {posts.map(({ node }, index) => {
             if(index > 0){
-              const title = node.frontmatter.title || node.fields.slug
-              if(node.frontmatter.image){
-                return (
+              return(
                   <Grid item xs={12} sm={6} key={node.fields.slug}>
-                  <Paper style={{borderRadius: 40}}>
-                  <div style={{zIndex: 5, color: 'white', padding: 32, borderRadius: 40,
-                    background: `linear-gradient(rgba(0,0,0, 0.3), rgba(0,0,0, 0.3)), 
-                    url(${node.frontmatter.image.childImageSharp.fluid.src}) center / cover`}}>
-
-                  <h2>{title}</h2>
-                          <small>{node.frontmatter.date}</small>
-                          <p
-                              dangerouslySetInnerHTML={{
-                              __html: node.frontmatter.description || node.excerpt,
-                              }}
-                          />
-                          <Link  to={node.fields.slug}>
-                          <Button>Read more</Button>
-                          </Link>
-                  </div>
-                  </Paper>
-                  
+                    <PostCard post={node}/>
                   </Grid>
                 )
-              }else{
-                return (
-                  <Grid item xs={12} sm={6} key={node.fields.slug}>
-                      <Paper style={{padding: 32, borderRadius: 40}}>
-                          <h2>{title}</h2>
-                          <small>{node.frontmatter.date}</small>
-                          <p
-                              dangerouslySetInnerHTML={{
-                              __html: node.frontmatter.description || node.excerpt,
-                              }}
-                          />
-                          <Link  to={node.fields.slug}>
-                          <Button>Read more</Button>
-                          </Link>
-                      </Paper>
-                  </Grid>
-                )  
               }
             }
-          })}
+          )}
             </Grid>
-
           </div>
-
           </Paper>
-
       </Shell>
     )
   }
