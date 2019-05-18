@@ -1,46 +1,16 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
-import BackgroundImage from 'gatsby-background-image';
 import SEO from "../components/seo"
 import Shell from '../components/shell';
+import PostCover from '../components/postCover';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-
+import './header.css'
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
-
-    let postCover;
-    if(post.frontmatter.image){
-      postCover = (
-        <BackgroundImage
-        style={{margin: 0, width: '100%', height: '90vh', minHeight: 650, marginTop: -50, zIndex: -1}}
-        Tag='div'
-        fluid={post.frontmatter.image.childImageSharp.fluid}
-        backgroundColor={'#040e18'}>
-        <div style={{marginLeft: 'auto', marginRight: 'auto', maxWidth: 1000, padding: 16}}>
-            <h2>{siteTitle}</h2><br/>
-            <h1>{post.frontmatter.title || post.fields.slug}</h1>
-            <small>{post.frontmatter.date}</small>
-          </div>
-        </BackgroundImage>
-      )
-    }else{
-      postCover = (
-        <div
-        style={{margin: 0, width: '100%', height: '90vh', minHeight: 650, marginTop: -50, 
-          background: 'black', color: 'white'}}>
-        <div style={{marginLeft: 'auto', marginRight: 'auto', maxWidth: 1000, padding: 16}}>
-            <h2>{siteTitle}</h2><br/>
-            <h1>{post.frontmatter.title || post.fields.slug}</h1>
-            <small>{post.frontmatter.date}</small>
-          </div>
-        </div>
-      )
-    }
 
     return (
       <Shell location={this.props.location} title={siteTitle}>
@@ -48,14 +18,13 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        {postCover}
+        <PostCover
+          post={post} siteTitle={siteTitle}/>
           <Paper style={{borderRadius: 40, minHeight: '90vh', marginTop: -40,}}>
-          <div style={{marginLeft: 'auto',marginRight: 'auto', maxWidth: 1000, padding: 16, paddingTop: 32}}
-           dangerouslySetInnerHTML={{ __html: post.html }} />
-          </Paper>
-    
-
-        <ul
+          <div style={{marginLeft: 'auto', marginRight: 'auto', maxWidth: 1000, padding: 16, 
+          paddingTop: 32, paddingBottom: 64}}>
+          <div  dangerouslySetInnerHTML={{ __html: post.html }} />
+            <ul
           style={{
             display: `flex`,
             flexWrap: `wrap`,
@@ -79,6 +48,12 @@ class BlogPostTemplate extends React.Component {
             )}
           </li>
         </ul>
+          </div>
+          
+          </Paper>
+    
+
+       
       </Shell>
     )
   }
