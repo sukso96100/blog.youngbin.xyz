@@ -1,7 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import SEO from "../components/seo"
 // import { rhythm } from "../utils/typography"
 import Shell from '../components/shell';
 import Paper from '@material-ui/core/Paper';
@@ -19,11 +18,8 @@ class BlogIndex extends React.Component {
     const posts = Array.from(data.allMarkdownRemark.edges)
 
     return (
-      <Shell location={this.props.location} title={siteTitle}>
-        <SEO
-          title="All posts"
-          keywords={[`blog`, `gatsby`, `javascript`, `react`]}
-        />
+      <Shell location={this.props.location} title={siteTitle}
+        keywords={[`blog`, `gatsby`, `javascript`, `react`]}>
         <PostCover
           post={posts[0].node} siteTitle={siteTitle} url={posts[0].node.fields.slug}/>
           <Paper style={{borderRadius: 40, minHeight: '80vh', marginTop: -40,}}>

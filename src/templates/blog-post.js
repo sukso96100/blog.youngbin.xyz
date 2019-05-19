@@ -4,9 +4,10 @@ import SEO from "../components/seo"
 import Shell from '../components/shell';
 import PostCover from '../components/postCover';
 import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
+import Chip from '@material-ui/core/Chip';
 import PostCard from '../components/postCard';
 import Grid from '@material-ui/core/Grid';
+import kebabCase from "lodash/kebabCase"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -25,9 +26,13 @@ class BlogPostTemplate extends React.Component {
           <Paper style={{borderRadius: 40, minHeight: '90vh', marginTop: -40,}}>
           <div style={{marginLeft: 'auto', marginRight: 'auto', maxWidth: 1000, padding: 16,
           paddingTop: 32, paddingBottom: 64}}>
-          <div  dangerouslySetInnerHTML={{ __html: post.html }} />
-
-           <Grid container spacing={24} style={{paddingBottom: 64}}>
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          {post.frontmatter.tags.map((item)=>(
+            <Link to={`/tags/${kebabCase(item)}`} style={{textDecoration: 'none', margin: 8}}>
+              <Chip label={item}/>
+            </Link>
+          ))}
+           <Grid container spacing={24} style={{marginTop: 16, paddingBottom: 64}}>
            {previous && (
                 <Grid item xs={12} sm={6} key={previous.fields.slug}>
                     <PostCard post={previous}/>
@@ -39,13 +44,8 @@ class BlogPostTemplate extends React.Component {
                 </Grid>
                 )}
             </Grid>
-
           </div>
-
           </Paper>
-
-
-
       </Shell>
     )
   }
@@ -69,6 +69,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "YYYY. MM. DD")
         description
+        tags
         image {
           childImageSharp {
             fluid(quality: 90, maxWidth: 2000) {

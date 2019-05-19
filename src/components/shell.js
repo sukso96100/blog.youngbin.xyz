@@ -16,6 +16,7 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import MenuIcon from '@material-ui/icons/Menu';
 import MailIcon from '@material-ui/icons/Mail';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
+import SEO from "../components/seo"
 
 
 export default class Shell extends React.Component {
@@ -36,7 +37,10 @@ export default class Shell extends React.Component {
     render(){
         return(
             <React.Fragment>
-                {/* <CssBaseline/> */}
+              <SEO
+                title={this.props.title}
+                keywords={this.props.keywords}
+              />
               <div>{this.props.children}</div>
 
               <AppBar position="fixed" color="primary"
@@ -60,9 +64,9 @@ export default class Shell extends React.Component {
                 onKeyDown={e => this.toggleDrawer(e)}>
                 <div style={{width: 250}} role="presentation">
                   <List>
-                    {[{label: 'Home', path: '/'}, {label: 'Tags', path: '/'}, {label: 'Archive', path: '/'}]
+                    {[{label: 'Home', path: '/'}, {label: 'Tags', path: '/tags'}, {label: 'Archive', path: '/'}]
                     .map((item, index) => (
-                      <Link to={item.path} onClick={e => this.toggleDrawer(e)}>
+                      <Link to={item.path} onClick={e => this.toggleDrawer(e)} style={{textDecoration: 'none'}}>
                       <ListItem button key={item.label}>
                         <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
                         <ListItemText primary={item.label} />
@@ -74,7 +78,7 @@ export default class Shell extends React.Component {
                   <List>
                     {[{label: 'GitHub', path: '/'}, {label: 'Facebook', path: '/'}, {label: 'Twitter', path: '/'}]
                     .map((item, index) => (
-                      <Link to={item.path} onClick={e => this.toggleDrawer(e)}>
+                      <Link to={item.path} onClick={e => this.toggleDrawer(e)} style={{textDecoration: 'none'}}>
                       <ListItem button key={item.label}>
                         <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
                         <ListItemText primary={item.label} />

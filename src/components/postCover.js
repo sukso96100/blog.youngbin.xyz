@@ -14,7 +14,7 @@ export default class PostCover extends React.Component{
                     __html: post.frontmatter.description || post.excerpt,
                 }}
                 />
-                <Link to={this.props.url}>
+                <Link to={this.props.url} style={{textDecoration: 'none'}}>
                     <Button variant="outlined" style={{color: 'white'}}>Read more</Button>
                 </Link>
             </div>

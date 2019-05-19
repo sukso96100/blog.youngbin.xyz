@@ -22,8 +22,8 @@ export default class PostCard extends React.Component {
                               __html: post.frontmatter.description || post.excerpt,
                               }}
                           />
-                          <Link to={post.fields.slug}>
-                            <Button>Read more</Button>
+                          <Link to={post.fields.slug} style={{textDecoration: 'none'}}>
+                            <Button style={{color: 'white'}}>Read more</Button>
                           </Link>
                   </div>
                   </Paper>
@@ -38,7 +38,7 @@ export default class PostCard extends React.Component {
                               __html: post.frontmatter.description || post.excerpt,
                               }}
                           />
-                          <Link  to={post.fields.slug}>
+                          <Link to={post.fields.slug} style={{textDecoration: 'none'}}>
                           <Button>Read more</Button>
                           </Link>
                       </Paper>
