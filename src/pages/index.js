@@ -13,8 +13,8 @@ import BackgroundImage from "gatsby-background-image";
 
 class BlogIndex extends React.Component {
   render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
+    const { data } = this.props;
+    const siteTitle = data.site.siteMetadata.title;
     const posts = Array.from(data.allMarkdownRemark.edges)
 
     return (

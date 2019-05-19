@@ -2,7 +2,7 @@
 // import "typeface-montserrat"
 // import "typeface-merriweather"
 import 'typeface-noto-sans-kr'
-export const onClientENtry = () => {
+export const onClientEntry = () => {
     if(typeof window.IntersectionObserver === 'undefined'){
         import('intersection-observer')
     }

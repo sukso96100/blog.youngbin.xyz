@@ -1,21 +1,25 @@
 import React from 'react';
-import {Link} from 'gatsby';
+import {Link, graphql} from 'gatsby';
 import Drawer from '@material-ui/core/Drawer';
-import Paper from '@material-ui/core/Paper';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
+
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import MenuIcon from '@material-ui/icons/Menu';
-import MailIcon from '@material-ui/icons/Mail';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
+import HomeIcon from '@material-ui/icons/Home';
+import LabelIcon from '@material-ui/icons/Label';
+import ArchiveIcon from '@material-ui/icons/Archive';
+import WebIcon from '@material-ui/icons/Language';
+
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faGithub, faFacebook, faTwitter} from '@fortawesome/free-brands-svg-icons'
 import SEO from "../components/seo"
 
 
@@ -35,6 +39,8 @@ export default class Shell extends React.Component {
       this.setState({ drawer: !this.state.drawer });
     }
     render(){
+      const { data } = this.props;
+      const social = data.site.siteMetadata.social;
         return(
             <React.Fragment>
               <SEO
@@ -64,11 +70,13 @@ export default class Shell extends React.Component {
                 onKeyDown={e => this.toggleDrawer(e)}>
                 <div style={{width: 250}} role="presentation">
                   <List>
-                    {[{label: 'Home', path: '/'}, {label: 'Tags', path: '/tags'}, {label: 'Archive', path: '/'}]
+                    {[{label: 'Home', path: '/', icon: (<HomeIcon/>)}, 
+                    {label: 'Tags', path: '/tags', icon: (<LabelIcon/>)}, 
+                    {label: 'Archive', path: '/', icon: (<ArchiveIcon/>)}]
                     .map((item, index) => (
                       <Link to={item.path} onClick={e => this.toggleDrawer(e)} style={{textDecoration: 'none'}}>
                       <ListItem button key={item.label}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                        <ListItemIcon>{item.icon}</ListItemIcon>
                         <ListItemText primary={item.label} />
                       </ListItem>
                       </Link>
@@ -76,11 +84,14 @@ export default class Shell extends React.Component {
                   </List>
                   <Divider />
                   <List>
-                    {[{label: 'GitHub', path: '/'}, {label: 'Facebook', path: '/'}, {label: 'Twitter', path: '/'}]
+                    {[{label: social.web.title, path: social.web.url, icon: (<WebIcon />)},
+                      {label: 'GitHub', path: `https://github.com/${social.github}`, icon: (<FontAwesomeIcon icon={faGithub} />)}, 
+                    {label: 'Facebook', path: `https://fb.me/${social.faceook}`, icon: (<FontAwesomeIcon icon={faFacebook} />)}, 
+                    {label: 'Twitter', path: `https://twitter.com/${social.twitter}`, icon: (<FontAwesomeIcon icon={faTwitter} />)}]
                     .map((item, index) => (
                       <Link to={item.path} onClick={e => this.toggleDrawer(e)} style={{textDecoration: 'none'}}>
                       <ListItem button key={item.label}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                        <ListItemIcon>{item.icon}</ListItemIcon>
                         <ListItemText primary={item.label} />
                       </ListItem>
                       </Link>
@@ -93,3 +104,22 @@ export default class Shell extends React.Component {
         )
     }
 }
+
+
+export const pageQuery = graphql`
+query {
+  site {
+    siteMetadata {
+      social {
+        github
+        twitter
+        facebook
+        web {
+          title
+          url
+        }
+      }
+    }
+  }
+}
+`
