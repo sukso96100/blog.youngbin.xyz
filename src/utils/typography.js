@@ -18,10 +18,10 @@ import Typography from "typography"
 //   typography.injectStyles()
 // }
 const typography = new Typography({
-  baseFontSize: '18px',
-  baseLineHeight: '1.666',
-  headerFontFamily: ['Noto Sans KR'],
-  bodyFontFamily: ['Noto Sans KR']
+  baseFontSize: "18px",
+  baseLineHeight: "1.666",
+  headerFontFamily: ["Noto Sans KR"],
+  bodyFontFamily: ["Noto Sans KR"],
 })
 
 export default typography

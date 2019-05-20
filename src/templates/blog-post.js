@@ -1,12 +1,12 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import SEO from "../components/seo"
-import Shell from '../components/shell';
-import PostCover from '../components/postCover';
-import Paper from '@material-ui/core/Paper';
-import Chip from '@material-ui/core/Chip';
-import PostCard from '../components/postCard';
-import Grid from '@material-ui/core/Grid';
+import Shell from "../components/shell"
+import PostCover from "../components/postCover"
+import Paper from "@material-ui/core/Paper"
+import Chip from "@material-ui/core/Chip"
+import PostCard from "../components/postCard"
+import Grid from "@material-ui/core/Grid"
 import kebabCase from "lodash/kebabCase"
 
 class BlogPostTemplate extends React.Component {
@@ -21,31 +21,45 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <PostCover
-          post={post} siteTitle={siteTitle}/>
-          <Paper style={{borderRadius: 40, minHeight: '90vh', marginTop: -40,}}>
-          <div style={{marginLeft: 'auto', marginRight: 'auto', maxWidth: 1000, padding: 16,
-          paddingTop: 32, paddingBottom: 64}}>
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
-          {post.frontmatter.tags.map((item)=>(
-            <Link to={`/tags/${kebabCase(item)}`} style={{textDecoration: 'none', margin: 8}}>
-              <Chip label={item}/>
-            </Link>
-          ))}
-           <Grid container spacing={24} style={{marginTop: 16, paddingBottom: 64}}>
-           {previous && (
+        <PostCover post={post} siteTitle={siteTitle} />
+        <Paper style={{ borderRadius: 40, minHeight: "90vh", marginTop: -40 }}>
+          <div
+            style={{
+              marginLeft: "auto",
+              marginRight: "auto",
+              maxWidth: 1000,
+              padding: 16,
+              paddingTop: 32,
+              paddingBottom: 64,
+            }}
+          >
+            <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            {post.frontmatter.tags.map(item => (
+              <Link
+                to={`/tags/${kebabCase(item)}`}
+                style={{ textDecoration: "none", margin: 8 }}
+              >
+                <Chip label={item} />
+              </Link>
+            ))}
+            <Grid
+              container
+              spacing={24}
+              style={{ marginTop: 16, paddingBottom: 64 }}
+            >
+              {previous && (
                 <Grid item xs={12} sm={6} key={previous.fields.slug}>
-                    <PostCard post={previous}/>
+                  <PostCard post={previous} />
                 </Grid>
-                )}
-                 {next && (
+              )}
+              {next && (
                 <Grid item xs={12} sm={6} key={next.fields.slug}>
-                    <PostCard post={next}/>
+                  <PostCard post={next} />
                 </Grid>
-                )}
+              )}
             </Grid>
           </div>
-          </Paper>
+        </Paper>
       </Shell>
     )
   }

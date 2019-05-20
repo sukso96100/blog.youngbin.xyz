@@ -6,11 +6,10 @@ import kebabCase from "lodash/kebabCase"
 
 // Components
 import { Link, graphql } from "gatsby"
-import Chip from '@material-ui/core/Chip';
-import Avatar from '@material-ui/core/Avatar';
-import Paper from '@material-ui/core/Paper';
+import Chip from "@material-ui/core/Chip"
+import Avatar from "@material-ui/core/Avatar"
+import Paper from "@material-ui/core/Paper"
 import Shell from "../components/shell"
-
 
 const TagsPage = ({
   data: {
@@ -20,25 +19,44 @@ const TagsPage = ({
     },
   },
 }) => (
-  <Shell title='All Tags'>
-        <div
-        style={{margin: 0, width: '100%', height: '100vh', minHeight: 650, 
-          background: 'black', color: 'white'}}>
-        <div style={{marginLeft: 'auto', marginRight: 'auto', maxWidth: 1000,
-         padding: 16, paddingTop: 64}}>
-            <h3>{title}</h3><br/>
-            <h1>All Tags</h1><br/>
-            {group.map(tag => (
-            <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}
-              style={{margin: 16, textDecoration: 'none'}}>
-              <Chip
-                avatar={<Avatar>{tag.totalCount}</Avatar>}
-                label={tag.fieldValue}/>
-            </Link>
+  <Shell title="All Tags">
+    <div
+      style={{
+        margin: 0,
+        width: "100%",
+        height: "100vh",
+        minHeight: 650,
+        background: "black",
+        color: "white",
+      }}
+    >
+      <div
+        style={{
+          marginLeft: "auto",
+          marginRight: "auto",
+          maxWidth: 1000,
+          padding: 16,
+          paddingTop: 64,
+        }}
+      >
+        <h3>{title}</h3>
+        <br />
+        <h1>All Tags</h1>
+        <br />
+        {group.map(tag => (
+          <Link
+            to={`/tags/${kebabCase(tag.fieldValue)}/`}
+            style={{ margin: 16, textDecoration: "none" }}
+          >
+            <Chip
+              avatar={<Avatar>{tag.totalCount}</Avatar>}
+              label={tag.fieldValue}
+            />
+          </Link>
         ))}
-          </div>
-        </div>
-      </Shell>
+      </div>
+    </div>
+  </Shell>
 )
 
 TagsPage.propTypes = {

@@ -5,7 +5,7 @@ module.exports = {
     description: `Youngbin Han's personal records.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
-      github: 'sukso9610',
+      github: 'sukso96100',
       twitter: `sukso96100`,
       facebook: 'hanyoungbin',
       web: {title: 'youngbin.xyz', url: 'https://youngbin.xyz'}
