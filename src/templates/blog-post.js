@@ -8,11 +8,14 @@ import Chip from "@material-ui/core/Chip"
 import PostCard from "../components/postCard"
 import Grid from "@material-ui/core/Grid"
 import kebabCase from "lodash/kebabCase"
+import Disqus from 'gatsby-plugin-disqus'
+
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
+    const siteUrl = this.props.data.site.siteMetadata.siteUrl
     const { previous, next } = this.props.pageContext
 
     return (
@@ -42,6 +45,11 @@ class BlogPostTemplate extends React.Component {
                 <Chip label={item} />
               </Link>
             ))}
+            <Disqus
+                identifier={post.id}
+                title={post.title}
+                url={`${siteUrl}${this.props.location.pathname}`}
+                />
             <Grid
               container
               spacing={24}
@@ -73,6 +81,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        siteUrl
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
