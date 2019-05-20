@@ -27,7 +27,7 @@ import {
 import SEO from "../components/seo"
 
 export default function Shell(props) {
-  const [ drawer, setDrawer ] = useState(false)
+  const [drawer, setDrawer] = useState(false)
   const toggleDrawer = event => {
     if (
       event.type === "keydown" &&

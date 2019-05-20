@@ -8,8 +8,7 @@ import Chip from "@material-ui/core/Chip"
 import PostCard from "../components/postCard"
 import Grid from "@material-ui/core/Grid"
 import kebabCase from "lodash/kebabCase"
-import Disqus from 'gatsby-plugin-disqus'
-
+import Disqus from "gatsby-plugin-disqus"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -46,10 +45,10 @@ class BlogPostTemplate extends React.Component {
               </Link>
             ))}
             <Disqus
-                identifier={post.id}
-                title={post.title}
-                url={`${siteUrl}${this.props.location.pathname}`}
-                />
+              identifier={post.id}
+              title={post.title}
+              url={`${siteUrl}${this.props.location.pathname}`}
+            />
             <Grid
               container
               spacing={24}
