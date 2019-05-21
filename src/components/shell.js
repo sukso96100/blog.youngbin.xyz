@@ -88,7 +88,6 @@ export default function Shell(props) {
                   {[
                     { label: "Home", path: "/", icon: <HomeIcon /> },
                     { label: "Tags", path: "/tags", icon: <LabelIcon /> },
-                    { label: "Archive", path: "/", icon: <ArchiveIcon /> },
                   ].map((item, index) => (
                     <Link
                       to={item.path}

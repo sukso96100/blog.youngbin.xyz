@@ -7,6 +7,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const tagTemplate = path.resolve("src/templates/tags.js")
+  const archiveTemplate = path.resolve("src/templates/archive.js")
 
   return graphql(
     `
@@ -62,7 +63,6 @@ exports.createPages = ({ graphql, actions }) => {
     })
     // Eliminate duplicate tags
     tags = _.uniq(tags)
-
     // Make tag pages
     tags.forEach(tag => {
       createPage({
@@ -73,7 +73,7 @@ exports.createPages = ({ graphql, actions }) => {
         },
       })
     })
-
+    
     return null
   })
 
