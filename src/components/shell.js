@@ -15,7 +15,6 @@ import MoreIcon from "@material-ui/icons/MoreVert"
 import MenuIcon from "@material-ui/icons/Menu"
 import HomeIcon from "@material-ui/icons/Home"
 import LabelIcon from "@material-ui/icons/Label"
-import ArchiveIcon from "@material-ui/icons/Archive"
 import WebIcon from "@material-ui/icons/Language"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -25,9 +24,11 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons"
 import SEO from "../components/seo"
+import Search from "../components/search"
 
 export default function Shell(props) {
   const [drawer, setDrawer] = useState(false)
+  const [searchState, setSearch] = useState(false)
   const toggleDrawer = event => {
     if (
       event.type === "keydown" &&
@@ -47,7 +48,7 @@ export default function Shell(props) {
           <React.Fragment>
             <SEO title={props.title} keywords={props.keywords} />
             <div>{props.children}</div>
-
+            <Search open={searchState} handleClose={()=> setSearch(false)}/>
             <AppBar
               position="fixed"
               color="primary"
@@ -69,7 +70,8 @@ export default function Shell(props) {
                 >
                   <MenuIcon />
                 </IconButton>
-                <IconButton color="inherit">
+                <IconButton color="inherit"
+                  onClick={()=>setSearch(true)}>
                   <SearchIcon />
                 </IconButton>
                 <IconButton edge="end" color="inherit">
