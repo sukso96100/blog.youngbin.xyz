@@ -78,50 +78,46 @@ class Search extends React.Component {
               onClose={this.props.onClose}
               TransitionComponent={Transition}
             >
-              <AppBar className={classes.appBar}>
+              <AppBar className={classes.appBar} style={{background: 'white', color: 'black'}}>
                 <Toolbar>
+                  <div style={{background: 'silver', borderRadius: 8, display: 'flex',
+                width: '100%', flexDirection: 'row'}}>
                   <IconButton
                     color="inherit"
-                    onClick={this.props.handleClose}
-                    aria-label="Close"
+                    aria-label="Search"
+                    style={{flex:0}}
                   >
-                    <CloseIcon />
-                  </IconButton>
-                  <div className={classes.search}>
-                    <div className={classes.searchIcon}>
                       <SearchIcon />
-                    </div>
+                      </IconButton>
                     <InputBase
                       placeholder="Search…"
                       value={this.state.query}
                       onChange={this.search}
-                      classes={{
-                        root: classes.inputRoot,
-                        input: classes.inputInput,
-                      }}
+                      style={{flex: 1}}
                     />
+                    <IconButton
+                    color="inherit"
+                    onClick={this.props.handleClose}
+                    aria-label="Close"
+                    style={{flex: 0}}
+                  >
+                    <CloseIcon />
+                    </IconButton>
                   </div>
                 </Toolbar>
               </AppBar>
               <List>
                 {this.state.results.map(page => (
-                  <Link to={`/${page.path}`} key={page.id}>
+                  <Link to={`/${page.path}`} key={page.id} style={{textDecoration: 'none'}}>
                     <ListItem button>
                       <ListItemText
                         primary={page.title}
                         secondary={`#${page.tags.join(" #")}`}
                       />
                     </ListItem>
+                    <Divider />
                   </Link>
                 ))}
-
-                <Divider />
-                <ListItem button>
-                  <ListItemText
-                    primary="Default notification ringtone"
-                    secondary="Tethys"
-                  />
-                </ListItem>
               </List>
             </Dialog>
           )

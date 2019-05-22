@@ -60,22 +60,22 @@ export default function Shell(props) {
                 color: "black",
               }}
             >
-              <Toolbar>
+              <Toolbar style={{display: 'flex', flexDirection: 'row'}}>
                 <IconButton
                   edge="start"
                   color="inherit"
                   aria-label="Open drawer"
                   onClick={() => setDrawer(!drawer)}
                   onClose={() => setDrawer(false)}
+                  style={{flex: 0}}
                 >
                   <MenuIcon />
                 </IconButton>
-                <IconButton color="inherit"
+                <div style={{flex: 1}}/>
+                <IconButton color="inherit" edge="end"
+                style={{flex: 0}}
                   onClick={()=>setSearch(true)}>
                   <SearchIcon />
-                </IconButton>
-                <IconButton edge="end" color="inherit">
-                  <MoreIcon />
                 </IconButton>
               </Toolbar>
             </AppBar>
