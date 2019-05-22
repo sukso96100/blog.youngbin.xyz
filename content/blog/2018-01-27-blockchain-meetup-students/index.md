@@ -1,7 +1,7 @@
 ---
 description: ''
 date: 2018-01-27
-image: https://sukso96100.github.io/blogimgs/IMG_20180116_131554.jpg
+#image: https://sukso96100.github.io/blogimgs/IMG_20180116_131554.jpg
 title: "Blockchain Meetup for Students with NEO 행사 참석 후기"
 tags: ["review", "blockchain", "neo"]
 ---

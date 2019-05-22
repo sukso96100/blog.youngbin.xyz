@@ -1,7 +1,7 @@
 ---
 description: ''
 date: 2017-04-06
-image: https://sukso96100.github.io/blogimgs/ubuntu-unity.png
+#image: https://sukso96100.github.io/blogimgs/ubuntu-unity.png
 title: "不再有Ubuntu用Unity。（简体中文）"
 tags: ["ubuntu", "linux", "unity", "gnome", "essay"]
 ---

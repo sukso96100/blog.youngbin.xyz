@@ -3,7 +3,7 @@ description: ''
 date: 2018-02-07
 title: "1회 EOS.IO 서울 개발자 밋업 참가 후기"
 tags: ["blockchain", "eos", "review"]
-image: https://sukso96100.github.io/blogimgs/IMG_20180206_193137.jpg
+#image: https://sukso96100.github.io/blogimgs/IMG_20180206_193137.jpg
 ---
 
 > 이 글은 [Steemit](https://steemit.com/kr/@youngbin/1-eos-io) 에서도 읽으실 수 있습니다.

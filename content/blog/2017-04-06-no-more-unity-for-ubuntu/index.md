@@ -1,7 +1,7 @@
 ---
 description: ''
 date: 2017-04-06
-image: https://sukso96100.github.io/blogimgs/ubuntu-unity.png
+#image: https://sukso96100.github.io/blogimgs/ubuntu-unity.png
 title: "Ubuntu 를 위한 Unity 는 이제 없다."
 tags: ["ubuntu", "linux", "unity", "gnome", "essay"]
 ---

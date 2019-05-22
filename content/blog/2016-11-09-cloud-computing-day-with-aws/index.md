@@ -1,6 +1,6 @@
 ---
 description: ''
-image: https://sukso96100.github.io/blogimgs/cloud-computing-day-with-aws-0.jpg
+#image: https://sukso96100.github.io/blogimgs/cloud-computing-day-with-aws-0.jpg
 date: 2016-11-09
 title: "아마존과 함께하는 클라우드 컴퓨팅 데이 참여 후기"
 tags: ["aws", "cloud", "seminar", "update", "note", "review"]

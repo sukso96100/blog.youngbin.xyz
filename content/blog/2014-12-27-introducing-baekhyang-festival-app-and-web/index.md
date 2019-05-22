@@ -2,7 +2,7 @@
 title: "시온고등학교 백향제 2014 앱/웹사이트를 소개합니다."
 date: "2014-12-27"
 tags: ["develop", "development", "android", "app", "zion_high_school"]
-image: https://sukso96100.github.io/blogimgs/baekhyang14.png
+#image: https://sukso96100.github.io/blogimgs/baekhyang14.png
 ---
 
 안녕하세요. 제가 이번에 교내에서 제가 운영중인 동아리인 LiCUBE 의 일부 맴버들과 함께 시온고등학교 백향제 앱과 웹사이트를 개발하여,
