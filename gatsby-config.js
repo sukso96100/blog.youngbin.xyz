@@ -103,14 +103,16 @@ module.exports = {
       resolve: `gatsby-plugin-remote-images`,
       options: {
         nodeType: 'MarkdownRemark',
-        imagePath: 'remoteImages/'
+        imagePath: 'remoteImages/',
+        name: 'remoteImages'
       }
     },
     {
       resolve: `gatsby-plugin-remote-images`,
       options: {
         nodeType: 'MarkdownRemarkFrontmatter',
-        imagePath: 'remoteImages/'
+        imagePath: 'remoteImages/',
+        name: 'remoteImages'
       }
     }
   ],
