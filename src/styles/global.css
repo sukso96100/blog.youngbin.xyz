@@ -1,0 +1,3 @@
+.headerSection::before{
+    filter: brightness(10%)
+}
