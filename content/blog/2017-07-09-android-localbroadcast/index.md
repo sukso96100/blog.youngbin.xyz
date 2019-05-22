@@ -1,8 +1,9 @@
 ---
+description: ''
 date: 2017-07-09
 title: "Android LocalBroadcastManager"
 tags: ["android", "update", "kotlin", "develop", "tip"]
-image: ''
+ # image: ''
 ---
 
 Android 에서는 `BoradcastReceiver` 를 사용해 앱 컴포넌트에서 원하는 범주의 이벤트를 수신할 수 있습니다.

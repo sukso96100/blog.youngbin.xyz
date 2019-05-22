@@ -100,7 +100,7 @@ theme agnoster
  설정 파일에 사용할 테마나 플러그인을`Theme '테마이름' Plugin '플러그인 이름'`형식으로 정의하시면 됩니다.
 
 여기까지 작성하도록 하겠습니다. 자세한 사항은 아래 링크들을 참조하시면 좋을 것 같습니다.
-![](/blogimgs/awesome-fish.png)   
+![](https://sukso96100.github.io/blogimgs/awesome-fish.png)   
 
 - [fish shell](http://fishshell.com/)
 - [fish shell 문서](http://fishshell.com/docs/current/)

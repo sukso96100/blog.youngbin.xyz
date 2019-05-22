@@ -1,4 +1,5 @@
 ---
+description: ''
 image: https://sukso96100.github.io/blogimgs/slackbot0_0.png
 date: 2016-05-27
 title: "Node.js로 Slack 회의록봇 만들기. - 회의 내용 처리 및 저장"

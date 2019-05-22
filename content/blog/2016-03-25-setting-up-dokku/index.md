@@ -1,4 +1,5 @@
 ---
+description: ''
 date: 2016-03-25
 title: "Dokku 설치 및 설정하기"
 image: https://sukso96100.github.io/blogimgs/dokku_logo.png

@@ -2,7 +2,7 @@
 title: "(Update | #21)WhiteBeam Kernel For YP-GB1"
 date: 2012-07-31
 tags: ["migrated(old)", "android", "kernel", "development", "yp-gb1"]
-image: ''
+ # image: ''
 ---
 
 내.. 오늘 아침에 빌드해놓고 좀 늦게 내놓내요;; ㅎㅎㅎ<br>

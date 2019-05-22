@@ -2,7 +2,7 @@
 title: "(테마 배포)TWplus v2"
 date: 2011-10-25
 tags: ["migrated(old)", "android", "theme", "yp-gb1", "yp-gb70"]
-image: ''
+ # image: ''
 ---
 TWplus v2테마를 완성해 오랜만에 테마 하나 올립니다(?) 오랜만이라 해야하나?ㅇㅅㅇ<br>
 일단 배포 합니다 테스트를 거쳤고 최적화도 진행되어 완성된 테마입니다.<br>
@@ -28,9 +28,9 @@ rw-r--r--로 설정하시면 됩니다,<br>
 <br>
 허락 안받고 퍼온 사진이라 ㅇㅅㅇ 퍼온 부분은 범생군님께서 삭제 요청하시면 그 부분만 삭제하겟습니다.(범생군님 허락없이 퍼가서 죄송합니다;;;)<br>
 <br>
-![Img]({{ site.url }}/blogimgs/lock1_qotkd1481.png)
-![Img]({{ site.url }}/blogimgs/myf2_qotkd1481.png)
-![Img]({{ site.url }}/blogimgs/SC20111025-180718.jpg)
-![Img]({{ site.url }}/blogimgs/SC20111025-180750.jpg)
-![Img]({{ site.url }}/blogimgs/SC20111025-180823.jpg)
-![Img]({{ site.url }}/blogimgs/snap20111018_002649_qotkd1481.png)
+![Img](https://sukso96100.github.io/blogimgs/lock1_qotkd1481.png)
+![Img](https://sukso96100.github.io/blogimgs/myf2_qotkd1481.png)
+![Img](https://sukso96100.github.io/blogimgs/SC20111025-180718.jpg)
+![Img](https://sukso96100.github.io/blogimgs/SC20111025-180750.jpg)
+![Img](https://sukso96100.github.io/blogimgs/SC20111025-180823.jpg)
+![Img](https://sukso96100.github.io/blogimgs/snap20111018_002649_qotkd1481.png)

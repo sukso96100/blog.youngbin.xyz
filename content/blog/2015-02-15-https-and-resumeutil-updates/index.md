@@ -2,7 +2,7 @@
 title: "자기소개서 연습도구(ResumeUtil) 업데이트와 SSL 적용 안내"
 date: "2015-02-15"
 tags: ["web", "app", "update", "university_enterance", "introworkout", "resumeutil"]
-image: ''
+ # image: ''
 ---
 
 이번에 설 기념 해서(?) 작년 8월 쯤... 모의면접 준비하다 자기소개서 양식 파일이 *.hwp 여서 빡쳐서 즉석에서 만든

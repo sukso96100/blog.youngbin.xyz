@@ -2,7 +2,7 @@
 title: "(Update | 2012.07.27 | #16)WhiteBeam Kernel For YP-GB1"
 date: 2012-07-27
 tags: ["migrated(old)", "android", "kernel", "development", "yp-gb1"]
-image: ''
+ # image: ''
 ---
 
 음.. 어제 커널 빌드할때 썻던 램디스크만 바꿔서 컴파일하니 제대로 플레싱이 되내요..<br>

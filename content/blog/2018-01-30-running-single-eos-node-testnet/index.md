@@ -1,8 +1,9 @@
 ---
+description: ''
 date: 2018-01-30
 title: "EOS 단일 노드 테스트넷 돌려보기"
 tags: ["blockchain", "eos", "tutorial"]
-image: ''
+ # image: ''
 ---
 > 이 글은 [Steemit](https://steemit.com/kr/@youngbin/eos) 에서도 읽어보실 수 있습니다.
 

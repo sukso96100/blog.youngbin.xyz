@@ -2,7 +2,7 @@
 title: "Fedora 에서 Oracle JDK 설치하고 설정하기"
 date: "2014-12-13"
 tags: ["tutorial", "develop", "development", "raspberry-pi", "linux", "fedora", "jdk", "oracle"]
-image: ''
+ # image: ''
 ---
 
 제가 최근 리눅스 베포판을 우분투에서 페도라로 갈아 탔습니다. 페도라가 써보고 싶었기도 하고, 버그도 우분투에 비해 적고 개인적으로 즐겨 쓰는 GNOME 데스크탑 환경에 대한 지원이 상당히 좋아서 갈아타게 되었습니다. 안드로이드 개발을 하다보니, JDK를 기본적으로 설치하는대요. 페도라는 설치 및 설정 방법이 차이가 있어 간단히 방법을 글로 정리 해 보고자 합니다.

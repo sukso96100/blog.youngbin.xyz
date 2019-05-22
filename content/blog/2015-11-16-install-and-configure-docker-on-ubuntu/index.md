@@ -1,8 +1,9 @@
 ---
+description: ''
 date: 2015-11-16
 title: "Ubuntu Server 에 Docker 설치하고 설정하기."
 tags: ["aws", "server", "docker", "ubuntu", "linux", "tip", "tutorial", "note", "update"]
-image: ''
+ # image: ''
 ---
 
 필자는 AWS EC2 VM에 도커(Docker)를 한번 설치하여, 이것저것 개발한 웹 앱과 서버 등을 돌려보기로 했습니다. 그러면서 포스팅으로도 정리하려 합니다. 먼저, 설치/설정을 대략 했는데, 이 포스트로 그 과정을 정리합니다.
@@ -11,12 +12,12 @@ image: ''
 
 도커(Docker)는, 리눅스 컨테이너 기술을 기반으로, 앱을 배포할 때 필요한 모든 것을 하나의 컨테이너에 담아 OS에 상관없이 앱을 패키징하여 배포할 수 있도록 해 주는 프로그램 입니다. 기존 가상머신을 이용하여 배포를 하는 경우에는, 호스트 OS 위에 가성머신을 올리고, 각 가상머신 마다 게스트 OS와 바이너리 및 라이브러리를 넣어 그 위애 앱 하나씩 올려 배포한다면. 도커의 경우에는, 호스트 OS 위에 바로 도커 엔진이 그 위에 바로 각 앱과 바이너리 및 라이브러리가 포함된 컨테이너가 있는 구조 입니다.
 
-![](/blogimgs/vm-diagram.png)
+![](https://sukso96100.github.io/blogimgs/vm-diagram.png)
 
 > VM의 구조
 > 출처 : https://www.docker.com/what-docker
 
-![](/blogimgs/docker-diagram.png)
+![](https://sukso96100.github.io/blogimgs/docker-diagram.png)
 
 > Docker의 구조
 > 출처 : https://www.docker.com/what-docker

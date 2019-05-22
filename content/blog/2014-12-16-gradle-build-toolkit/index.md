@@ -2,7 +2,7 @@
 title: "Gradle Built Toolkit"
 date: "2014-12-16"
 tags: ["tutorial", "develop", "development", "android", "gradle", "app", "migrated(old)"]
-image: ''
+ # image: ''
 ---
 
 이 노트는 저번 2014.05.03 GDG Korea Android Gradle Codelab에서 배운 내용을 기록해 두기 위해 개인적으로 간단히 정리하는 노트 입니다.

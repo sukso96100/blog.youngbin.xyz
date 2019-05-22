@@ -2,7 +2,7 @@
 title: "(업데이트)WhiteBeam kernel for YP-GB1"
 date: 2012-07-15
 tags: ["migrated(old)", "android", "kernel", "development", "yp-gb1"]
-image: ''
+ # image: ''
 ---
 
 오늘 새로 빌드한 커널입니다.<br>

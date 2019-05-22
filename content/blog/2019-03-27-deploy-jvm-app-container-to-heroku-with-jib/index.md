@@ -1,8 +1,9 @@
 ---
+description: ''
 date: 2019-03-27
 title: "Jib을 이용하여 JVM앱을 Heroku에 컨테이너로 배포하기"
 tags: ["java", "jvm", "kotlin", "docker", "container", "heroku", "deploy", "jib", "gradle"]
-image: ''
+ # image: ''
 ---
 
 참 오랜만에 블로그에 글을 쓰는 것 같습니다. 작년 9월에 공군 입대하고, 최근에 시간 날 때 마다 사이버 지식 정보방에서 간단한 개인 프로젝트를 하나 하고 있습니다. 작년 12월에 전입와서 개인 프로젝트를 쭉 해왔으니 한 2~3개월 가까지 사이버 지식 정보방 갈 수 있을 떄 마다 가서 작업을 한 것 같습니다.

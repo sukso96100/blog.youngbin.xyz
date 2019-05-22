@@ -2,7 +2,7 @@
 title: "(Update)WhiteBeam Kernel for YP-GB1 2012/07/09 build"
 date: 2012-07-10
 tags: ["migrated(old)", "android", "kernel", "development", "yp-gb1"]
-image: ''
+ # image: ''
 ---
 
  어제 빌드해서 지금 업댓하네요(?)<br>
@@ -20,8 +20,8 @@ image: ''
 
 YP-GB1 KRKPC펌웨어 사용자분들만 이 커널 사용 가능합니다<br>
 <br><br>
-![Img]({{ site.url }}/blogimgs/-956075117.png)
-![Img]({{ site.url }}/blogimgs/-959769201.png)
+![Img](https://sukso96100.github.io/blogimgs/-956075117.png)
+![Img](https://sukso96100.github.io/blogimgs/-959769201.png)
 <br>
 
 다운로드 링크(2012/07/09 일자 빌드)<br>

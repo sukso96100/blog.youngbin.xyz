@@ -2,7 +2,7 @@
 title: "(업데이트)WhiteBeam kernel for YP-GB1"
 date: 2012-07-07
 tags: ["migrated(old)", "android", "kernel", "development", "yp-gb1"]
-image: ''
+ # image: ''
 ---
 
  커널 일부를 수정해서 빌드하고 소스포지에 업로드 했습니다.<br>
@@ -16,5 +16,5 @@ http://sourceforge.net/projects/wbcypgb1/files/WBK_YP-GB1_GB_20120706.tar/downlo
 커널 소스코드(Github)
 https://github.com/sukso96100/WhiteBeam-Kernel-For-YP-GB1 <br>
 <br>
-![Img]({{ site.url }}/blogimgs/SC20120707-133022.png)
+![Img](https://sukso96100.github.io/blogimgs/SC20120707-133022.png)
 

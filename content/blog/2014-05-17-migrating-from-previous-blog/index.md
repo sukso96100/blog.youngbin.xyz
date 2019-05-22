@@ -2,7 +2,7 @@
 title: "이전 블로그 포스트들 여기로 옮길 예정입니다."
 date: 2014-05-17
 tags: ["migrating", "update"]
-image: ''
+ # image: ''
 ---
 
 현제 Jekyll 기반으로 블로그를 삽질중인대, 거의 다 되어 가는 것 같고.....<br>

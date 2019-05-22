@@ -2,7 +2,7 @@
 title: "깃허브에 작업중인(?) 커널소스 올렸습니다 ㅎㅎ"
 date: 2012-07-05
 tags: ["migrated(old)", "android", "kernel", "development", "yp-gb1"]
-image: ''
+ # image: ''
 ---
 
 시험 끝난겸 방금전에, 소스코드 깃허브에 올리고, 커밋 했습니다.ㅎㅎ<br>

@@ -2,7 +2,7 @@
 title: "(테마배포)/정식판(OFFICAl)TWplus v3"
 date: 2011-12-27
 tags: ["migrated(old)", "android", "theme", "yp-gb1", "yp-gb70"]
-image: ''
+ # image: ''
 ---
 
 드디어 정식버전을 베포하는군요 ㅎㅎ<br>
@@ -30,11 +30,11 @@ http://www.mediafire.com/?x2o1l8hdny4tbs8<br><br>
 갤럭시 플레이어70(YP-GB70)/KRKPG용 다운로드 링크<br>
 http://www.mediafire.com/?zanjeezl2ldpfo3<br>
 (위 URL들은 더이상 유효하지 않습니다.)<br>
-![Img]({{ site.url }}/blogimgs/SC20111221-230730.png)
-![Img]({{ site.url }}/blogimgs/SC20111224-202529.png)
-![Img]({{ site.url }}/blogimgs/SC20111226-184258.png)
-![Img]({{ site.url }}/blogimgs/SC20111226-224224.png)
-![Img]({{ site.url }}/blogimgs/SC20111226-224441.png)
-![Img]({{ site.url }}/blogimgs/SC20111226-224454.png)
-![Img]({{ site.url }}/blogimgs/SC20111226-224542.png)
-![Img]({{ site.url }}/blogimgs/SC20111227-175648.jpg)
+![Img](https://sukso96100.github.io/blogimgs/SC20111221-230730.png)
+![Img](https://sukso96100.github.io/blogimgs/SC20111224-202529.png)
+![Img](https://sukso96100.github.io/blogimgs/SC20111226-184258.png)
+![Img](https://sukso96100.github.io/blogimgs/SC20111226-224224.png)
+![Img](https://sukso96100.github.io/blogimgs/SC20111226-224441.png)
+![Img](https://sukso96100.github.io/blogimgs/SC20111226-224454.png)
+![Img](https://sukso96100.github.io/blogimgs/SC20111226-224542.png)
+![Img](https://sukso96100.github.io/blogimgs/SC20111227-175648.jpg)

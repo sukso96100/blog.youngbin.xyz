@@ -2,7 +2,7 @@
 title: "시온고 안드로이드 스터디 노트 - 4.Lifecycle and Databases"
 date: "2015-02-02"
 tags: ["develop", "development", "android", "app", "study", "note"]
-image: ''
+ # image: ''
 ---
 
 Lesson 4 ~ 6 에 대한 정리는 뒤늦게 하게 되었군요. 이 부분은 어려운 내용이 많다보니 Udacity 코스의 내용과 저희 스터디에서 다룬 내용하고 차이가 많습니다.

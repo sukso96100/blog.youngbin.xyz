@@ -1,4 +1,5 @@
 ---
+description: ''
 date: 2018-05-01
 title: "Report for hosting Ubuntu 18.04 LTS Release Party in Korea"
 tags: ["ubuntu", "linux", "review", "update"]

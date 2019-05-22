@@ -1,4 +1,5 @@
 ---
+description: ''
 image: https://sukso96100.github.io/blogimgs/docker_study_meetup.jpg
 date: 2016-09-24
 title: "우분투 한국 커뮤니티 도커(Docker) 스터디 후기"

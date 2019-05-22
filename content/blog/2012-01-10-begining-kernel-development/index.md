@@ -2,7 +2,7 @@
 title: "커널 개발에 뛰어들었습니다(?)"
 date: 2012-01-10
 tags: ["migrated(old)", "android", "kernel"]
-image: ''
+ # image: ''
 ---
 
 최근 커널 개발에 뛰어들었습니다(?) ㅎㅎ<br>

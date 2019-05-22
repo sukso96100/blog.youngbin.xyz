@@ -1,4 +1,5 @@
 ---
+description: ''
 date: 2017-06-15
 image: https://sukso96100.github.io/blogimgs/1-6ukcssmC_nJcvZ8MY7yCzQ.png
 title: "Kryptonite : 모바일 앱으로 ssh 연결 인증 승인하기"

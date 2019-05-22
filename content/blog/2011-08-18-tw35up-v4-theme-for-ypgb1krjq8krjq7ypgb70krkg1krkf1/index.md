@@ -2,7 +2,7 @@
 title: "TW3.5up v4 테마 배포합니다. YP-GB1:KRJQ8,KRJQ7/YP-GB70:KRKG1,KRKF1"
 date: 2011-08-18
 tags: ["migrated(old)", "android", "theme", "yp-gb1", "yp-gb70"]
-image: ''
+ # image: ''
 ---
 
 전까지 갤플 카페에 배포하다가 이제는 블로그를 통해 배포할려고 합니다.<br>
@@ -27,13 +27,13 @@ http://www.mediafire.com/?ylba94csxxbjrp1<br>
 <br>
 (위 URL들은 더이상 사용이 불가합니다.)<br>
 
-  ![Device Info]({{ site.url }}/blogimgs/SC20110818-101119.png)
-![Device Info]({{ site.url }}/blogimgs/SC20110818-101135.png)
-![Device Info]({{ site.url }}/blogimgs/SC20110818-101155.png)
-![Device Info]({{ site.url }}/blogimgs/SC20110818-101224.png)
-![Device Info]({{ site.url }}/blogimgs/SC20110818-101251.png)
-![Device Info]({{ site.url }}/blogimgs/SC20110818-101339.png)
-![Device Info]({{ site.url }}/blogimgs/SC20110818-101359.png)
-![Device Info]({{ site.url }}/blogimgs/SC20110818-101423.png)
-![Device Info]({{ site.url }}/blogimgs/SC20110818-101620.png)
-![Device Info]({{ site.url }}/blogimgs/SC20110818-102941.png)
+  ![Device Info](https://sukso96100.github.io/blogimgs/SC20110818-101119.png)
+![Device Info](https://sukso96100.github.io/blogimgs/SC20110818-101135.png)
+![Device Info](https://sukso96100.github.io/blogimgs/SC20110818-101155.png)
+![Device Info](https://sukso96100.github.io/blogimgs/SC20110818-101224.png)
+![Device Info](https://sukso96100.github.io/blogimgs/SC20110818-101251.png)
+![Device Info](https://sukso96100.github.io/blogimgs/SC20110818-101339.png)
+![Device Info](https://sukso96100.github.io/blogimgs/SC20110818-101359.png)
+![Device Info](https://sukso96100.github.io/blogimgs/SC20110818-101423.png)
+![Device Info](https://sukso96100.github.io/blogimgs/SC20110818-101620.png)
+![Device Info](https://sukso96100.github.io/blogimgs/SC20110818-102941.png)

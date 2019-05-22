@@ -2,7 +2,7 @@
 title: "SimpleCV 로 움직임 감지하기"
 date: "2014-11-08"
 tags: ["tutorial", "python", "simplecv", "develop", "development", "raspberry-pi", "linux", "computer-vision", "motion"]
-image: ''
+ # image: ''
 ---
 
 SimpleCV를 이용하면 어렴지 않게 카메라를 통해 움직임을 감지해 낼 수 있습니다.
@@ -55,7 +55,7 @@ refImg = cam.getImage()
 
 아래는 기준 이미지 예시 입니다.<br>
 (출처 : http://tutorial.simplecv.org/en/latest/examples/image-math.html#image-arithmetic)<br>
-<img class="image-wrapper" src="{{ site.url }}/blogimgs/image-math-person1.png"><br>
+<img class="image-wrapper" src="https://sukso96100.github.io/blogimgs/image-math-person1.png"><br>
 
 
 기준 이미지와 비교할 이미지를 하나 더 얻습니다.
@@ -71,11 +71,11 @@ diff = refImg - img
 
 아래는 추가로 얻은 이미지 예시 입니다.<br>
 (출처 : http://tutorial.simplecv.org/en/latest/examples/image-math.html#image-arithmetic)<br>
-<img class="image-wrapper" src="{{ site.url }}/blogimgs/image-math-person2.png"><br>
+<img class="image-wrapper" src="https://sukso96100.github.io/blogimgs/image-math-person2.png"><br>
 
 기준 이미지에서, 추가로 얻은 이미지 사이 차이를 나타낸 이미지 예시 입니다.<br>
 (출처 : http://tutorial.simplecv.org/en/latest/examples/image-math.html#image-arithmetic)<br>
-<img class="image-wrapper" src="{{ site.url }}/blogimgs/image-math-person-sub.png"><br>
+<img class="image-wrapper" src="https://sukso96100.github.io/blogimgs/image-math-person-sub.png"><br>
 
 diff 이미지에는 차이가 있는 부분만 나타나는대, 그것을 수치상으로 표현해서.
 처음에 정한 임계값과 비교해 봅시다. 임계값 보다 크면, 기준 이미지를 갱신하고,

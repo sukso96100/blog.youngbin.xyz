@@ -2,9 +2,9 @@
 title: "안드로이드용 시온고등학교 앱 0.1 버전 업데이트"
 date: "2014-09-05"
 tags: ["android", "app", "update", "zion_high_school"]
-image: ''
+ # image: ''
 ---
-<img class="image-wrapper" src="{{ site.url }}/blogimgs/zion_update.png"><br>
+<img class="image-wrapper" src="https://sukso96100.github.io/blogimgs/zion_update.png"><br>
 
 
 안녕하세요, 오랜만에 안드로이드용 시온고등학교 앱이 업데이트 되었습니다.<br>

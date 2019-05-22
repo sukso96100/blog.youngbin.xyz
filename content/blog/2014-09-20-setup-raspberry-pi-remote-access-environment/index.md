@@ -2,7 +2,7 @@
 title: "Raspberry Pi 원격접속 설정하기"
 date: "2014-09-20"
 tags: ["raspberry-pi", "linux", "tutorial"]
-image: ''
+ # image: ''
 ---
 
 최근 동아리 프로젝트에 사용 겸 나중에 개인적으로 가지고 놀 용도로 Raspberry Pi Model B+ 를 구입했습니다.

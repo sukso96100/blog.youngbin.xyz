@@ -1,4 +1,5 @@
 ---
+description: ''
 image: https://sukso96100.github.io/blogimgs/docker-for-aws-1.png
 date: 2016-11-30
 title: "Docker for AWS Public Beta 사용해 보기"
@@ -12,7 +13,7 @@ Docker 를 AWS 의 인프라와 더 깊게 연동해서 사용할 수 있는 버
 ## 시작하기
 생각보다 간단합니다. [Docker for AWS 릴리즈 노트](https://beta.docker.com/docs/aws/release-notes/) 페이지로 가셔서, 최신 버전의 릴리즈 노트, 또는 원하시는 버전의 릴리즈 노트에 있는 `Launch Stack` 버튼을 눌러서, AWS 에서 바로 시작이 가능합니다.
 
-![](/blogimgs/docker-for-aws-2.png)
+![](https://sukso96100.github.io/blogimgs/docker-for-aws-2.png)
 
 - `Launch Stack` 버튼을 누르면, AWS CloudFormation Stack 를 새로 만드는 화면이 나오고, 템플릿 선택 화면이 나옵니다(Select Template). 이미 템플릿이 Docker for AWS 로 설정 되어 있기 때문에, `Next` 를 눌러 다음 단계로 이동합니다.
 - Stack 설정 화면이 나타납니다. 다음을 참고하여, 원하시는 대로 설정 하시고, `Next` 를 눌러서 다음 단계로 갑니다.
@@ -35,10 +36,10 @@ Docker 를 AWS 의 인프라와 더 깊게 연동해서 사용할 수 있는 버
 - 설정 사항을 다시 한번 확인 하는 화면이 나옵니다. 설정 사항을 확인 후, *Capabilities* 부분에 있는, *I acknowledge that AWS CloudFormation might create IAM resources.* 를 체크 해 줍니다. Docker for AWS 실행 시 필요한 IAM 리소스를 자동으로 만들도록 하게 하기 위함입니다.
 - 이제 `Create` 를 눌러, Docker for AWS 를 실행합니다. 필요한 리소스가 생성되는데 시간이 좀 걸립니다.
 
-![](/blogimgs/docker-for-aws-3.png)
+![](https://sukso96100.github.io/blogimgs/docker-for-aws-3.png)
 
 ## SSH 로 로그인 해 보기
-![](/blogimgs/docker-for-aws-4.png)
+![](https://sukso96100.github.io/blogimgs/docker-for-aws-4.png)
 Docker for AWS 를 실행 했다면, Manager 인스턴스에 SSH 로 로그인 해 봅시다. 본인의 AWS 콘솔에서, 인스턴스를 확인하고, 아래와 같은 명령줄을 이용합니다.
 Docker for AWS 의 경우, Docker for AWS 에 최적화된 OS 를 사용해서 그런지, 기본 계정이 `root` 가 아닌 `docker` 입니다.
 때문에 로그인 하실 때 `docker` 로 로그인 하시면 됩니다. `root` 를 포함한 다른 계정으로는... 설정 한 적 없는(?) 비밀 번호를 추가적으로 요구해서 로그인을 하지 못합니다.
@@ -96,7 +97,7 @@ my-nginx.3.0prl4ebdzlc5  nginx:latest  ip-172-31-4-253.ap-northeast-2.compute.in
 
 웹 브라우저에서 지금 돌아가고 있는 `nginx` 에 접속해 봅시다. Docker for AWS 를 실행하면서 자동으로 생성되어 Swarm 네트워크 앞에 붙여진 AWS ELB 의 Public DNS 를 이용해서 들어갈 수 있습니다. 해당 ELB 의 Public DNS 는, EC2 > LOAD BALANCING > Load Balanceres > 해당 로드벨런서 선택 > 하단 로드벨런서 정보 에서 확인 가능합니다. 이 DNS 를 그대로 복사해서, 브라우저 주소창에 붙여넣고 이동하면, `nginx` 시작 화면이 나오는 것을 볼 수 있습니다.
 
-![](/blogimgs/docker-for-aws-5.png)
+![](https://sukso96100.github.io/blogimgs/docker-for-aws-5.png)
 
 ## 호스트 스케일링 하기
 호스트를 스케일 하는 것은 아주 간단합니다. 먼저 EC2 > AUTO SCALING > Auto Scaling Groups 로 들어갑니다. 자동으로 생성된 Manager 스케일링 그룹과, Node(Swarm 네트워크에서 하위 호스트) 스케일링 그룹이 나타납니다. 스케일 하고자 하는 그룹을 선택하고, 하단에 나오는 상세 정보 화면에서, `Edit` 를 눌러 수정 합니다. 스케일을 늘릴 것이므로, *Desired* 항목 값을 3으로 변경하고, 저장합니다. 그러면 변경된 설정에 따라 Node 에 해당되는 인스턴스의 수가 조절됩니다. 새로 인스턴스가 생성되는 경우, 자동으로 Swarm 네트워크에 연결되고, 스케일을 줄여서 인스턴스가 사라지는 경우 자동으로 Swarm 네트워크에서 끊김니다.
@@ -124,7 +125,7 @@ rh8yuno9fwjrsnbh94kaimcan *  ip-172-31-4-253.ap-northeast-2.compute.internal   R
 ```
 
 (당연하게도...)스케일에 따라 인스턴스가 자동으로 꺼지는 것도 볼 수 있습니다.
-![](/blogimgs/docker-for-aws-6.png)
+![](https://sukso96100.github.io/blogimgs/docker-for-aws-6.png)
 
 ## 로깅
 컨테이너나 서비스가 남기는 로그는, AWS CloudWatch 에서 확인 가능합니다. `docker logs <컨테이너 이름>` 과 `docker service logs <서비스 이름>` 은 Docker for AWS 에서 지원되지 않는다고 합니다. 실제로 실행을 한번 해 봤는데, 실행은 되지만 그냥 아무것도 나타나질 않더군요.

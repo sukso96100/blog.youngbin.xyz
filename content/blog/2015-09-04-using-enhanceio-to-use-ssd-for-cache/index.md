@@ -2,7 +2,7 @@
 title: "EnhanceIO 를 이용하여, SSD를 캐싱용으로 사용하기."
 date: 2015-09-04
 tags: ["enhanceio", "linux", "tip", "tutorial", "ssd_caching", "archlinux"]
-image: ''
+ # image: ''
 ---
 
 사용중이신 노트북이나 데스크탑에 500GB~1TB 정도 되는 하드디스크와 100GB~200GB정도 되는 SSD를 장착하여 같이 사용 하시나요?

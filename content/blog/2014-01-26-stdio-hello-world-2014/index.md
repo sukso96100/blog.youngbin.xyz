@@ -2,7 +2,7 @@
 title: "Std.IO 애서 개최했던 Hello, World! 후기"
 date: 2014-01-26  
 tags: ["migrated(old)", "review"]
-image: ''
+ # image: ''
 ---
 
 
@@ -14,7 +14,7 @@ image: ''
 지하철 타고 가는대... 7호선 청담역에서 사람들 다 빠지더군요(?)<br>
 청담에 뭐가 있나 봅니다(?)<br><br>
 
-![Img]({{ site.url }}/blogimgs/2014 Std.IO - Hello, World! - 1.jpg)
+![Img](https://sukso96100.github.io/blogimgs/2014 Std.IO - Hello, World! - 1.jpg)
 
 그리고 건국대학교 새천년관에 도착 했습니다.<br>
 건대입구역에서 내려서 건국대 안에있는 이정표와 지도를 보니...<br>
@@ -22,9 +22,9 @@ image: ''
 도착해서 같이 컨퍼런스 참석하는 친구들과 뭐좀 먹고 들어가려 했는대.<br>
 늦어서 걍 컨퍼런스 장소로 입장 했습니다.<br><br>
 
-![Img]({{ site.url }}/blogimgs/2014 Std.IO - Hello, World! - 2.jpg)
-![Img]({{ site.url }}/blogimgs/2014 Std.IO - Hello, World! - 3.jpg)
-![Img]({{ site.url }}/blogimgs/2014 Std.IO - Hello, World! - 4.jpg)
+![Img](https://sukso96100.github.io/blogimgs/2014 Std.IO - Hello, World! - 2.jpg)
+![Img](https://sukso96100.github.io/blogimgs/2014 Std.IO - Hello, World! - 3.jpg)
+![Img](https://sukso96100.github.io/blogimgs/2014 Std.IO - Hello, World! - 4.jpg)
 
 
 
@@ -38,31 +38,31 @@ image: ''
 
 
 
-![Img]({{ site.url }}/blogimgs/IMG_20140125_095923.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_100519.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_100524.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_100559.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_095923.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_100519.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_100524.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_100559.jpg)
 
 10시가 되자 컨퍼런스가 시작 되었습니다.<br>
 연서자들을 소개하는 영상이 나오고,<br>
 본격적으로 시작되었습니다!<br><br>
 
 
-![Img]({{ site.url }}/blogimgs/IMG_20140125_100632.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_100636.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_100819.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_101119.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_100632.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_100636.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_100819.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_101119.jpg)
 
 
 연사자분들 세션에 앞서, "Hello, World!" 컨퍼런스에 대한<br>
 소개와, 행사를 주최한 "Std.IO"에 대한 소개<br>
 그리고 연사자 분들에 대한 간단한 소개가 있었습니다.<br><br>
 
-![Img]({{ site.url }}/blogimgs/IMG_20140125_101226.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_101246.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_101749.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_102144.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_102526.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_101226.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_101246.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_101749.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_102144.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_102526.jpg)
 
 
 
@@ -73,10 +73,10 @@ image: ''
 소개를 해 주셨습니다.<br><br>
 
 
-![Img]({{ site.url }}/blogimgs/IMG_20140125_103145.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_104858.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_105105.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_111743.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_103145.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_104858.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_105105.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_111743.jpg)
 
 
 첫 번째 세션은 김종찬 님께서 진행하신,<br>
@@ -97,7 +97,7 @@ image: ''
 * 실전과 경험
 * 좋은 동료!
 
-![Img]({{ site.url }}/blogimgs/IMG_20140125_112308.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_112308.jpg)
 
 두 번째 세션은 에자일 컨설팅 대표이신, 김창준 님께서<br>
 "그때 알았던 것을 지금 알았더라면..."을 주제로<br>
@@ -111,14 +111,14 @@ image: ''
 사람들은 해보지 않은 것을 후회한다는 내용 등의<br>
 질문에 대한 답변을 해 주셨습니다.<br><br>
 
-![Img]({{ site.url }}/blogimgs/IMG_20140125_123525.jpg)  
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_123525.jpg)  
 
 컨퍼런스에서 점심을 제공해 줬다면 좋았을텐대, 안타깝께도 그렇치 않더군요.<br>
 같이 참석한 친구들과 점심때는 부대찌게를 먹었습니다.<br>
 배불리 먹고 들어가서... 오후 세션을 들었습니다.<br><br>
 
 
-![Img]({{ site.url }}/blogimgs/IMG_20140125_131626.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_131626.jpg)
 
 
 
@@ -129,12 +129,12 @@ image: ''
 세션을 진행해 주셨습니다.<br><br>
 
 
-![Img]({{ site.url }}/blogimgs/IMG_20140125_131731.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_131903.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_132242.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_132516.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_132703.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_132809.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_131731.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_131903.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_132242.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_132516.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_132703.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_132809.jpg)
 
 
 명확한 그리고 실현가능한 목표를 세우고.<br>
@@ -148,25 +148,25 @@ StackOverflow(스택오버플로우) 에 대해서도 예기 해주셨는대.<br
 이에 관련하여 올바르게 질문하는 법(제목 연관된 것으로/상황설명/코드 보이기 <br>
   /결과(로그)보이기/노력 어필/답변에 감사하기)도 알려주셨습니다.<br><br>
 
-![Img]({{ site.url }}/blogimgs/IMG_20140125_134844.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_134844.jpg)
 
 "검색의 중요성.png'<br>
 기술 관련된 것들을 검색할 때는, 가급적이면 구글에서 영어로 검색하라고<br>
 말씀해 주셨습니다.<br><br>
 
 
-![Img]({{ site.url }}/blogimgs/IMG_20140125_135137.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_135906.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_135938.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_135137.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_135906.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_135938.jpg)
 
 
 양찬석 님 세션은 이렇게 끝났습니다.<br><br>
 
 
 
-![Img]({{ site.url }}/blogimgs/IMG_20140125_140454.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_141320.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_144142.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_140454.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_141320.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_144142.jpg)
 
 
 
@@ -174,7 +174,7 @@ StackOverflow(스택오버플로우) 에 대해서도 예기 해주셨는대.<br
 "사레로 풀어보는 졸업작품 기획" 을 주제로 세션을 진행해 주셨습니다.<br>
  누가 쓸지 한번 더 생각하고 작품을 기획하라고 (한 줄로 정리하면...)말씀 해 주셨습니다.<br><br>
 
-![Img]({{ site.url }}/blogimgs/IMG_20140125_145750.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_145750.jpg)
 
 
  Mini Quiz 가 다음으로 있었습니다.<br>
@@ -183,28 +183,28 @@ StackOverflow(스택오버플로우) 에 대해서도 예기 해주셨는대.<br
 다른 분들이 재빨리 답을 달아서.. 저는 맞춘것이 없네요 ㅠㅠ<br><br>
 
 
-![Img]({{ site.url }}/blogimgs/IMG_20140125_153738.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_153738.jpg)
 
 다섯번쨰 세션은 유명환 님께서<br>
 "안드로이드는 OS가 아니라 플렛폼이다!"<br>
 를 주제로 세션을 진행해 주셨습니다<br><br>
-![Img]({{ site.url }}/blogimgs/IMG_20140125_154011.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_154011.jpg)
 
 
  플렛폼의 개념에 대해, 한방에 명확히 짚어주셨습니다.<br><br>
-![Img]({{ site.url }}/blogimgs/IMG_20140125_155755.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_162152.jpg)
-![Img]({{ site.url }}/blogimgs/IMG_20140125_162536.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_155755.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_162152.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_162536.jpg)
 
 
 끝으로는, 학생 개발자들에게 몇가지 조언을 해 주셨습니다.<br><br>
 
-![Img]({{ site.url }}/blogimgs/IMG_20140125_163253.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_163253.jpg)
 
 마지막 세션은 권순선 님께서, "오픈소스 & 커뮤니티와 함께 성장하기"<br>
 를 주제로 세션을 진행해 주셨습니다.<br><br>
 
-![Img]({{ site.url }}/blogimgs/IMG_20140125_163331.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_163331.jpg)
 
 
 기업문화(삼성/네이버/구글) 비교를 통해, 모두에게 맞는 회사는 없다고 해주셨고.<br>
@@ -212,13 +212,13 @@ StackOverflow(스택오버플로우) 에 대해서도 예기 해주셨는대.<br
 제시해 주셨습니다. 학교에서 배우는 것도 중요하지만,<br>
 학교 밖에서 배우는 것도 중요하다 말씀해 주셨습니다.<br><br>
 
-![Img]({{ site.url }}/blogimgs/IMG_20140125_170915.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_170915.jpg)
 
 
 끝으로는, 리누스 토르발즈가 연사자님 자녀에게 써준 편지를 보여 주시면서,<br>
 원하는 것을 알고 성취하라고 말씀해 주셨습니다.<br><br>
 
-![Img]({{ site.url }}/blogimgs/IMG_20140125_171042.jpg)
+![Img](https://sukso96100.github.io/blogimgs/IMG_20140125_171042.jpg)
 
 
 컨퍼런스는 경품 추첨을 끝으로, 끝났습니다(?)<br>

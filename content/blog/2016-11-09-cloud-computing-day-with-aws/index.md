@@ -1,4 +1,5 @@
 ---
+description: ''
 image: https://sukso96100.github.io/blogimgs/cloud-computing-day-with-aws-0.jpg
 date: 2016-11-09
 title: "아마존과 함께하는 클라우드 컴퓨팅 데이 참여 후기"
@@ -11,16 +12,16 @@ tags: ["aws", "cloud", "seminar", "update", "note", "review"]
 ## 키노트 세션
 간단하게 AWS 에 대해 소개하는 내용이 주를 이뤘습니다. 언제부터 AWS 가 시작 되었고, 올해 새로 리전을 설립한 지역 등에 대해 소개해 주셨습니다.
 
-![Keynote Session](/blogimgs/cloud-computing-day-with-aws-1.jpg)
+![Keynote Session](https://sukso96100.github.io/blogimgs/cloud-computing-day-with-aws-1.jpg)
 
 ## AWS 에서 작은 서비스 구현하기
 청중들에게 웹사이트를 통해 먼저 몇가지 질문을 하고 세션이 시작되었습니다.
 먼저 백그라운드 지식을 다뤘는데, AWS 에 어떤 서비스가 있는지(EC2, S3, Lambda, Kinesis, CloudFront 등) 간단히 집고 넘어갔습니다.
 그리고 클라우드로 마이그레이션 하는 경우나 아마존 웹서비스 활용 시나리오에 대해 몇가지 소개해 주셨습니다.
 
-![AWS 에서 작은 서비스 구현하기](/blogimgs/cloud-computing-day-with-aws-2.jpg)
-![투표](/blogimgs/cloud-computing-day-with-aws-3.jpg)
-![시나리오 예제](/blogimgs/cloud-computing-day-with-aws-4.jpg)
+![AWS 에서 작은 서비스 구현하기](https://sukso96100.github.io/blogimgs/cloud-computing-day-with-aws-2.jpg)
+![투표](https://sukso96100.github.io/blogimgs/cloud-computing-day-with-aws-3.jpg)
+![시나리오 예제](https://sukso96100.github.io/blogimgs/cloud-computing-day-with-aws-4.jpg)
 
 
 ### 온프레미스에서 클라우드로 마이그레이션
@@ -76,8 +77,8 @@ tags: ["aws", "cloud", "seminar", "update", "note", "review"]
 처음에는 적은 사용자로 시작한 서비스가 시간에 따라 사용자 수가 늘면서 어떤 방식으로 구성을 변경하고 확장하면 좋은지,
 사용자 수에 따라서 나눠서 알아보는 시간을 가졌습니다.
 
-![클라우드를 통해 내 서비스 무한대로 확장하기](/blogimgs/cloud-computing-day-with-aws-5.jpg)
-![사용자가 만명~십만명 일 때](/blogimgs/cloud-computing-day-with-aws-6.jpg)
+![클라우드를 통해 내 서비스 무한대로 확장하기](https://sukso96100.github.io/blogimgs/cloud-computing-day-with-aws-5.jpg)
+![사용자가 만명~십만명 일 때](https://sukso96100.github.io/blogimgs/cloud-computing-day-with-aws-6.jpg)
 
 ### 사용자 1명
 - Route53 - Elastic IP - EC2 Instance
@@ -138,9 +139,9 @@ AWS의 프리미어 컨설팅 파트너인 메가존에서 세션을 진행했�
 HPC 가 처음 듣는 단어여서 뭔 의미인가 했더니, High Performance Computing(고성능 컴퓨팅) 의 약자 였더군요.
 아마존 웹서비스에서 어떻게 고성능 컴퓨팅을 구현하여 비용을 절약할 수 있는지에 대해 주로 다뤘습니다.
 
-![Keynote Session](/blogimgs/cloud-computing-day-with-aws-7.jpg)
-![Keynote Session](/blogimgs/cloud-computing-day-with-aws-8.jpg)
-![Keynote Session](/blogimgs/cloud-computing-day-with-aws-9.jpg)
+![Keynote Session](https://sukso96100.github.io/blogimgs/cloud-computing-day-with-aws-7.jpg)
+![Keynote Session](https://sukso96100.github.io/blogimgs/cloud-computing-day-with-aws-8.jpg)
+![Keynote Session](https://sukso96100.github.io/blogimgs/cloud-computing-day-with-aws-9.jpg)
 
 - AWS 기반 HPC
  - 유연한 가격 정책으로 비용 절감
@@ -158,11 +159,11 @@ HPC 가 처음 듣는 단어여서 뭔 의미인가 했더니, High Performance 
 아마존 웹서비스에서 빅 데이터를 다루는 것에 대한 세션 이였는데... 이때 졸아서(...) 제대로 듣질 못했네요.(연사분께 죄송합니다...)
 스토리지가 제일 중요하다고 한 부분이 기억에 남는 세션이였습니다. 안정적이고 안전한 스토리지가 있어야, 데이터를 쌓아서, 그것으로 뭔갈 할 수 있고, 그렇치 않아서 유실되거나 하면 아무것도 못하는 경우가 있을 수 있기 때문이라고 하더군요. S3 의 내구성이 아주 좋으니, AWS 를 사용한다면, S3　를 활용하라는 내용이 기억이 나는군요.
 
-![Big Data On AWS](/blogimgs/cloud-computing-day-with-aws-10.jpg)
-![음... 이게 뭐였더라...](/blogimgs/cloud-computing-day-with-aws-11.jpg)
+![Big Data On AWS](https://sukso96100.github.io/blogimgs/cloud-computing-day-with-aws-10.jpg)
+![음... 이게 뭐였더라...](https://sukso96100.github.io/blogimgs/cloud-computing-day-with-aws-11.jpg)
 
 ## 경품 추첨
 헤드셋 두개랑 아마존 에코 하나 뿌렸는데, 별 기대 안했습니다.
 긴팔 티셔츠 하나랑 보조 배터리 받았으면 됬죠 뭐(?)
 
-![Keynote Session](/blogimgs/cloud-computing-day-with-aws-12.jpg)
+![Keynote Session](https://sukso96100.github.io/blogimgs/cloud-computing-day-with-aws-12.jpg)

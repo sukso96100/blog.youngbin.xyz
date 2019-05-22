@@ -2,7 +2,7 @@
 title: "BFQ스케쥴러랑, 1.2오버클럭한 커널 컴파일 하고 있습니다 ㅎㅎ"
 date: 2012-01-11
 tags: ["migrated(old)", "android", "kernel"]
-image: ''
+ # image: ''
 ---
 
 I/O 스케쥴러 BFQ로 바꾸고<br>

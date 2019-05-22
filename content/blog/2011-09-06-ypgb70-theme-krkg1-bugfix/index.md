@@ -2,7 +2,7 @@
 title: "갤럭시 플레이어 70 KRKG1 설정어플 오류수정 안내"
 date: 2011-09-06
 tags: ["migrated(old)", "android", "theme", "yp-gb1", "yp-gb70"]
-image: ''
+ # image: ''
 ---
 
 갤럭시 플레이어 70 / KRKG1 용 TW+ v1테마의 설정어플에 오류가 있다는 제보가 있어,<br>

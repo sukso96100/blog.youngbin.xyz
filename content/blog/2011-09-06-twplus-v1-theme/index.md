@@ -2,7 +2,7 @@
 title: "(테마 배포)TW+ v1 "
 date: 2011-09-06
 tags: ["migrated(old)", "android", "theme", "yp-gb1", "yp-gb70"]
-image: ''
+ # image: ''
 ---
 테스트까지 다 끝마치고 드디어 올리는(?)<br>
 TW+ v1 테마입니다 ㅎㅎ<br>
@@ -29,12 +29,12 @@ http://www.mediafire.com/?b2k1na5167favma<br>
 (9/6 갤칠용 다운로드 링크 변경했습니다,<br>
 설정어플 오류가 있다는 제보가 있어 급히 수정하고 다시 링크 올립니다.)<br>
 (위 URL들은 더이상 이용이 불가합니다, 참고하세요)<br>
-![Img]({{ site.url }}/blogimgs/SC20110905-235139.png)
-![Img]({{ site.url }}/blogimgs/SC20110905-235150.png)
-![Img]({{ site.url }}/blogimgs/SC20110905-235317.png)
-![Img]({{ site.url }}/blogimgs/SC20110905-235346.png)
-![Img]({{ site.url }}/blogimgs/SC20110905-235430.png)
-![Img]({{ site.url }}/blogimgs/SC20110905-235445.png)
-![Img]({{ site.url }}/blogimgs/SC20110906-000049.png)
-![Img]({{ site.url }}/blogimgs/SC20110906-000228.png)
-![Img]({{ site.url }}/blogimgs/SC20110906-000342.png)
+![Img](https://sukso96100.github.io/blogimgs/SC20110905-235139.png)
+![Img](https://sukso96100.github.io/blogimgs/SC20110905-235150.png)
+![Img](https://sukso96100.github.io/blogimgs/SC20110905-235317.png)
+![Img](https://sukso96100.github.io/blogimgs/SC20110905-235346.png)
+![Img](https://sukso96100.github.io/blogimgs/SC20110905-235430.png)
+![Img](https://sukso96100.github.io/blogimgs/SC20110905-235445.png)
+![Img](https://sukso96100.github.io/blogimgs/SC20110906-000049.png)
+![Img](https://sukso96100.github.io/blogimgs/SC20110906-000228.png)
+![Img](https://sukso96100.github.io/blogimgs/SC20110906-000342.png)
