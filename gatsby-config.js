@@ -99,5 +99,19 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-remote-images`,
+      options: {
+        nodeType: 'MarkdownRemark',
+        imagePath: 'remoteImages/'
+      }
+    },
+    {
+      resolve: `gatsby-plugin-remote-images`,
+      options: {
+        nodeType: 'MarkdownRemarkFrontmatter',
+        imagePath: 'remoteImages/'
+      }
+    }
   ],
 }
