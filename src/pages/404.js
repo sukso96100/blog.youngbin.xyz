@@ -9,11 +9,11 @@ import { Link, graphql } from "gatsby"
 import Chip from "@material-ui/core/Chip"
 import Avatar from "@material-ui/core/Avatar"
 import Paper from "@material-ui/core/Paper"
+import Button from "@material-ui/core/Button"
 import Shell from "../components/shell"
 
 const NotFoundPage = ({
   data: {
-    allMarkdownRemark: { group },
     site: {
       siteMetadata: { title },
     },
@@ -51,7 +51,7 @@ const NotFoundPage = ({
   </Shell>
 )
 
-TagsPage.propTypes = {
+NotFoundPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       group: PropTypes.arrayOf(
