@@ -9,6 +9,7 @@ import { Link, graphql } from "gatsby"
 import Chip from "@material-ui/core/Chip"
 import Avatar from "@material-ui/core/Avatar"
 import Paper from "@material-ui/core/Paper"
+import Buttom from "@material-ui/core/Button"
 import Shell from "../components/shell"
 
 const NotFoundPage = ({
