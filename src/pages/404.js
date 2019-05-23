@@ -51,7 +51,7 @@ const NotFoundPage = ({
   </Shell>
 )
 
-TagsPage.propTypes = {
+NotFoundPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       group: PropTypes.arrayOf(
