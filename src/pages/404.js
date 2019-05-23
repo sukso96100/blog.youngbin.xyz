@@ -13,7 +13,6 @@ import Shell from "../components/shell"
 
 const NotFoundPage = ({
   data: {
-    allMarkdownRemark: { group },
     site: {
       siteMetadata: { title },
     },
