@@ -55,7 +55,7 @@ class BlogIndex extends React.Component {
                   </Button>
               )}
               <b>{currentPage}/{numPages}</b>
-              {prev && (
+              {next && (
                   <Button>
                       Next
                   </Button>
