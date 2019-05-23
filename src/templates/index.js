@@ -50,15 +50,19 @@ class BlogIndex extends React.Component {
               })}
             </Grid>
               {prev && (
+                  <Link to={prev} style={{textDecoration: 'none'}}>
                   <Button>
                       Previous
                   </Button>
+                  </Link>
               )}
               <b>{currentPage}/{numPages}</b>
               {next && (
+                  <Link to={next} style={{textDecoration: 'none'}}>
                   <Button>
                       Next
                   </Button>
+                  </Link>
               )}
           </div>
         </Paper>
