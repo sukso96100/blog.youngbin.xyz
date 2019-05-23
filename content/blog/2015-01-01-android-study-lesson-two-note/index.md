@@ -2,7 +2,7 @@
 title: "시온고 안드로이드 스터디 노트 - 2.Connect Sunshine to the Cloud"
 date: "2015-01-01"
 tags: ["develop", "development", "android", "app", "study", "note"]
-image : https://sukso96100.github.io/blogimgs/multithreading.png
+image: "./multithreading.png"
 ---
 
 안녕하세요. 저번에 Lesson 1 노트에 이어 이번에 저희 시온고등학교 내 안드로이드 스터디 그룹에서 진도를 나간(부득이하게 온라인으로 나간건 함정...) Lesson 2 내용을 정리하여 포스트로 작성 해 보고자 합니다. Lesson 2 에 대한 정리는... 생각보다 길군요. 바로 들어가겠습니다.

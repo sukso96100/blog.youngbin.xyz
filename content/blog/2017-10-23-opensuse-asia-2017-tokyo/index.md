@@ -1,7 +1,7 @@
 ---
 description: ''
 date: 2017-10-23
-#image: https://sukso96100.github.io/blogimgs/opensuse_asia_2017_tokyo_cover.jpg
+image: "./opensuse_asia_2017_tokyo_cover.jpg"
 title: "openSUSE.Asia Summit 2017 Tokyo 참가 후기"
 tags: ["review", "trip", "linux", "opensuse", "libreoffice", "tokyo"]
 ---

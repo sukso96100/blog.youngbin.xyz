@@ -99,13 +99,13 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `gatsby-plugin-remote-images`,
-      options: {
-        nodeType: 'MarkdownRemark',
-        imagePath: 'remoteImages',
-        name: 'remoteImages'
-      }
-    },
+    // {
+    //   resolve: `gatsby-plugin-remote-images`,
+    //   options: {
+    //     nodeType: 'MarkdownRemark',
+    //     imagePath: 'remoteImages',
+    //     name: 'remoteImages'
+    //   }
+    // },
   ],
 }

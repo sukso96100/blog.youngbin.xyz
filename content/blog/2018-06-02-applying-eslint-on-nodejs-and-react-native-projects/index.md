@@ -3,7 +3,7 @@ description: ''
 date: 2018-06-02
 title: "Node.js 프로젝트와 React Native 프로젝트에 ESLint 적용해 보기"
 tags: ["javascript", "eslint", "nodejs", "react-native", "develop", "note"]
-#image: https://sukso96100.github.io/blogimgs/apply-eslint-1.png
+image: "./apply-eslint-1.png"
 ---
 최근 학내에 있는 동아리에서 활동하면서, Javascript 기반의 프로젝트 두 가지에 참여하고 있습니다. 하나는 Node.js 프로젝트, 또 하나는 React Native 프로젝트 입니다. JS 는 다른 프로그래밍 언어에 비해 편리한 점도 있지만,
 문법 체크가 엄격하지 않은 편이나 보니, 일관성이나 가독성이 좋지 않은 코드가 나오는 경우도 많습니다. 여러명에서 협업을 하면 코딩 스타일이 다른 점 때문에 같은 코드임에도 이해를 잘 못하는 경우가 있기도 합니다.(이는 JS 뿐만 아니라, 문법 체크가 엄격하지 않은 언어라면 마찬가지일 겁니다.) 제가 참여중인 두 프로젝트도 아주 심각하지는 않지만, 몇몇 문제점이 조금씩 보였습니다. 문자열 선언할 떄 어떤곳은 큰따옴표(Double Quotes, `"`)를 어떤곳은 작은 따옴표(Single Quotes, `'`)를 쓰고. 인덴트 처리도 어떤곳은 스페이스, 어떤곳은 탭. 세미콜론도 어떤곳은 있고, 어떤곳은 빠져있는 등. 제각각인 문제가 조금씩 있었습니다.

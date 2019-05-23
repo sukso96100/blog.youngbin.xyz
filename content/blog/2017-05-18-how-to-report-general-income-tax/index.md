@@ -1,7 +1,7 @@
 ---
 description: ''
 date: 2017-05-18
-#image: https://sukso96100.github.io/blogimgs/gen-income-tax2.png
+image: "./gen-income-tax2.png"
 title: "종합소득세 신고하기"
 tags: ["freelance", "tax", "tip", "note"]
 ---

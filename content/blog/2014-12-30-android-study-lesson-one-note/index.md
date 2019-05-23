@@ -2,7 +2,7 @@
 title: "시온고 안드로이드 스터디 노트 - 1.Create Project Sunshine"
 date: "2014-12-30"
 tags: ["develop", "development", "android", "app", "study note"]
-image : https://sukso96100.github.io/blogimgs/android_study_lesson_one_cover.jpg
+image: "./android_study_lesson_one_cover.jpg"
 ---
 
 몇 주 전 부터 교내에서 친구 몇명 모아서 안드로이드 스터디를 하고 있습니다. 구글 코리아 측에서 스터디 그룹 프로그램을 해서 해 보게 되었는대. 2차 지필평가로 인해 진도가 많이 밀렸습니다. Udacity(udacity.com) 에 있는 Developing Android Apps코스를 기반으로 진행 중입니다. 7~8개의 레슨으로 구성 되어 있는대. 레슨 하나가 마무리 될 때마다. 이렇게 글로 정리를 해 보고자 합니다. 한참 진도가 늦습니다만... 일단 드디어 레슨 1 을 마무리 했으므로. 레슨 1 을 정리해 보고자 합니다.

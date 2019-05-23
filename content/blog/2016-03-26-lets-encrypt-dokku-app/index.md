@@ -2,7 +2,7 @@
 description: ''
 date: 2016-03-25
 title: "Let's Encrypt 를 이용해 Dokku 앱 HTTPS 연결 지원하기"
-#image: https://sukso96100.github.io/blogimgs/LE_stacked1_L.png
+image: "./LE_stacked1_L.png"
 tags: ["linux", "note", "update", "tip", "docker", "dokku", "letsencrypt"]
 ---
 

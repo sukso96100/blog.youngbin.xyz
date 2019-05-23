@@ -2,7 +2,7 @@
 title: "숭실대학교 모의전형 체험(SSU 미래인재 Week) 참가 후기"
 date: 2015-07-28
 tags: ["interview", "review", "ssu", "soongsil_university", "note", "university_enterance"]
-#image: https://sukso96100.github.io/blogimgs/ssuweek.jpg
+image: "./ssuweek.jpg"
 ---
 
 오늘(2015.07.28) 숭실대학교 모의전형 프로그램에 참여하고 후기를 작성하게 되었습니다.<br>

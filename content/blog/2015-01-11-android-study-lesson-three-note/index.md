@@ -2,7 +2,7 @@
 title: "시온고 안드로이드 스터디 노트 - 3.New Activities And Intents"
 date: "2015-01-11"
 tags: ["develop", "development", "android", "app", "study", "note"]
-image : https://sukso96100.github.io/blogimgs/android_study_tshirts.jpg
+image: "./android_study_tshirts.jpg"
 ---
 
 Lesson 2 에 이어 Lesson 3 노트를 계속 합니다. 이번에는 스터디 맴버들이 Udacity 강의와 함께 보면서 공부 할 수 있도록. 일찍 노트를 작성하게 되었습니다.

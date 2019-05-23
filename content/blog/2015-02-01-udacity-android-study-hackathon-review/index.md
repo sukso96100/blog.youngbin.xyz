@@ -2,7 +2,7 @@
 title: "Udacity Android Study 최종 해커톤 후기"
 date: "2015-02-01"
 tags: ["update", "android", "study", "hackathon", "develop", "development", "review"]
-image : https://sukso96100.github.io/blogimgs/IMG_20150131_201312.jpg
+image: "./IMG_20150131_201312.jpg"
 ---
 
 약 2개월 정도 간의 긴 스터디를 마치고, 드디어 최종 해커톤을 가졌습니다. 해커톤 이틀 전 사전 모임을 통해 대략 준비하고,

@@ -1,6 +1,6 @@
 ---
 description: ''
-#image: https://sukso96100.github.io/blogimgs/docker-for-aws-1.png
+image: "./docker-for-aws-1.png"
 date: 2016-11-30
 title: "Docker for AWS Public Beta 사용해 보기"
 tags: ["docker", "aws", "tutorial", "note", "update"]

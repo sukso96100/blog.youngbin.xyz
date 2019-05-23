@@ -2,7 +2,7 @@
 title: "Fish 셸 설치하고, Oh My Fish 로 커스터마이징 하기"
 date: 2015-07-30
 tags: ["fish_shell", "oh_my_fish", "update", "tip", "tutorial", "shell", "linux", "ubuntu", "archlinux", "fedora"]
-#image: https://sukso96100.github.io/blogimgs/fish-shell.png
+image: "./fish-shell.png"
 ---
 
 필자는 기본적으로 리눅스 배포판에 있는 bash 를 사용하다가, 전에 한번 zsh 로 갈아탔고.

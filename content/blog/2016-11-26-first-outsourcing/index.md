@@ -1,6 +1,6 @@
 ---
 description: ''
-#image: https://sukso96100.github.io/blogimgs/first-outsourcing.jpg
+image: "./first-outsourcing.jpg"
 date: 2016-11-26
 title: "첫 외주"
 tags: ["outsourcing", "review", "android", "update", "note"]

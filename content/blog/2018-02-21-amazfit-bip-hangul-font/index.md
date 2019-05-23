@@ -3,7 +3,7 @@ description: ''
 date: 2018-02-21
 title: "Amazfit Bip(米动手表 青春版) 한글 폰트 작업"
 tags: ["amazfit-bip", "smartwatch", "gadget", "china", "font", "hangul", "korean"]
-#image: https://sukso96100.github.io/blogimgs/amazfit-kr-font.png
+image: "./amazfit-kr-font.png"
 ---
 
 ![amazfit-bip.jpg](https://sukso96100.github.io/blogimgs/amazfit-bip.jpg)
