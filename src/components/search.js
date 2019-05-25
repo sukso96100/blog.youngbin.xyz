@@ -78,37 +78,51 @@ class Search extends React.Component {
               onClose={this.props.onClose}
               TransitionComponent={Transition}
             >
-              <AppBar className={classes.appBar} style={{background: 'white', color: 'black'}}>
+              <AppBar
+                className={classes.appBar}
+                style={{ background: "white", color: "black" }}
+              >
                 <Toolbar>
-                  <div style={{background: 'silver', borderRadius: 8, display: 'flex',
-                width: '100%', flexDirection: 'row'}}>
-                  <IconButton
-                    color="inherit"
-                    aria-label="Search"
-                    style={{flex:0}}
+                  <div
+                    style={{
+                      background: "silver",
+                      borderRadius: 8,
+                      display: "flex",
+                      width: "100%",
+                      flexDirection: "row",
+                    }}
                   >
+                    <IconButton
+                      color="inherit"
+                      aria-label="Search"
+                      style={{ flex: 0 }}
+                    >
                       <SearchIcon />
-                      </IconButton>
+                    </IconButton>
                     <InputBase
                       placeholder="Search…"
                       value={this.state.query}
                       onChange={this.search}
-                      style={{flex: 1}}
+                      style={{ flex: 1 }}
                     />
                     <IconButton
-                    color="inherit"
-                    onClick={this.props.handleClose}
-                    aria-label="Close"
-                    style={{flex: 0}}
-                  >
-                    <CloseIcon />
+                      color="inherit"
+                      onClick={this.props.handleClose}
+                      aria-label="Close"
+                      style={{ flex: 0 }}
+                    >
+                      <CloseIcon />
                     </IconButton>
                   </div>
                 </Toolbar>
               </AppBar>
               <List>
                 {this.state.results.map(page => (
-                  <Link to={`/${page.path}`} key={page.id} style={{textDecoration: 'none'}}>
+                  <Link
+                    to={`/${page.path}`}
+                    key={page.id}
+                    style={{ textDecoration: "none" }}
+                  >
                     <ListItem button>
                       <ListItemText
                         primary={page.title}

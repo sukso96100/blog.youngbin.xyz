@@ -43,7 +43,7 @@ const NotFoundPage = ({
         <br />
         <h1>Ooops! Nothing was found here!</h1>
         <br />
-        <Link to={'/'} style={{textDecoration: 'none'}}>
+        <Link to={"/"} style={{ textDecoration: "none" }}>
           <Button>Move to blog home</Button>
         </Link>
       </div>

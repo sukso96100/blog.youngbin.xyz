@@ -48,7 +48,7 @@ export default function Shell(props) {
           <React.Fragment>
             <SEO title={props.title} keywords={props.keywords} />
             <div>{props.children}</div>
-            <Search open={searchState} handleClose={()=> setSearch(false)}/>
+            <Search open={searchState} handleClose={() => setSearch(false)} />
             <AppBar
               position="fixed"
               color="primary"
@@ -60,21 +60,24 @@ export default function Shell(props) {
                 color: "black",
               }}
             >
-              <Toolbar style={{display: 'flex', flexDirection: 'row'}}>
+              <Toolbar style={{ display: "flex", flexDirection: "row" }}>
                 <IconButton
                   edge="start"
                   color="inherit"
                   aria-label="Open drawer"
                   onClick={() => setDrawer(!drawer)}
                   onClose={() => setDrawer(false)}
-                  style={{flex: 0}}
+                  style={{ flex: 0 }}
                 >
                   <MenuIcon />
                 </IconButton>
-                <div style={{flex: 1}}/>
-                <IconButton color="inherit" edge="end"
-                style={{flex: 0}}
-                  onClick={()=>setSearch(true)}>
+                <div style={{ flex: 1 }} />
+                <IconButton
+                  color="inherit"
+                  edge="end"
+                  style={{ flex: 0 }}
+                  onClick={() => setSearch(true)}
+                >
                   <SearchIcon />
                 </IconButton>
               </Toolbar>
