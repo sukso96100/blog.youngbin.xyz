@@ -8,3 +8,4 @@ export const onClientEntry = () => {
     }
 }
 
+import "prismjs/themes/prism-solarizedlight.css"
