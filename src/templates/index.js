@@ -35,7 +35,7 @@ class BlogIndex extends React.Component {
               marginRight: "auto",
               maxWidth: 1000,
               padding: 16,
-              paddingBottom: 80
+              paddingBottom: 80,
             }}
           >
             <Grid container spacing={24} style={{ paddingBottom: 64 }}>
@@ -49,21 +49,19 @@ class BlogIndex extends React.Component {
                 }
               })}
             </Grid>
-              {prev && (
-                  <Link to={prev} style={{textDecoration: 'none'}}>
-                  <Button>
-                      Previous
-                  </Button>
-                  </Link>
-              )}
-              <b>{currentPage}/{numPages}</b>
-              {next && (
-                  <Link to={next} style={{textDecoration: 'none'}}>
-                  <Button>
-                      Next
-                  </Button>
-                  </Link>
-              )}
+            {prev && (
+              <Link to={prev} style={{ textDecoration: "none" }}>
+                <Button>Previous</Button>
+              </Link>
+            )}
+            <b>
+              {currentPage}/{numPages}
+            </b>
+            {next && (
+              <Link to={next} style={{ textDecoration: "none" }}>
+                <Button>Next</Button>
+              </Link>
+            )}
           </div>
         </Paper>
       </Shell>
@@ -74,17 +72,17 @@ class BlogIndex extends React.Component {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query ($skip: Int!, $limit: Int!){
+  query($skip: Int!, $limit: Int!) {
     site {
       siteMetadata {
         title
       }
     }
     allMarkdownRemark(
-        sort: { fields: [frontmatter___date], order: DESC }
-        limit: $limit
-        skip: $skip
-        ) {
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
       edges {
         node {
           excerpt
