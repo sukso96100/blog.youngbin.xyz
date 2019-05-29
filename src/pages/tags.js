@@ -24,8 +24,7 @@ const TagsPage = ({
       style={{
         margin: 0,
         width: "100%",
-        height: "100vh",
-        minHeight: 650,
+        minHeight: "100vh",
         background: "black",
         color: "white",
       }}
@@ -37,6 +36,7 @@ const TagsPage = ({
           maxWidth: 1000,
           padding: 16,
           paddingTop: 64,
+          paddingBottom: 128
         }}
       >
         <h3>{title}</h3>
