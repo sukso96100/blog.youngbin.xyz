@@ -21,6 +21,7 @@ export default class PostCard extends React.Component {
                     url(${
                       post.frontmatter.image.childImageSharp.fluid.src
                     }) center / cover`,
+              height: 400,
             }}
           >
             <h2>{title}</h2>
@@ -38,7 +39,7 @@ export default class PostCard extends React.Component {
       )
     } else {
       return (
-        <Paper style={{ padding: 32, borderRadius: 40 }}>
+        <Paper style={{ padding: 32, borderRadius: 40, height: 400 }}>
           <h2>{title}</h2>
           <small>{post.frontmatter.date}</small>
           <p
