@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "youngbin-han-s-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "Youngbin Han's Personal Blog",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Youngbin Han <sukso96100@gmail.com>",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
