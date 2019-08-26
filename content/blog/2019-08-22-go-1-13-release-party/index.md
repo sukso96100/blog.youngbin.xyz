@@ -1,10 +1,12 @@
 ---
 description: ''
 date: 2019-08-22
-title: "(작성중/Draft)Go 1.13 Release Party 참석 후기"
+title: "Go 1.13 Release Party 참석 후기"
 tags: ["golang", "meetup"]
- # image: ''
+image: './go-1-13-rel-party1.jpg'
 ---
+
+![명찰](go-1-13-rel-party7.jpg)
 최근 3~4주간 Go언어에 관심이 생겨 참조문서 보면서 사용해 보고 있는데요, 때마침 이번 휴가중에 Go 1.13 Release Party 행사가 있어서 참석하고 왔습니다.
 장소는 선릉역 근처에 있는 센드버드 코리아(Sendbird Korea) 에서 진행되었습니다.
 
@@ -54,6 +56,8 @@ Go의 GC는 메모리 해체를 너무 느슨하게 해서 실행하는 동안 O
 - 마이크로초, 밀리초 지원 추가
 - `Format()`, `Parse()` 함수에 day-of-year 지원 추가
 
+![명찰](go-1-13-rel-party5.jpg)
+
 
 ## Go 2, Go 1.13 Error Proposals
 바로 이어서 권민재 님께서 Go 에서의 오류 핸들링 방법과 함께 Go 2, Go 1.13 에 오기 까지 제안된 `Error` 와 관련되어 제안된 것들을 소개해 주셨습니다.
@@ -100,6 +104,8 @@ if err != nil {
 ```go
 f := try(os.Open(filename))
 ```
+![Error Handling](go-1-13-rel-party3.jpg)
+
 
 ### Error Value
 - Sentinal error - 오류 값 그 자체. 동일성 확인 가능
@@ -120,6 +126,9 @@ Error inspection
 
 이렇에 논의 된 것중, Go 1.13 에는 `Unwrap`, `Is`, `As`, `%w` 이렇게 4가지가 추가될 예정이라 합니다.
 
+![Error Value](go-1-13-rel-party2.jpg)
+
+
 ## Go Modules
 Go 1.11 부터 Go Modules 이 추가 되면서 의존성 관리가 편리해 졌는데요, 그 전에는 어떻게 의존성 관리가 이뤄졌는지 그리고 Go Modules 명령어에 대해서도 김건 님께서 간단히 설명해 주셨습니다. 이 때는 10쯤 되어서 조금 피곤하다보니 중간에 살짤 졸아서 발표 내용을 다 정리 하지는 못했습니다.
 
@@ -138,3 +147,20 @@ Go 1.11 부터 Go Modules 이 추가 되면서 의존성 관리가 편리해 졌
 Go Modules in Go 1.13
 - `go get` - 이제 Go Modules 환경까지 고려하여 작동한다고 합니다
 - Proxy 가 기본 활성화 되어, 가까운 모듈 미러에서 모듈을 더 빨리 받을 수 있다고 합니다.
+
+## 먹을거리(?)
+행사 시작 시간이 저녁 시간임을 고려해서, 피자와 음료를 제공해 줘서 두 조각 정도 맛있게 먹었습니다.
+![피자](go-1-13-rel-party9.jpg)
+![피자](go-1-13-rel-party6.jpg)
+
+## 결론
+휴가 중 운이 좋게도 행사 날짜가 겹처서 참석하고 왔는데, 저녁 시간이라 조금 피곤했지만 발표 내용이 꽤 알차가 좋아서 참석하기 잘 했다는 생각이 듭니다.
+마지막에 경품 당첨은 안 되었지만. 그래도 많은것을 알아가는 행사였던 것 같습니다.
+
+## 참고 링크
+- [GDG Golang Korea Go 1.13 릴리즈 파티](https://www.meetup.com/ko-KR/GDG-Golang-Korea/events/263743219/)
+- [발표자료 모음](https://github.com/golangkorea/gophercon-talks?fbclid=IwAR1rVAg45ndqBW-Pw61jA2Kr0jzS7spt99b7P_1TC3GWdQf36UGCnT1b53Y#gdg-golang-korea-go-113-release-party-201908)
+- [Go 1.13 Release Notes](https://tip.golang.org/doc/go1.13)
+- [Error Handling — Draft Design](https://go.googlesource.com/proposal/+/master/design/go2draft-error-handling.md)
+- [Proposal: A built-in Go error check function, "try"](https://github.com/golang/go/issues/32437)
+- [Using Go Modules](https://blog.golang.org/using-go-modules)
