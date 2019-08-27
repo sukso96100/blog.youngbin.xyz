@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -19,14 +19,16 @@ function Adsense() {
         `
       )
     
-    
+      useEffect(()=>{
+        let script = document.createElement("script");
+        script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+        script.async = true;
+        document.body.appendChild(script);    
+      })
         return(
             <div>
-                <Helmet>
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                </Helmet>
                 <ins class="adsbygoogle"
-                    style="display:block"
+                    style={{display: "block"}}
                     data-ad-client={site.siteMetadata.adsense.adClient}
                     data-ad-slot={site.siteMetadata.adsense.adSlot}
                     data-ad-format="auto"
