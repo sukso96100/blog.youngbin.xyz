@@ -9,6 +9,7 @@ import PostCard from "../components/postCard"
 import Grid from "@material-ui/core/Grid"
 import kebabCase from "lodash/kebabCase"
 import Disqus from "gatsby-plugin-disqus"
+import Adsense from "../components/adsense"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -44,6 +45,7 @@ class BlogPostTemplate extends React.Component {
                 <Chip label={item} />
               </Link>
             ))}
+            <Adsense/>
             <Disqus
               identifier={post.id}
               title={post.title}

@@ -3,12 +3,16 @@ module.exports = {
     title: `YoungbinLab Blog`,
     author: `Youngbin Han`,
     description: `Youngbin Han's personal records.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    siteUrl: `https://blog.youngbin.xyz/`,
     social: {
       github: 'sukso96100',
       twitter: `sukso96100`,
       facebook: 'hanyoungbin',
       web: {title: 'youngbin.xyz', url: 'https://youngbin.xyz'}
+    },
+    adsense: {
+      adClient: "ca-pub-7051197638651710",
+      adSlot: "3015305584"
     },
   },
   plugins: [
