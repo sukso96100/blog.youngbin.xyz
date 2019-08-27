@@ -2,7 +2,7 @@
 description: ''
 date: 2019-08-22
 title: "Go 1.13 Release Party 참석 후기"
-tags: ["golang", "meetup"]
+tags: ["golang", "meetup", "review"]
 image: './go-1-13-rel-party1.jpg'
 ---
 
@@ -163,4 +163,5 @@ Go Modules in Go 1.13
 - [Go 1.13 Release Notes](https://tip.golang.org/doc/go1.13)
 - [Error Handling — Draft Design](https://go.googlesource.com/proposal/+/master/design/go2draft-error-handling.md)
 - [Proposal: A built-in Go error check function, "try"](https://github.com/golang/go/issues/32437)
+- [Proposal: Go 2 Error Inspection](https://go.googlesource.com/proposal/+/master/design/29934-error-values.md)
 - [Using Go Modules](https://blog.golang.org/using-go-modules)
