@@ -20,22 +20,16 @@ function Adsense() {
       )
     
       useEffect(()=>{
-        let script = document.createElement("script");
-        script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
-        script.async = true;
-        document.body.appendChild(script);    
+        (window.adsbygoogle = window.adsbygoogle || []).push({});   
       })
         return(
-            <div>
+            <div style={{padding: 8}}>
                 <ins class="adsbygoogle"
                     style={{display: "block"}}
                     data-ad-client={site.siteMetadata.adsense.adClient}
                     data-ad-slot={site.siteMetadata.adsense.adSlot}
                     data-ad-format="auto"
                     data-full-width-responsive="true"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
             </div>
         )
     }
