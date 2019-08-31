@@ -3,7 +3,7 @@ description: ''
 date: 2019-08-31
 title: "GastbyJS 블로그에 Google Adsense 와 Analytics 달기"
 tags: ["gatsbyjs", "javascript","google","adsense","analytics"]
-# image: './go-1-13-rel-party1.jpg'
+image: './adsense.jpg'
 ---
 
 몇달 전에 블로그를 Jekyll 에서 GatsbyJS 로 옮겼는데, 대충 옮겨놓기만 하고 기존 Jekyll 블로그에 달아뒀던 
@@ -134,3 +134,5 @@ class BlogPostTemplate extends React.Component {
 ```
 ```
 그리고 빌드해서 올리면 된다. 결과는 아래 사진과 같다.
+
+![](adsense.jpg)
