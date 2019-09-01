@@ -131,8 +131,12 @@ class BlogPostTemplate extends React.Component {
   }
   ...
 }
-```
+
 ```
 그리고 빌드해서 올리면 된다. 결과는 아래 사진과 같다.
 
-![](adsense.jpg)
+![](./adsense.jpg)
+
+## 참고 문서
+- [gatsby-plugin-google-analytics | GatsbyJS](https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/)
+- [Customizing html.js | GatsbyJS](https://www.gatsbyjs.org/docs/custom-html/)
