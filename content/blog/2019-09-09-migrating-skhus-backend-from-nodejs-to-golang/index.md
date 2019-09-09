@@ -1,7 +1,7 @@
 ---
 description: ''
 date: 2019-09-09
-title: "작성중/draft - 3년 묶은 Node.js 기반 백엔드를 Golang 으로 옮기다."
+title: "3년 묶은 Node.js 기반 백엔드를 Golang 으로 옮기다."
 tags: ["skhus", "nodejs", "javascript", "puppeteer", "golang", "chromedp"]
 # image: './adsense.jpg'
 ---
@@ -196,5 +196,379 @@ Pupeteer 로 전환하는 작업과 오래된 버전의 라이브러리를 업�
   }
   ```
 
-  ## Go 로의 전환
-  서론이 많이 길었는데요, 여기서부터는 최근 있었던 Go 기반 백엔드로의 전환에 대해 예기하겠습니다.
+## Go 로의 전환
+서론이 많이 길었는데요, 여기서부터는 최근 있었던 Go 기반 백엔드로의 전환에 대해 예기하겠습니다. 2019년 들어서 서버가 자주 죽으면서 서비스가 중단되는 경우가 잦아 졌습니다. 다양한 원인이 있었는데, 대략 추려보자면 아래와 같습니다.
+
+- 사용하는 AWS EC2 사양이 낮고 디스크 용량도 작음
+  - 그런데 Node.js 기반의 도커 이미지는 백엔드 이미지와, 백엔드 이미지가 의존하는 Browserless 이미지(Headless Chrome 컨테이너 이미지)는 합이 약 1GB 가량 할 정도로 큼
+- Browserless 이미지를 컨테이너로 띄우면 항상 CPU와 메모리를 너무 많이 소비함
+
+그래서 디스크 용량이 가득 차서 가상머신이 갑자기 죽어 버리거나, 메모리 사용량이 너무 많이 많은 비용이 지출되었습니다. 비용을 더 지불해서 가상머신 사양을 올리고 디스크 용량을 조금 늘려도 그때만 잠깐 해결될 뿐, 얼마 가지 않아 같은 문제가 반복되었습니다. 그러던 중, 2019년 봄 쯤에 새로 들어온 팀원이 GitHub 에 있는 Chromedp 프로젝트와 그 프로젝트에 있는 chromedp, headless-shell 저장소를 소개해 줍니다.
+
+![](chromedp.png)
+
+[headless-shell](https://github.com/chromedp/docker-headless-shell) 프로젝트가 아주 인상적이더군요. Chromium 기반의 Headless Shell 형태 프로그램인데도, 서버에서 돌아가는데 필요한 것만 남기고 불필요한 부분을 다 날려서 Docker 이미지 용량이 고작 70~80MB 정도밖에 하지 않습니다. 이걸 보고 바로 기존 백엔드를 Go 로 전환해 볼까에 대한 생각을 하게 됩니다. 아무래도 Go 언어 자체가 동시성 처리에 강하고, 컴파일 하면 간단히 바이너리 하나만 나오는건 물론, 리소스 사용량도 적은 많은 장점이 있어 Go 로 전환을 하기로 결정하고, 어떻게 할지에 대해 검토를 시작했습니다.
+
+- 웹 프레임워크 : [Gin](https://github.com/gin-gonic/gin) 을 선택 했습니다.
+  - SKHU's 백엔드는 종합정보시스템, 학사행정시스템과 모바일 앱 사이에서 중간자 역할을 주로 하지 DB 쿼리나 세션 관리 같은 작업이나 프론트엔드를 서버에서 렌더링 하지도 않아. 사용이 간편하면서도 어떤 형태의 웹 서버 개발에 써도 괜찮고, 어느정도 검증된 것을 선택 했습니다. 많은 Go 기반 웹 프레임워크중 GitHub에서 가장 많은 Star 을 가진 것도 선택에 한몫 했습니다. 
+- 웹 드라이버 : 앞에서 언급한 headless-shell 을 개발한 팀의 [Chromedp](https://github.com/chromedp/chromedp)를 쓰기로 했습니다.
+- HTML Parser, Web Crawler 혹은 Web Scraper : 초반에는 [Colly](https://go-colly.org) 를 고려 했다가, 불필요한 기능이 많기도 하고, Colly 에서 의존성으로 쓰는 GoQuery 만으로도 충분할 듯 하여, [GoQuery](https://github.com/PuerkitoBio/goquery)를 선택했습니다.
+
+저는 Go 를 이때 처음 다뤄보는지라, 가장 먼저 [Tour of Go](https://tour.golang.org/) 를 훝어보면서 문법을 먼저 익혔습니다. Go 문법이 다른 프로그래밍 언어와는 다르게, 키워드도 적고 문법도 심플해서 기본적인 문법을 숙지 하는데 하루 정도면 충분했던 것 같습니다. 예전에 잠깐 Go 를 접해봤을 때는 GOPATH 때문에 제대로 다뤄보지도 못하고 포기 했었는데, 이제는 Go Modules 가 나오면서 그런것도 필요가 없어져 시작 하기가 더 쉬워졌습니다.
+
+Gin 으로 간단한 라우팅 구현부터 시작 했고, 로그인 부분을 먼저 구현 했습니다. Goroutine 과 Channel 을 이용해서 두 사이트에서 로그인을 동시해 하도록 구현 했습니다.
+
+```go
+...
+type LoginData struct {
+	Userid string `form:"userid" json:"userid" xml:"userid"  binding:"required"`
+	Userpw string `form:"userpw" json:"userpw" xml:"userpw"  binding:"required"`
+}
+
+func Login(c *gin.Context) {
+
+	var loginData LoginData
+	if err := c.ShouldBindJSON(&loginData); err != nil {
+		c.String(http.StatusBadRequest,
+			`Wrong login data form.
+			올바르지 않은 로그인 데이터 양식입니다.`)
+		return
+	}
+
+	if utf8.RuneCountInString(loginData.Userid) < 1 || utf8.RuneCountInString(loginData.Userpw) < 8 {
+		c.String(http.StatusBadRequest,
+			`ID or PW is empty. Or PW is shorter then 8 digits.
+			If your using password with less then 8 digits, please change it at forest.skhu.ac.kr
+			학번 또는 비밀번호가 비어있거나 비밀번호가 8자리 미만 입니다.
+			8자리 미만 비밀번호 사용 시, forest.skhu.ac.kr 에서 변경 후 사용해 주세요.`)
+	}
+
+	// User Agent 를 IE 로 설정
+	opts := append(chromedp.DefaultExecAllocatorOptions[:],
+		chromedp.UserAgent(consts.UserAgentIE))
+
+	//탭 2개 생성
+	allocCtx, cancelCtx := chromedp.NewExecAllocator(context.Background(), opts...)
+	defer cancelCtx()
+	forestCtx, cancelForestCtx := chromedp.NewContext(allocCtx, chromedp.WithLogf(log.Printf))
+	defer cancelForestCtx()
+	samCtx, cancelSamCtx := chromedp.NewContext(allocCtx, chromedp.WithLogf(log.Printf))
+	defer cancelSamCtx()
+
+	credentialOldChan := make(chan string)
+	credentialNewChan := make(chan string)
+	credentialNewTokenChan := make(chan string)
+	loginErrorChan := make(chan string)
+
+	var credentialOld, credentialNew, credentialNewToken string
+
+  // goroutine 2개 생성하여 동시에 작업 수행
+	go loginOnForest(forestCtx, &loginData, credentialOldChan, loginErrorChan)
+	go loginOnSam(samCtx, &loginData, credentialNewChan, credentialNewTokenChan, loginErrorChan)
+
+// 채널 통해서 결과 데이터 수신
+CREDENTIALS:
+	for {
+		select {
+		case errorMsg := <-loginErrorChan:
+			c.String(http.StatusUnauthorized, errorMsg)
+			return
+		case credentialOld = <-credentialOldChan:
+			if credentialNew != "" && credentialNewToken != "" {
+				break CREDENTIALS
+			}
+		case credentialNew = <-credentialNewChan:
+			if credentialOld != "" && credentialNewToken != "" {
+				break CREDENTIALS
+			}
+		case credentialNewToken = <-credentialNewTokenChan:
+			if credentialOld != "" && credentialNew != "" {
+				break CREDENTIALS
+			}
+		}
+	}
+	c.JSON(http.StatusOK, gin.H{
+		"credential-old":       credentialOld,
+		"credential-new":       credentialNew,
+		"credential-new-token": credentialNewToken,
+	})
+	return
+}
+
+func loginOnForest(ctx context.Context, loginData *LoginData,
+	credentialOld chan string, loginError chan string) {
+	loginPageURL := "..."
+	agreementPageURL := "..."
+	mainPageURL := "..."
+	triedLogin := false
+	isCredentialSent := false
+
+  // 탭에서 이벤트 받기
+	chromedp.ListenTarget(ctx, func(ev interface{}) {
+		go func() {
+      // 로딩 완료 이벤트
+			if _, ok := ev.(*page.EventFrameStoppedLoading); ok {
+				targets, _ := chromedp.Targets(ctx)
+				currentURL := targets[0].URL
+				switch currentURL {
+				case loginPageURL:
+					if triedLogin {
+						errorMsg :=
+							`Login Failed: Can't log in to forest.skhu.ac.kr, Check ID and PW again.
+							로그인 실패: (forest.skhu.ac.kr 에 로그인 할 수 없습니다. 학번과 비밀번호를 다시 확인하세요.`
+						loginError <- errorMsg
+						break
+					}
+				case agreementPageURL:
+					errorMsg :=
+						`Please complete the privacy policy agreement on forest.skhu.ac.kr
+						forest.skhu.ac.kr 에서 개인정보 제공 동의를 먼저 완료해 주세요.`
+					loginError <- errorMsg
+					break
+				case mainPageURL:
+					// 쿠키 추출
+					if !isCredentialSent {
+
+						chromedp.Run(ctx, chromedp.ActionFunc(func(ctx context.Context) error {
+							cookies, err := network.GetAllCookies().Do(ctx)
+							if err != nil {
+								return err
+							}
+
+							var buf bytes.Buffer
+							for _, cookie := range cookies {
+								buf.WriteString(fmt.Sprintf("%s=%s;", cookie.Name, cookie.Value))
+							}
+							result := buf.String()
+
+							credentialOld <- result
+							isCredentialSent = true
+							return nil
+						}))
+					}
+				}
+			}
+		}()
+	})
+
+  // 로그인 작업 수행
+	chromedp.Run(ctx, chromedp.Tasks{
+		chromedp.Navigate(loginPageURL),
+		chromedp.WaitReady(`txtID`, chromedp.ByID),
+		chromedp.SetValue(`txtID`, loginData.Userid, chromedp.ByID),
+		chromedp.SetValue(`txtPW`, loginData.Userpw, chromedp.ByID),
+		chromedp.SendKeys(`txtPW`, kb.Enter, chromedp.ByID),
+	})
+	triedLogin = true
+}
+
+// 학사행정시스템 로그인
+func loginOnSam(ctx context.Context, loginData *LoginData,
+	credentialNew chan string, credentialNewToken chan string,
+	loginError chan string) {
+	isCredentialSent := false
+	chromedp.ListenTarget(ctx, func(ev interface{}) {
+		go func() {
+			if _, ok := ev.(*page.EventFrameNavigated); ok {
+				targets, _ := chromedp.Targets(ctx)
+				currentURL := targets[0].URL
+				switch {
+				case strings.HasPrefix(currentURL, consts.SkhuCasURL):
+					// 로그인 수행
+					chromedp.Run(ctx, chromedp.Tasks{
+						chromedp.SendKeys(`#login-username`, loginData.Userid),
+						chromedp.SendKeys(`#login-password`, loginData.Userpw),
+						chromedp.SendKeys(`login-password`, kb.Enter, chromedp.ByID),
+					})
+				case strings.HasPrefix(currentURL, consts.SkhuSamURL):
+					// 로그인 완료 후 처리
+					if !isCredentialSent {
+						var tmpToken string
+            var tokenOK bool
+            // 쿠키와 토큰 추출
+						chromedp.Run(ctx, chromedp.Tasks{
+							chromedp.AttributeValue(`body`, `ncg-request-verification-token`, &tmpToken, &tokenOK, chromedp.ByQuery),
+							chromedp.ActionFunc(func(ctx context.Context) error {
+								cookies, err := network.GetAllCookies().Do(ctx)
+								if err != nil {
+									return err
+								}
+
+								var buf bytes.Buffer
+								for _, cookie := range cookies {
+									buf.WriteString(fmt.Sprintf("%s=%s;", cookie.Name, cookie.Value))
+								}
+
+								result := buf.String()
+
+								credentialNew <- result
+								if tokenOK {
+									credentialNewToken <- tmpToken
+								}
+								isCredentialSent = true
+								return nil
+							}),
+						})
+					}
+        }
+        // 요소 속성 변경 이벤트
+			} else if ev, ok := ev.(*dom.EventAttributeModified); ok {
+        // 로그인 오류 처리
+				if ev.Name == "class" && ev.Value == "ng-scope modal-open" {
+					errorMsg :=
+						`Login Failed: Can't log in to sam.skhu.ac.kr, Check ID and PW again.
+						로그인 실패: sam.skhu.ac.kr 에 로그인 할 수 없습니다. 학번과 비밀번호를 다시 확인하세요.`
+					loginError <- errorMsg
+				}
+			}
+		}()
+	})
+	chromedp.Run(ctx, chromedp.Tasks{
+		chromedp.Navigate(consts.SkhuSamURL),
+	})
+}
+```
+
+Chromedp 는 Puppeteer 와 다르게 구성도 특이하고 쓰기도 조금 복잡한 편입니다. Puppeteer 에서는 대부분의 기능을 쉽게 사용할 수 있고 문서화도 잘 되어 있는 편인데, Chromedp 는 먼저 Chrome Dev Protocol 스팩에서 자동으로 코드를 생성한 라이브러리인 [cdproto](github.com/chromedp/cdproto) 가 있고, 이를 Chromedp 가 추상화 해 놓은 형태인데 모든 부분을 추상화 한 것 아니여서, 제대로 사용 하려면 Chromedp 문서와 cdproto 문서를 같이 봐 가면서 사용해야 했습니다. 예전에 C 언어로 GObject 를 써보면서 받은 절차지향에 객체지향은 어거지로 넣은것을 쓰는것과 약간 비슷한 느낌 이였던 것 같네요.
+
+개설과목 검색 기능을 구현하면서, 특정 스크립트 로드를 막는 것을 구현해야 했는데, 그때 이 느낌을 좀 더 많이 받은 것 같네요. Puppeteer 에서는 제공하는 함수 중에 HTTP 요청을 잡아서 떨구거나 수정하는 API 가 있는데, Chromedp 의 경우는 cdproto 의 함수를 가져다 써야 했습니다.
+
+```go
+import (
+  ...
+	"github.com/chromedp/cdproto/network"
+	"github.com/chromedp/cdproto/page"
+  "github.com/chromedp/chromedp"
+  ...
+  
+)
+chromedp.Run(ctx, chromedp.Tasks{
+		chromedp.Navigate(consts.ForestURL),
+		chromedp.ActionFunc(func(context context.Context) error {
+      // Chromedp 가 아닌 cdproto 의 network 패키지에 있는 Enable() 로 네트워크 추적 활성화
+			network.Enable().Do(context)
+
+			// 쿠키 설정도 마찬가지
+			for _, item := range cookies {
+				cookieParam := network.SetCookie(item.Name, item.Value)
+				cookieParam.URL = targetURL
+				ok, err := cookieParam.Do(context)
+				if ok {
+					fmt.Println("Cookie Set")
+				} else if err != nil {
+					fmt.Println(err)
+				}
+			}
+
+			// 특정 URL 차단도 마찬가지
+			network.SetBlockedURLS(
+				[]string{
+					consts.CoreSecurity,
+				}).Do(context)
+			return nil
+		}),
+    chromedp.Navigate(targetURL),
+    ...
+})
+```
+
+jsdom 을 대체하는 GoQuery 는 jsdom 보다 훨씬 쓰기 편했습니다. 문서화는 GoDoc 을 통해 충분히 잘 되어 있고, API 도 쓰기 쉽게 잘 구성되어 있습니다. 아래는 GitHub의 GoQuery 저장소에서 발췌한 예제입니다.
+
+```go
+package main
+
+import (
+  "fmt"
+  "log"
+  "net/http"
+
+  "github.com/PuerkitoBio/goquery"
+)
+
+func ExampleScrape() {
+  // Request the HTML page.
+  res, err := http.Get("http://metalsucks.net")
+  if err != nil {
+    log.Fatal(err)
+  }
+  defer res.Body.Close()
+  if res.StatusCode != 200 {
+    log.Fatalf("status code error: %d %s", res.StatusCode, res.Status)
+  }
+
+  // Load the HTML document
+  doc, err := goquery.NewDocumentFromReader(res.Body)
+  if err != nil {
+    log.Fatal(err)
+  }
+
+  // Find the review items
+  doc.Find(".sidebar-reviews article .content-block").Each(func(i int, s *goquery.Selection) {
+    // For each item found, get the band and title
+    band := s.Find("a").Text()
+    title := s.Find("i").Text()
+    fmt.Printf("Review %d: %s - %s\n", i, band, title)
+  })
+}
+
+func main() {
+  ExampleScrape()
+}
+```
+
+Gin 의 미들웨어 기능으로 사용자가 HTTP Header 에 넣어 보낸 세션 데이터를 검증하고 변환하는 과정을 구현한 코드가 중복되지 않도록 했습니다. 미들웨어 기능은 사실은 Express.js 에도 있는 기능인데, 이번에 Gin 을 쓰면서 부터야 활용해 보게 되었네요.
+
+```go
+
+func CredentialOldCheckMiddleware() gin.HandlerFunc {
+	return func(c *gin.Context) {
+    credential := c.GetHeader("Credential")
+    //비어 있는지 확인
+		if credential == "" {
+			fmt.Println("empty credential")
+			c.String(http.StatusBadRequest, consts.CredentialMalformedMsg)
+			c.Abort()
+			return
+    }
+    // 필요한 데이터가 모두 있는지 확인
+		for _, item := range []string{"ASP.NET_SessionId", ".AuthCookie", "UniCookie", "KIS"} {
+			if !strings.Contains(credential, item) {
+				fmt.Println("not full cookie")
+				c.String(http.StatusBadRequest, consts.CredentialMalformedMsg)
+				c.Abort()
+				return
+			}
+    }
+    // 값 갯수 확인
+		if len(strings.Split(credential, ";")) != 5 {
+			fmt.Println("cookie number wrong")
+			c.String(http.StatusBadRequest, consts.CredentialMalformedMsg)
+			c.Abort()
+			return
+    }
+    // 쿠키로 변환
+		cookies, err := ConvertToCookies(credential)
+		if err != nil {
+			fmt.Println("Wrong Cookie")
+			c.String(http.StatusBadRequest, consts.CredentialMalformedMsg)
+			c.Abort()
+			return
+    }
+    //Context 에 저장해서 http 요청 핸들러에서 사용하도록 구성
+		c.Set("CredentialOldCookies", cookies)
+		c.Set("CredentialOld", credential)
+		c.Next()
+	}
+}
+```
+
+이런 씩으로 시간 여유가 있을 때 마다 가능한 많은 시간을 투자해서, 기존 Node.js 백엔드를 Go 로 전환하는 작업을 했는데요. 이렇게 전환해서 어느정도 작동하는 버전이 나오는데 2주 정도. 이후 1주 정도 더 걸려서 실제 서비스에 적용 가능한 버전이 나왔습니다. 아무래도 로직 자체는 이미 정해져 있고, 다른 문법으로 옮기기만 하면 되는 점. 그리고 군대에서 교대근무를 하다 보니 개인 시간이 많은 편인 것도 한몫 한 것 같습니다. 예전과는 달리, 프로젝트에 적극적으로 참여하는 팀원도 있어 빠르게 진행할 수 있었습니다.
+
+이렇게 해서 Docker 이미지로까지 빌드를 하고, 실제 배포까지 했는데요. 결과는 꽤나 성공적 이였습니다.
+컨테이너 이미지 용량은 headless-shell 까지 다 포함 했음에도, 200MB 수준. 기존의 5분의 1로 줄었고. 메모리 사용량은 7~8분의 1 수준으로 감소 했습니다.
+
+로그인 수행 속도는 기존에 비해 2배 더 빨라 졌습니다. 짧은 시간에 훨씬 더 많은 수의 로그인 요청을 수행할 수 있게 되었습니다.
+
+이렇게 Go 로의 전환을 성공적으로 마쳤고, 기존에 자주 발생한 스토리지 포화나 리소스 부족으로 인한 서비스 중단 문제 등을 드디어 해결하게 되었습니다.
+
+사실 Go 로 전환한 새로운 백엔드도 문제가 아직 좀 있는 편입니다. 하지만 예전 Node.js 기반 백엔드를 운영할 때에 비해 상황이 훨씬 좋아졌으며, 개인적으로 SKHU's 프로젝트를 하면서 "진작 Go 로 바꿀 껄" 이라는 생각이 들 정도로 굉장히 잘 한 선택 이였던 것 같습니다.
