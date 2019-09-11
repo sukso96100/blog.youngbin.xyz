@@ -1,3 +1,9 @@
 .headerSection::before{
     filter: brightness(10%)
 }
+
+blockquote{
+    border-left-color: silver;
+    border-left-width: thick;
+    font-style: italic;
+}
