@@ -3,6 +3,7 @@ description: '통신사 공유기 덕에 급하게 하루이틀 삽질한 후기
 date: 2020-08-07
 title: "라즈베리파이3 Model B 무선공유기로 활용하기"
 tags: ["radpberry-pi", "openwrt", "linux", "tutorial", "tip"]
+image: './rpi3b.jpg'
 ---
 최근 모니터와 Mi TV Stick 을 구입했다. Mi TV Stick 은 안드로이드 TV 스틱인데, 잘때 침대에서 모니터에 연결해다가 넷플릭스 보려고 같이 구입했다.
 쿠폰 적용하면 2만원 아래로 구입이 가능해서 구입에 별 부담이 없다. 어제 수령해다가 셋팅하기 위해 모니터에 연결하고 집에있는 WiFi 에 연결을 시도했다.
