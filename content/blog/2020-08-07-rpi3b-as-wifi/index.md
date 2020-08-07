@@ -211,6 +211,15 @@ config wifi-iface 'default_radio0'
 	option key 'password1234'
 ```
 `option network 'lan'` 을 아래처럼 `option network 'wifi'` 로 변경하여, 앞서 정의한 `wifi` 인터페이스를 사용하도록 설정한다.
+```
+config wifi-iface 'default_radio0'
+	option device 'radio0'
+	option network 'wifi'
+	option mode 'ap'
+	option ssid 'Youngbin-RPi3B'
+	option encryption 'psk2'
+	option key 'password1234'
+```
 그리고, 라즈베리파이에 접속하는 기기에 라즈베리파이가 IP 를 자동으로 할당하도록 DHCP 풀 설정을 한다.
 `/etc/config/dhcp` 를 수정하면 된다.
 ```
