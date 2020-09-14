@@ -339,7 +339,7 @@ MainActivity.java 를 열어 동작을 구현해 봅시다. 우리는 Fragment �
 ```
 
 문자열 배열로 ListView 에 넣을 데이터를 하나 만듭시다. 이름은 myArray 라고 하겠습니다.
-String[] 현태로 데이터를 만들고, 나중에 유동적으로 데이러를 넣고 빼기 위해, List<String>형태로 변환 하겠습니다
+String[] 형태로 데이터를 만들고, 나중에 유동적으로 데이러를 넣고 빼기 위해, `List<String>`형태로 변환 하겠습니다
 
 ```java
 ...
