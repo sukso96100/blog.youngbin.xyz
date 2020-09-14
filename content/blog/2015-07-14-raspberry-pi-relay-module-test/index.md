@@ -17,7 +17,7 @@ image: "./connect_relay_to_rpi_with_jumper.png"
 
 아래 그림을 참고해서 릴레이 모듈을 점퍼 케이블을 이용해 연결해 봅시다.
 그림에는 파이와 릴레이 사이 연결할 부분만 표시해 두었습니다.
-<img src="/blogimgs/connect_relay_to_rpi_with_jumper.png"><br>
+<img src="/blogimgs/connect_relay_to_rpi_with_jumper.png">
 
 연결 하셨스면. 이제 테스트를 한번 해 봅시다.
 아래 Python 스크립트로 테스트 해 봅시다. 단순히 릴레이 모듈 각 체널 스위치 켜고 끄는 스크립트 입니다.

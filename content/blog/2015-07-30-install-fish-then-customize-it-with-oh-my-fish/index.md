@@ -72,7 +72,7 @@ curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/tools/install.fish |
 
 이제 테마와 플러그인을 설치해 봅시다.
 저는 'theme' 플러그인과 'agnoster' 테마를 설치할 겁니다. 그러기 위해서, 설정파일인, "~/.config/fish/config.fish"
-를 열어줍시다.<br> 평소 사용하시는 텍스트 에디터로 열어주세요. 가장 하단에 다음을 추가해 줍시다.
+를 열어줍시다. 평소 사용하시는 텍스트 에디터로 열어주세요. 가장 하단에 다음을 추가해 줍시다.
 
 ```bash
 Theme 'agnoster'

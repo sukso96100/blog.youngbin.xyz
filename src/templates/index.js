@@ -1,20 +1,18 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { navigate, graphql } from "gatsby"
 
 // import { rhythm } from "../utils/typography"
 import Shell from "../components/shell"
-import Paper from "@material-ui/core/Paper"
-import Button from "@material-ui/core/Button"
-import Grid from "@material-ui/core/Grid"
-import PostCover from "../components/postCover"
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import PostCard from "../components/postCard"
-import { auto } from "eol"
+import { Grid, Text, Container } from "theme-ui"
 
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
-    const posts = Array.from(data.allMarkdownRemark.edges)
+    const posts = Array.from(data.allMdx.edges)
     const { prev, next, numPages, currentPage } = this.props.pageContext
 
     return (
@@ -23,48 +21,38 @@ class BlogIndex extends React.Component {
         title={siteTitle}
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
       >
-        <PostCover
-          post={posts[0].node}
-          siteTitle={siteTitle}
-          url={posts[0].node.fields.slug}
-        />
-        <Paper style={{ borderRadius: 40, minHeight: "80vh", marginTop: -50 }}>
-          <div
-            style={{
-              marginLeft: "auto",
-              marginRight: "auto",
-              maxWidth: 1000,
-              padding: 16,
-              paddingBottom: 80,
-            }}
-          >
-            <Grid container spacing={24} style={{ paddingBottom: 64 }}>
-              {posts.map(({ node }, index) => {
-                if (index > 0) {
-                  return (
-                    <Grid item xs={12} sm={6} key={node.fields.slug}
-                    >
-                      <PostCard post={node}/>
-                    </Grid>
-                  )
-                }
-              })}
-            </Grid>
+        <div
+          style={{
+            marginLeft: "auto",
+            marginRight: "auto",
+            maxWidth: 1200,
+            padding: 16,
+            paddingBottom: 80,
+          }}
+        >
+          <Grid gap={3} columns={[1, 2, 3]}>
+            {posts.map(({ node }, index) => (
+              <PostCard post={node} />
+            ))}
+          </Grid>
+          <Grid width={[3, 3, 3]}>
             {prev && (
-              <Link to={prev} style={{ textDecoration: "none" }}>
-                <Button>Previous</Button>
-              </Link>
+              <Container p={4} bg="muted" onClick={() => navigate(prev)} style={{textAlign: 'left'}}>
+                <FontAwesomeIcon icon={faArrowLeft} />
+              </Container>
             )}
-            <b>
-              {currentPage}/{numPages}
-            </b>
+            <Container p={4} bg="muted" style={{textAlign: 'center'}}>
+              <Text>
+                {currentPage}/{numPages}
+              </Text>
+            </Container>
             {next && (
-              <Link to={next} style={{ textDecoration: "none" }}>
-                <Button>Next</Button>
-              </Link>
+              <Container p={4} bg="muted" onClick={() => navigate(next)} style={{textAlign: 'right'}}>
+                <FontAwesomeIcon icon={faArrowRight} />
+              </Container>
             )}
-          </div>
-        </Paper>
+          </Grid>
+        </div>
       </Shell>
     )
   }
@@ -79,14 +67,14 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(
+    allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
     ) {
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 100)
           fields {
             slug
           }

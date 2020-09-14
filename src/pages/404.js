@@ -1,15 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { Heading, Text, Badge, Image, Divider, Grid, Button } from "theme-ui"
 
 // Utilities
 import kebabCase from "lodash/kebabCase"
 
 // Components
 import { Link, graphql } from "gatsby"
-import Chip from "@material-ui/core/Chip"
-import Avatar from "@material-ui/core/Avatar"
-import Paper from "@material-ui/core/Paper"
-import Button from "@material-ui/core/Button"
 import Shell from "../components/shell"
 
 const NotFoundPage = ({
@@ -19,41 +16,29 @@ const NotFoundPage = ({
     },
   },
 }) => (
-  <Shell title="All Tags">
+  <Shell title={title}>
     <div
       style={{
-        margin: 0,
-        width: "100%",
-        height: "100vh",
-        minHeight: 650,
-        background: "black",
-        color: "white",
+        marginLeft: "auto",
+        marginRight: "auto",
+        maxWidth: 1200,
+        padding: 16,
+        paddingTop: 64,
       }}
     >
-      <div
-        style={{
-          marginLeft: "auto",
-          marginRight: "auto",
-          maxWidth: 1000,
-          padding: 16,
-          paddingTop: 64,
-        }}
-      >
-        <h3>{title}</h3>
-        <br />
-        <h1>Ooops! Nothing was found here!</h1>
-        <br />
-        <Link to={"/"} style={{ textDecoration: "none" }}>
-          <Button>Move to blog home</Button>
-        </Link>
-      </div>
+      <Heading>404: Page not found!</Heading>
+      <Text>Nothing was found here!</Text>
+      <br />
+      <Link to={"/"} style={{ textDecoration: "none" }}>
+        <Button>Move to blog home</Button>
+      </Link>
     </div>
   </Shell>
 )
 
 NotFoundPage.propTypes = {
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
+    allMdx: PropTypes.shape({
       group: PropTypes.arrayOf(
         PropTypes.shape({
           fieldValue: PropTypes.string.isRequired,

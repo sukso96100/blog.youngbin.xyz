@@ -5,7 +5,7 @@ tags: ["update", "tip", "tutorial", "shell", "linux", "ubuntu", "archlinux", "fe
 image: "./zsh-is-awesome.png"
 ---
 
-보통 우리가 리눅스나 맥에서 터미널을 사용할 때 사용하게 되는 명령줄은 셸 bash 입니다.<br>
+보통 우리가 리눅스나 맥에서 터미널을 사용할 때 사용하게 되는 명령줄은 셸 bash 입니다.
 이 게시물에서는 기존에 우리가 쓰던 bash 대신 zsh 를 설치하고, zsh 에 대한 간단한 설명과 꾸미는 방법을 간단히 다뤄보고자 합니다.
 
 ## bash? zsh?
@@ -56,7 +56,7 @@ Fedora
  zsh --version
 ```
 
-.zshrc 설정을 하려면 아래 명령줄을 이용하세요, 쉽게 설정 가능합니다.<br>
+.zshrc 설정을 하려면 아래 명령줄을 이용하세요, 쉽게 설정 가능합니다.
 oh my zsh 설치 시 .zshrc 파일 설정을 해 주기에 반드시 하실 필요는 없습니
 다.
 ```bash
@@ -81,7 +81,7 @@ wget 을 이용하여 설치하기
 
 ## 테마 적용하기
 
-테마를 적용하려면, .zshrc 수정 후 저장합니다.ZSH_THEME 값을 원하시는 테마 이름으로 바꾸시면 됩니다. <br>
+테마를 적용하려면, .zshrc 수정 후 저장합니다.ZSH_THEME 값을 원하시는 테마 이름으로 바꾸시면 됩니다. 
 [여기](https://github.com/robbyrussell/oh-my-zsh/wiki/Themes)에서 어떤 테마가 있는지 살펴보세요.
 전 agnoster 테마로 설정하겠습니다.
 
@@ -91,7 +91,7 @@ ZSH_THEME="agnoster"
 ...
 ```
 
-agnoster 를 포함한 일부 테마는 특수한 폰트를 요구합니다 [여기](https://github.com/powerline/fonts) 에서 <br>
+agnoster 를 포함한 일부 테마는 특수한 폰트를 요구합니다 [여기](https://github.com/powerline/fonts) 에서 
 Download ZIP 을 눌러 폰트를 받으신 후, 압축을 풀어 해당 폴더에서 다음과 같은 명령줄을 실행하여 폰트를 설치합
 니다.
 ```bash
@@ -99,10 +99,10 @@ Download ZIP 을 눌러 폰트를 받으신 후, 압축을 풀어 해당 폴더�
 ```
 
 ## 끝!
-<img src="/blogimgs/zsh-is-awesome.png"><br>
-전 여기까지만 알려드릴거고 나머지 다른 커스터마이징은 oh my zsh 문서를 읽어보세요.<br>
-제가 사용중인 zsh 모습은 사진과 같습니다. 참고로 색상 팔레트는 솔라리스 사용중 입니다. gnome-terminal 의 경우 내장되어 있습니다.<br>
-터미널 폰트는 Ubuntu Mono derivative Powerline 사용 중입니다.<br>
+<img src="/blogimgs/zsh-is-awesome.png">
+전 여기까지만 알려드릴거고 나머지 다른 커스터마이징은 oh my zsh 문서를 읽어보세요.
+제가 사용중인 zsh 모습은 사진과 같습니다. 참고로 색상 팔레트는 솔라리스 사용중 입니다. gnome-terminal 의 경우 내장되어 있습니다.
+터미널 폰트는 Ubuntu Mono derivative Powerline 사용 중입니다.
 
 - [oh my zsh 위키](https://github.com/robbyrussell/oh-my-zsh/wiki)
 - [oh my zsh 커스터마이징](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization)

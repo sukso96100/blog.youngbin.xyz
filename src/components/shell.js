@@ -1,44 +1,23 @@
 import React, { useState } from "react"
 import { Link, graphql, StaticQuery } from "gatsby"
-import Drawer from "@material-ui/core/Drawer"
-import List from "@material-ui/core/List"
-import Divider from "@material-ui/core/Divider"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemIcon from "@material-ui/core/ListItemIcon"
-import ListItemText from "@material-ui/core/ListItemText"
-import AppBar from "@material-ui/core/AppBar"
-import Toolbar from "@material-ui/core/Toolbar"
-import IconButton from "@material-ui/core/IconButton"
-
-import SearchIcon from "@material-ui/icons/Search"
-import MoreIcon from "@material-ui/icons/MoreVert"
-import MenuIcon from "@material-ui/icons/Menu"
-import HomeIcon from "@material-ui/icons/Home"
-import LabelIcon from "@material-ui/icons/Label"
-import WebIcon from "@material-ui/icons/Language"
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faGithub,
   faFacebook,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons"
+import {
+  faGlobeAsia,
+  faHome,
+  faTags,
+  faSearch,
+} from "@fortawesome/free-solid-svg-icons"
+import { Heading, Text, Grid } from "theme-ui"
 import SEO from "../components/seo"
-import Search from "../components/search"
+
+// import Search from "../components/search"
 
 export default function Shell(props) {
-  const [drawer, setDrawer] = useState(false)
-  const [searchState, setSearch] = useState(false)
-  const toggleDrawer = event => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return
-    }
-    setDrawer(!drawer)
-  }
-
   return (
     <StaticQuery
       query={socialQuery}
@@ -47,103 +26,110 @@ export default function Shell(props) {
         return (
           <React.Fragment>
             <SEO title={props.title} keywords={props.keywords} />
-            <div>{props.children}</div>
-            <Search open={searchState} handleClose={() => setSearch(false)} />
-            <AppBar
-              position="fixed"
-              color="primary"
-              style={{
-                margin: 0,
-                top: "auto",
-                bottom: 0,
-                background: "white",
-                color: "black",
+            <Grid
+              gap={2}
+              columns={[1, "3fr 1fr", "4fr 1fr"]}
+              sx={{
+                marginLeft: "auto",
+                marginRight: "auto",
+                maxWidth: 1200,
+                padding: 16,
+                paddingBottom: 40,
+                paddingTop: 40,
               }}
             >
-              <Toolbar style={{ display: "flex", flexDirection: "row" }}>
-                <IconButton
-                  edge="start"
-                  color="inherit"
-                  aria-label="Open drawer"
-                  onClick={() => setDrawer(!drawer)}
-                  onClose={() => setDrawer(false)}
-                  style={{ flex: 0 }}
-                >
-                  <MenuIcon />
-                </IconButton>
-                <div style={{ flex: 1 }} />
-                <IconButton
-                  color="inherit"
-                  edge="end"
-                  style={{ flex: 0 }}
-                  onClick={() => setSearch(true)}
-                >
-                  <SearchIcon />
-                </IconButton>
-              </Toolbar>
-            </AppBar>
-            <Drawer
-              anchor="left"
-              open={drawer}
-              onClick={e => toggleDrawer(e)}
-              onKeyDown={e => toggleDrawer(e)}
-            >
-              <div style={{ width: 250 }} role="presentation">
-                <List>
-                  {[
-                    { label: "Home", path: "/", icon: <HomeIcon /> },
-                    { label: "Tags", path: "/tags", icon: <LabelIcon /> },
-                  ].map((item, index) => (
-                    <Link
-                      to={item.path}
-                      onClick={e => toggleDrawer(e)}
-                      style={{ textDecoration: "none" }}
-                    >
-                      <ListItem button key={item.label}>
-                        <ListItemIcon>{item.icon}</ListItemIcon>
-                        <ListItemText primary={item.label} />
-                      </ListItem>
-                    </Link>
-                  ))}
-                </List>
-                <Divider />
-                <List>
-                  {[
-                    {
-                      label: social.web.title,
-                      path: social.web.url,
-                      icon: <WebIcon />,
-                    },
-                    {
-                      label: "GitHub",
-                      path: `https://github.com/${social.github}`,
-                      icon: <FontAwesomeIcon icon={faGithub} />,
-                    },
-                    {
-                      label: "Facebook",
-                      path: `https://fb.me/${social.faceook}`,
-                      icon: <FontAwesomeIcon icon={faFacebook} />,
-                    },
-                    {
-                      label: "Twitter",
-                      path: `https://twitter.com/${social.twitter}`,
-                      icon: <FontAwesomeIcon icon={faTwitter} />,
-                    },
-                  ].map((item, index) => (
-                    <a
-                      href={item.path}
-                      onClick={e => this.toggleDrawer(e)}
-                      style={{ textDecoration: "none" }}
-                    >
-                      <ListItem button key={item.label}>
-                        <ListItemIcon>{item.icon}</ListItemIcon>
-                        <ListItemText primary={item.label} />
-                      </ListItem>
-                    </a>
-                  ))}
-                </List>
+              <div style={{ flex: 1 }}>
+                <Heading>{props.title}</Heading>
+                <Text style={{ marginTop: 8 }}>
+                  {data.site.siteMetadata.description}
+                </Text>
               </div>
-            </Drawer>
+              <div>
+                {[
+                  {
+                    label: social.web.title,
+                    path: "/",
+                    icon: <FontAwesomeIcon icon={faHome} />,
+                  },
+                  {
+                    label: social.web.title,
+                    path: "/tags",
+                    icon: <FontAwesomeIcon icon={faTags} />,
+                  },
+
+                  {
+                    label: "Search",
+                    path: "/",
+                    icon: <FontAwesomeIcon icon={faSearch} />,
+                  },
+                ].map((item, index) => (
+                  <a
+                    href={item.path}
+                    style={{
+                      textDecoration: "none",
+                      color: "black",
+                      padding: 8,
+                    }}
+                  >
+                    {item.icon}
+                  </a>
+                ))}
+              </div>
+            </Grid>
+            <div>{props.children}</div>
+            <Grid
+              gap={2}
+              columns={[1, "3fr 1fr", "4fr 1fr"]}
+              sx={{
+                marginLeft: "auto",
+                marginRight: "auto",
+                maxWidth: 1200,
+                padding: 16,
+                paddingBottom: 40,
+                paddingTop: 40,
+              }}
+            >
+              <div style={{ flex: 1 }}>
+                <Text style={{ marginTop: 8 }}>
+                  {data.site.siteMetadata.copyright}
+                </Text>
+              </div>
+              <div>
+                {[
+                  {
+                    label: social.web.title,
+                    path: social.web.url,
+                    icon: <FontAwesomeIcon icon={faGlobeAsia} />,
+                  },
+                  {
+                    label: "GitHub",
+                    path: `https://github.com/${social.github}`,
+                    icon: <FontAwesomeIcon icon={faGithub} />,
+                  },
+                  {
+                    label: "Facebook",
+                    path: `https://fb.me/${social.faceook}`,
+                    icon: <FontAwesomeIcon icon={faFacebook} />,
+                  },
+                  {
+                    label: "Twitter",
+                    path: `https://twitter.com/${social.twitter}`,
+                    icon: <FontAwesomeIcon icon={faTwitter} />,
+                  },
+                ].map((item, index) => (
+                  <a
+                    href={item.path}
+                    style={{
+                      textDecoration: "none",
+                      color: "black",
+                      padding: 8,
+                    }}
+                  >
+                    {item.icon}
+                  </a>
+                ))}
+              </div>
+            </Grid>
           </React.Fragment>
         )
       }}
@@ -155,6 +141,8 @@ const socialQuery = graphql`
   query {
     site {
       siteMetadata {
+        description
+        copyright
         social {
           github
           twitter

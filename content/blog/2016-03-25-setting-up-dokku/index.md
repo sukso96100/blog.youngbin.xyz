@@ -48,7 +48,7 @@ A / *.example.com / <서버 IP 주소>
 설치와 DNS 설정 등을 마쳤다면, 이번에는 서버 쪽에서 Dokku 초기 설정을 할 차례입니다.
 웹 브라우저를 열고, 주소창에 서버의 IP 주소나 도메인을 쳐서 이동하세요. 아래 이미지와 같은 화면이 나타날 것입니다.
 
-<img src="/blogimgs/dokku_setup.png"><br>
+<img src="/blogimgs/dokku_setup.png">
 
 > 이미지 출처 : https://assets.digitalocean.com/articles/dokku_intro/dokku_setup.png
 

@@ -4,7 +4,7 @@ date: "2014-11-02"
 tags: ["tutorial", "python", "simplecv", "develop", "development", "raspberry-pi", "linux", "computer-vision"]
  # image: ''
 ---
-<img class="image-wrapper" src="https://sukso96100.github.io/blogimgs/SM_logo_color.png"><br>
+<img class="image-wrapper" src="https://sukso96100.github.io/blogimgs/SM_logo_color.png">
 SimpleCV 는 파이썬 언어를 이용하여 컴퓨터 비전 앱을 쉽게 작성 할 수 있도록 도와주는 오픈소스 프레임워크 입니다.
 이 프레임워크를 활용하면 고유값,다양하고 복잡한 얼굴인식 알고리즘, 행렬 대 비트맵 스토리지, 비트 깊이 등등의
 복잡하고 어려운 것들을 사전에 공부하실 필요 없이 쉽게 컴퓨터 비전 앱을 작성 하실 수 있습니다.
@@ -114,7 +114,7 @@ python simplecv.py
 ```
 
 정상적으로 실행이 된다면, 아래와 같은 화면이 나타날 것입니다.
-<img class="image-wrapper" src="https://sukso96100.github.io/blogimgs/simplecv_example.png"><br>
+<img class="image-wrapper" src="https://sukso96100.github.io/blogimgs/simplecv_example.png">
 
 ### 오류 해결하기.
 오류가 나는 경우 해결하는 방법 들 입니다. 시험 해 보는대 오류가 난다면, 참고해 보세요.

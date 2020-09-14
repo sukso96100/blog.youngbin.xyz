@@ -5,63 +5,48 @@ import PropTypes from "prop-types"
 import kebabCase from "lodash/kebabCase"
 
 // Components
-import { Link, graphql } from "gatsby"
-import Chip from "@material-ui/core/Chip"
-import Avatar from "@material-ui/core/Avatar"
-import Paper from "@material-ui/core/Paper"
+import { navigate, graphql } from "gatsby"
 import Shell from "../components/shell"
+import { Heading, Text, Badge, Grid, Container } from "theme-ui"
 
 const TagsPage = ({
   data: {
-    allMarkdownRemark: { group },
+    allMdx: { group },
     site: {
       siteMetadata: { title },
     },
   },
 }) => (
-  <Shell title="All Tags">
+  <Shell title={title}>
     <div
       style={{
-        margin: 0,
-        width: "100%",
-        minHeight: "100vh",
-        background: "black",
-        color: "white",
+        marginLeft: "auto",
+        marginRight: "auto",
+        maxWidth: 1200,
+        padding: 16,
+        paddingTop: 32,
+        paddingBottom: 64,
       }}
     >
-      <div
-        style={{
-          marginLeft: "auto",
-          marginRight: "auto",
-          maxWidth: 1000,
-          padding: 16,
-          paddingTop: 64,
-          paddingBottom: 128
-        }}
-      >
-        <h3>{title}</h3>
-        <br />
-        <h1>All Tags</h1>
-        <br />
+      <Heading>All Tags</Heading>
+      <Grid gap={3} columns={[2, 3, 4]} sx={{marginTop: 10}}>
         {group.map(tag => (
-          <Link
-            to={`/tags/${kebabCase(tag.fieldValue)}/`}
-            style={{ margin: 16, textDecoration: "none" }}
+          <Container
+          sx={{padding: 2}}
+            onClick={() => navigate(`/tags/${kebabCase(tag.fieldValue)}/`)}
           >
-            <Chip
-              avatar={<Avatar>{tag.totalCount}</Avatar>}
-              label={tag.fieldValue}
-            />
-          </Link>
+            <Badge sx={{ margin: 1 }}>{tag.fieldValue}</Badge>
+            <Text>{tag.totalCount} Posts</Text>
+          </Container>
         ))}
-      </div>
+      </Grid>
     </div>
   </Shell>
 )
 
 TagsPage.propTypes = {
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
+    allMdx: PropTypes.shape({
       group: PropTypes.arrayOf(
         PropTypes.shape({
           fieldValue: PropTypes.string.isRequired,
@@ -86,7 +71,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(limit: 2000) {
+    allMdx(limit: 2000) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount

@@ -186,7 +186,7 @@ http://developer.android.com/sdk/index.html
 - 기다리면, 여러분들의 안드로이드 디바이스에 테스트 하고자 하는 앱이 설치되고 실행 됩니다.
 
 ## Gradle 빌드 시스템
-<img src="/blogimgs/app_build.png"><br>
+<img src="/blogimgs/app_build.png">
 안드로이드 스튜디오에서, 앱은 Gradle 이라는 빌드 시스템에 의해 빌드 됩니다. Gradle 은 일종의 세련된(?) 빌드 시스템으로 안드로이드 스튜디오와 함께 공개 되었습니다. DSL 이라는 선언문 형태의 언어로 빌드 스크립트를 작성하여 빌드를 설정합니다. 간단히 빌드 과정에 대해 알아봅시다.
 
 - 안드로이드 프로젝트 빌드가 시작됩니다.
@@ -200,7 +200,7 @@ http://developer.android.com/sdk/index.html
 
 ## 코드 살펴보기
 기본적으로 생성된 코드를 한번 살펴 봅시다. 좌측 프로젝트 탐색 메뉴에서 MainActivity.java 를 열어주세요.
-<img src="/blogimgs/mainactivity.png"><br>
+<img src="/blogimgs/mainactivity.png">
 
 코드의 상단에는 아래와 같은 내용이 있습니다.
 MainActivity 클래스가 정의 되어 있는 것을 보실 수 있습니다.
@@ -241,12 +241,12 @@ Activity 는 뭐고, Fragment 는 뭘까요?
 
 - Activity 는 안드로이드 앱 에서의 하나의 화면을 의미합니다. 보통 레이아웃을 정의하는 xml 파일과, 동작을 처리하는 Java 소스 파일로 구성됩니다.
 - Fragment 는 Activity 내부에 표시 될 수 있는 화면 모듈 입니다. Activity 처럼 xml로 레이아웃을 정의하고 Java 로 동작을 처리 합니다. 하나의 Activity 에 여려 Fragment 를 포함 시키실 수 있습니다. Activity 내부에 표시되는 화면 모듈이라서, Activity 가 없으면 화면에 표시되지 못합니다.
-<img src="/blogimgs/activity_and_fragment.png"><br>
+<img src="/blogimgs/activity_and_fragment.png">
 
 ## 레이아웃 만들기
 간단한 Fragment 레이아웃을 하나 만들어 봅시다. 좌측 프로젝트 탐색 메뉴에서 fragment_main.xml 파일을 열어주세요.
 
-<img src="/blogimgs/fragment_layout.png"><br>
+<img src="/blogimgs/fragment_layout.png">
 사진과 같은 화면이 보이나요? 왼쪽 팔레트에서 원하시는 뷰(View) 를 마우스로 드래그해서 배치해 보세요. 안드로이드 에서는 화면에 표시되는 각각의 구성요소(예 : 버튼, 텍스트, 이미지 등) 을 통틀어서 뷰(View) 라고 합니다. View 도 종류가 매우 다양합니다.
 
 ## 각종 View 에 대해 알아봅시다.
@@ -269,7 +269,7 @@ View 도 상당히 그 종류가 다양합니다. 나눠보자면 대략 이렇�
  - FrameLayout : 하나의 View 로 한 화면 전체를 가득 체우고자 할 때 사용합니다.
  - LinearLayout : 수평 또는 수직 방향으로 View 를 나란히 배치해 주는 Layout 입니다.
  - RelativeLayout : 다른 View 나 화면 가장자리 등을 중심으로 하여 관계적으로 배치해 주는 Layout 입니다.
- <img src="/blogimgs/layout_managers.png"><br>
+ <img src="/blogimgs/layout_managers.png">
 
 ### AdapterView
 목록과 같이 일련의 데이터들을 표시 하고자 할때 사용합니다. 데이터들을 화면에 표시할 때, Adapter 를 이용하여 표시해서 AdapterView 라고 합니다. (예 : ListView, GridView ...)
@@ -448,7 +448,7 @@ findViewById 를 이용해 ListView를 id값으로 찾습니다.
 ```
 
 ## 앱 실행 결과
- <img src="/blogimgs/study_lesson1_result.png"><br>
+ <img src="/blogimgs/study_lesson1_result.png">
 
  사진과 같이 잘 나오나요? Lesson 1 내용은 여기까지 입니다.
 

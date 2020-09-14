@@ -29,7 +29,7 @@ image: "./multithreading.png"
 이번 Lesson 에서는, OpenWeatherMap 이라는 날씨 정보를 제공하는 사이트에서 제공하는 API 를 이용하여 나리 정보를 불러올 것 입니다.
 우리는 일주일 치 날씨 정보를 불러들일 것 입니다. [일단 해당 문서를 한번 읽어봅시다.](http://openweathermap.org/forecast)
 
-<img src="/blogimgs/openweathermap_api_doc.png"><br>
+<img src="/blogimgs/openweathermap_api_doc.png">
 
 우리는 도시ID 값으로 특정 도시에 해당되는 날씨를 찾고, 일주일치 일기예보 정보를 얻을 것이며, JSON 형식으로 데이터를 받을 것입니다. 아 그리고 온도 단위는 섭씨로 해야겠죠?
 
@@ -217,10 +217,10 @@ Log.v("로그", "일반적인 정보");
 
 ## Logcat 보기
 여기까지 작성한 앱을 한번 실행 해 봅시다. 앱이 강제 종료 되지 않나요? 그것이 정상 입니다. Logcat을 확인해서 출력된 Log들을 살펴 봅시다.
-<img src="/blogimgs/networkonmain.png"><br>
+<img src="/blogimgs/networkonmain.png">
 
 보통, Run 버튼을 눌러 앱을 테스트 하면, 자동으로 하단에 Android DDMS 가 나타나고, 그곳에 Logcat 이 나타납니다. Run 버튼과 같은 줄에 위치한 Android Device Monitor(안드로이드 마스코드 모양의 버튼)에서도 Logcat 확인이 가능합니다.
-<img src="/blogimgs/check_logcat.png"><br>
+<img src="/blogimgs/check_logcat.png">
 
 Logcat 을 한번 확인 해 봅시다.
 
@@ -295,13 +295,13 @@ Logcat 을 한번 확인 해 봅시다.
 
 ## Thread
 어떤 프로그램 또는 프로세스 내부에서 실행이 되는 흐름의 단위를 말합니다. 필요에 따라 둘 이상의 Thread 를 실행 시킬수도 있는데, 이러한 실행 방식을 Multithread 하며, 둘 이상의 Thread 를 다루는 것을 보고, Multi Threading 이라고 합니다. 안드로이드 앱 에서는 기본적으로 사용자로 부터의 입력 및 출력을 처리해 주는 UI Thread 가 있습니다. Main Thread 라고도 부릅니다. UI Thread 는 버튼 클릭, 화면 드래그 등의 간단하고 짧은 작업들을 수행합니다. 그런대 여기서 네트워크 작업을 실행하게 되면. 네트워크 작업을 일단 마쳐야 하기 때문에, 만약 네트워크 작업이 오래 걸리면 사용자로 부터의 입력과 출력 등을 처리하지 못하게 됩니다. 따라서, 사용자 입장에서는 앱이 먹통인 것으로 보입니다. 그러므로 안드로이드 3.0 부터는 이렇게 작동되면 오류로 처리가 되어 버립니다. 우리는 네트워크 작업을 별도 Thread 에서 실행되도록 할 건데. AsyncTask 를 이용하여 구현 할 것입니다.
-<img src="/blogimgs/multithreading.png"><br>
+<img src="/blogimgs/multithreading.png">
 
 
 ## AsyncTask
 AsyncTask 는 백그라운드 작업을 쉽게 실행 할 수 있도록, 그리고 결과를 UI Thread 로 쉽게 넘길 수 있도록 해줍니다.
 AsyncTask 에는 4가지 메서드가 있습니다. 백그라운드 작업 전에 실행되는 onPreExecute(), 백그라운드 작업을 실행하는 doInBackground(Params...), 중간에 진행 정도를 UI Thread 에 넘겨주는 onProgressUpdate(Progress...), 백그라운드 작업이 끝나고 실행되며 결과를 Ui Thread 로 넘기는 onPostExecute(Result) 가 있습니다.
-<img src="/blogimgs/asynctask_methods.png"><br>
+<img src="/blogimgs/asynctask_methods.png">
 
 AsyncTask 를 구현 할 때는, AsncTask 를 상속받는 클래스로 구현합니다.
 
@@ -481,7 +481,7 @@ public class WeatherFragment extends Fragment {
 ## Overflow Menu
 매번 네트워크 작업이 잘 실행되는지 보기 위해 앱을 죽이고 다시 실행하기는 번거롭습니다. Overflow Menu 를 만들어, 그곳에 새로고침 메뉴를 넣어 봅시다.
 아래 사진이 Overflow Menu 입니다. 안드로이드 디바이스에서 다양한 앱 들을 사용 하시면서, 많이 보셨을 겁니다.
-<img src="/blogimgs/overflow_menu.png"><br>
+<img src="/blogimgs/overflow_menu.png">
 
 ### xml 파일로 Overflow Menu 정의하기
 우선, Overflow Menu 에 어떤 항목을 넣을지, xml 항목으로 정의 해 줘야 합니다. 먼저, 새로고침 항목에 쓸 문자열을 /res/values/strings.xml 에 추가 합시다.
@@ -669,7 +669,7 @@ Logcat 에서 이 부분에 주목해 주세요. 이번에는 SecurityException 
 > https://developer.android.com/training/permissions/requesting.html
 > https://developers-kr.googleblog.com/2015/09/playservice81android60.html
 
-<img src="/blogimgs/google_play_app_permission_dialog.png"><br>
+<img src="/blogimgs/google_play_app_permission_dialog.png">
 
 AndroidManifest.xml 이 Manifest 파일 입니다. 여기에 인터넷 권한을 정의 해 봅시다. 아래와 같이 정의 하면 됩니다.
 
@@ -765,12 +765,12 @@ public class WeatherFragment extends Fragment {
 ## JSON Parsing
 이제, 우리가 작성한 코드로 읽어들인 JSON 코드를 분석해서 필요한 데이터만 뽑아 화면에 표시해 봅시다.
 우선, 우리가 읽어들인 데이터가 어떻게 생겼나 볼까요?
-<img src="/blogimgs/json_not_formatted.png"><br>
+<img src="/blogimgs/json_not_formatted.png">
 이 상태에서는 읽기가 좀 어렵군요. Json Formatter 를 이용해 읽기 쉽도록 해 봅시다.
 [여기](http://jsonformatter.curiousconcept.com/)를 클릭해서 Json Formatter 웹 사이트를 열고,
 입력칸에 JSON 데이터를 넣은 다음. Process 를 누르면 아래 사진과 같이 나옵니다.
-<img src="/blogimgs/json_formatted.png"><br>
-<img src="/blogimgs/json_formatted_fullscreen.png"><br>
+<img src="/blogimgs/json_formatted.png">
+<img src="/blogimgs/json_formatted_fullscreen.png">
 이제 좀 읽이 편하군요. 한번 우리가 원하는 데이터를 찾아 봅시다.
 
 ```json
@@ -1146,15 +1146,15 @@ Adapter 가 가진 데이터가 변경되면. Adapter.notifyDataSetChanged(); �
 [여기](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/widget/ArrayAdapter.java) 를 클릭해서 ArrayAdapter 클래스 소스코드를 들여다 봅시다.
 
 clear 를 검색해서, 해당 메서드를 찿아보세요. 사진에서 보시다 싶이 실제로 내부에서 호출 되고 있습니다.
-<img src="/blogimgs/arrayadapter_clear_method.png"><br>
+<img src="/blogimgs/arrayadapter_clear_method.png">
 add 를 검색해서, 해당 메서드를 찿아보면, 역시 내부에서 호출 해 주고 있습니다.
-<img src="/blogimgs/arrayadapter_add_method.png"><br>
+<img src="/blogimgs/arrayadapter_add_method.png">
 안드로이드는 오픈소스 이기 때문에, 이렇게 소스코드를 들여다 보실 수 있습니다.
 소스코드를 들여다 보시는 것은 여러분들이 안드로이드 시스템이 어떻게 동작 하는지 알아 보실 수 있으며, 이는 앱을 개발 할 때 많은 도움이 될 겁니다.
 
 ## 앱 실행 결과.
 여기까지 Lesson 2 내용 정리 였습니다. 이제 작성한 앱을 실행 해 보세요. 아래 사진과 같이 잘 나오나요??
-<img src="/blogimgs/lesson_two_result.png"><br>
+<img src="/blogimgs/lesson_two_result.png">
 
 ## 소스코드
 Lesson 2 에 해당되는 소스코드 입니다.
