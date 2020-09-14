@@ -12,7 +12,7 @@ image: "./baekhyang14.png"
 
 ## 백향제 웹사이트
 
-<img src="/blogimgs/baekhyang14web.png">
+![]("/blogimgs/baekhyang14web.png")
 위 사진이 백향제 웹사이트 사진 입니다. 웹사이트에서 부스 위치를 찿으시거나, 공연 일정 확인이 가능합니다.
 아래 URL이 백향제 웹사이트 주소 입니다. 접속하셔서 이용 하시면 됩니다.
 
@@ -20,7 +20,7 @@ image: "./baekhyang14.png"
 
 ## 안드로이드용 앱
 
-<img src="/blogimgs/baekhyang14android.png">
+![]("/blogimgs/baekhyang14android.png")
 2.2 프로요 이상의 안드로이드가 탑제된 디바이스를 사용하신다면. 구글 플레이 에서 안드로이드용 앱을 받으실 수도 있습니다.
 안드로이드용 앱의 경우는 백향제부스 정보나 공연 일정들을 기기에 보두 저장하여, 네트워크 연결이 없을때도 조회 하실 수가 있습니다.
 

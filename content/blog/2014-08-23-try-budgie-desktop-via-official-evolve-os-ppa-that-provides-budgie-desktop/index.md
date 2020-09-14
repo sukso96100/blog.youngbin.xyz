@@ -4,7 +4,7 @@ date: "2014-08-23"
 tags: ["update", "budgie-desktop", "ubuntu", "ppa"]
  # image: ''
 ---
-<img class="image-wrapper" src="https://sukso96100.github.io/blogimgs/evolve-os-ppa.png">
+![]("https://sukso96100.github.io/blogimgs/evolve-os-ppa.png")
 
 이제 우분투용 Budgie Desktop 패키지가 공식 Evolve OS PPA를 통해서도 배포됩니다.
 Evolve OS PPA에서는 Budgie Desktop뿐만 아니라, 다른 Evolve OS 소프트웨어 또한 제공할 예정입니다.

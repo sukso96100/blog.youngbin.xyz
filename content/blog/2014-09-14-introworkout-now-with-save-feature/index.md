@@ -4,7 +4,7 @@ date: "2014-09-14"
 tags: ["web", "app", "update", "university_enterance", "introworkout", "parse_backend"]
  # image: ''
 ---
-<img class="image-wrapper" src="https://sukso96100.github.io/blogimgs/introworkout_login.png">
+![]("https://sukso96100.github.io/blogimgs/introworkout_login.png")
 
 안녕하세요. 저번에 제가 모의면접 준비하다가 만들게 된 자기소개서 작성 연습도구 기악나시나요?
 이번에 그 웹사이트에 저장 기능을 추가하게 되었습니다.

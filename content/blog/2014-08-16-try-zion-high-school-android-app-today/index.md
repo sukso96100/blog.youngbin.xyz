@@ -4,7 +4,7 @@ date: "2014-08-16"
 tags: ["android", "app", "update", "zion_high_school"]
  # image: ''
 ---
-<img class="image-wrapper" src="https://sukso96100.github.io/blogimgs/zion.png">
+![]("https://sukso96100.github.io/blogimgs/zion.png")
 
 안녕하세요. 몇일 전 안드로이드용 시온고등학교 앱을 구글 플레이 스토어를 통해 출시하였습니다.
 몇달 전 쯤 만들어놓고 테스트도 하다가, 여러가지 일이 생기고 하다보니 이제야 스토어를 통해서 출시하게 되었내요.

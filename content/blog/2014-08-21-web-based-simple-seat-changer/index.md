@@ -4,8 +4,8 @@ date: "2014-08-21"
 tags: ["web", "app", "update", "seat_changer"]
  # image: ''
 ---
-<img class="image-wrapper" src="https://sukso96100.github.io/blogimgs/seatchanger1.png">
-<img class="image-wrapper" src="https://sukso96100.github.io/blogimgs/seatchanger2.png">
+![]("https://sukso96100.github.io/blogimgs/seatchanger1.png")
+![]("https://sukso96100.github.io/blogimgs/seatchanger2.png")
 담임 선생님께서 저에게 자리 바꾸기 도구 제작을 부탁하셔서, 이번에 간단히 하나 웹 기반으로 만들어 보게 되었습니다.
 현재 우리 반 좌석 배치에 맞게 만들었습니다. 별 다른 기능은 없고, 그냥 자리 바꾸기 누르면 좌석을 무작위로 바꿔다가 보여줍니다.
 인터페이스는 간단히 부트스트랩으로 작업하고, 기능은 자바스크립트로 간단히 만들었습니다.(기능이라 해봤자 자리섞기뿐...)

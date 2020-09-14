@@ -16,7 +16,7 @@ Lesson 4 ~ 6 에 대한 정리는 뒤늦게 하게 되었군요. 이 부분은 �
 말 그대로 Activity 의 생명주기에 관한 내용입니다. Activity 가 시작이 되어 종료 될 때 까지 어떤 일이 벌어지는지에 관한 내용입니다.
 Activity 가 실행되는 동안, 여러 Lifecycle 메서드들이 호출 되는대, 어떤 상황에서 어떤 메서드가 호출되는지 알아봅시다.
 
-<img src="/blogimgs/basic-lifecycle.png">
+![]("/blogimgs/basic-lifecycle.png")
 
 위 사진은 Activity 의 생명주기를 그림으로 나타낸 것 입니다. 그림에는 Activity 의 상태와, 상태에 따라 호출되는 메서드들이 나와 있습니다.
 
