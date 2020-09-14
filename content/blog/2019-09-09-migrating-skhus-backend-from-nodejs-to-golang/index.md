@@ -21,6 +21,7 @@ tags: ["skhus", "nodejs", "javascript", "puppeteer", "golang", "chromedp"]
 초기에는 이런 Phantom.js 를 이용하여 아래와 같은 방식으로 로그인을 구현 했습니다. 사용자로부터 받은 학번과 비밀번호를 서버가 종합정보 시스템에 Phantom.js 를 통해 대신 접속하여 로그인울 수행하는 방식입니다.
 
 > [ph_login.js](https://github.com/s-owl/skhu-backend/blob/415b0b61ad5a0ee939d78453edd316aa6c51fd79/routes/ph_login.js)
+
 ```js
 var system = require('system');
 var webPage = require('webpage');
@@ -112,6 +113,7 @@ Pupeteer 로 전환하는 작업과 오래된 버전의 라이브러리를 업�
 결국 혼자 거의 모든 작업을 다 해서 2019년 초에 업데이트를 배포 했습니다. 어떻게든 하긴 했습니다. 로그인의 경우 종합정보시스템과 학사행정시스템까지 모두 처리해야 하다 보니 이전에 비해 많이 복잡해 졌습니다.
 
 > [login.js](https://github.com/s-owl/skhu-backend/blob/cafc9032bee8789468bb549983ecdc66799ca17f/routes/user/login.js)
+
 ```js
 ...
 // Prepare headless chrome browser
@@ -194,7 +196,7 @@ Pupeteer 로 전환하는 작업과 오래된 버전의 라이브러리를 업�
   } catch(e){
     console.log(e);
   }
-  ```
+```
 
 ## Go 로의 전환
 서론이 많이 길었는데요, 여기서부터는 최근 있었던 Go 기반 백엔드로의 전환에 대해 예기하겠습니다. 2019년 들어서 서버가 자주 죽으면서 서비스가 중단되는 경우가 잦아 졌습니다. 다양한 원인이 있었는데, 대략 추려보자면 아래와 같습니다.
