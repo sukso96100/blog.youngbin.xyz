@@ -44,6 +44,7 @@ class BlogPostTemplate extends React.Component {
             {post.frontmatter.title || post.fields.slug}
           </Heading>
           <Text>{post.frontmatter.date}</Text>
+          <div>
           {post.frontmatter.tags.map(item => (
             <Badge
               onClick={() => navigate(`/tags/${kebabCase(item)}`)}
@@ -52,6 +53,7 @@ class BlogPostTemplate extends React.Component {
               {item}
             </Badge>
           ))}
+          </div>
           {coverImage}
           <Divider />
           <MDXRenderer>{post.body}</MDXRenderer>

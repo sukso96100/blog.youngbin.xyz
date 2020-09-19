@@ -11,11 +11,10 @@ import {
   faHome,
   faTags,
   faSearch,
-  faAdjust
+  faAdjust,
 } from "@fortawesome/free-solid-svg-icons"
 import { Heading, Text, Grid, useColorMode } from "theme-ui"
 import SEO from "../components/seo"
-
 
 export default function Shell(props) {
   const [colorMode, setColorMode] = useColorMode()
@@ -49,22 +48,25 @@ export default function Shell(props) {
                 {[
                   {
                     label: "Home",
-                    onClick:()=> navigate("/"),
+                    onClick: () => navigate("/"),
                     icon: <FontAwesomeIcon icon={faHome} />,
                   },
                   {
                     label: "Tags",
-                    onClick:()=> navigate("/tags"),
+                    onClick: () => navigate("/tags"),
                     icon: <FontAwesomeIcon icon={faTags} />,
                   },
                   {
                     label: "Search",
-                    onClick:()=> navigate("/search"),
+                    onClick: () => navigate("/search"),
                     icon: <FontAwesomeIcon icon={faSearch} />,
                   },
                   {
                     label: "Light/Dark Mode",
-                    onClick:()=> setColorMode(colorMode === 'default' ? 'dark' : 'default'),
+                    onClick: () =>
+                      setColorMode(
+                        colorMode === "default" ? "dark" : "default"
+                      ),
                     icon: <FontAwesomeIcon icon={faAdjust} />,
                   },
                 ].map((item, index) => (
@@ -72,7 +74,8 @@ export default function Shell(props) {
                     style={{
                       padding: 8,
                     }}
-                    onClick={item.onClick}>
+                    onClick={item.onClick}
+                  >
                     {item.icon}
                   </a>
                 ))}
@@ -120,10 +123,8 @@ export default function Shell(props) {
                   },
                 ].map((item, index) => (
                   <a
-                    href={item.path}
+                    onClick={() => navigate(item.path)}
                     style={{
-                      textDecoration: "none",
-                      color: "black",
                       padding: 8,
                     }}
                   >

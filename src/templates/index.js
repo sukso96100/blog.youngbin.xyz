@@ -1,7 +1,6 @@
 import React from "react"
 import { navigate, graphql } from "gatsby"
 
-// import { rhythm } from "../utils/typography"
 import Shell from "../components/shell"
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
