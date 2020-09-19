@@ -1,30 +1,30 @@
-import Prism from '@theme-ui/prism'
+import { system, deep } from "@theme-ui/presets"
+import { darken, lighten } from '@theme-ui/color'
+import prism from '@theme-ui/prism/presets/theme-ui'
 
 export default {
+  useColorSchemeMediaQuery: true,
+  ...system,
   styles: {
-    pre: {
-      padding: 2,
-      borderRadius: 5
+    ...system.styles,
+    blockquote: {
+      borderLeft: "5px solid",
+      borderLeftColor: 'text',
+      padding: 1,
+      paddingLeft: 2,
+      backgroundColor: darken('background', 0.01),
     },
     code: {
-      fontFamily: `monospace`,
-      // from typography overrideThemeStyles
-      // "h1 code, h2 code, h3 code, h4 code, h5 code, h6 code"
-      fontSize: `inherit`,
-    },
-    inlineCode: {
-      borderRadius: 5,
-      color: `secondary`,
-      bg: `highlight`,
-      paddingTop: `0.15em`,
-      paddingBottom: `0.05em`,
-      paddingX: `0.2em`,
-    },
+      ...prism,
+    }
   },
   colors: {
-    text: "#000",
-    background: "#fff",
-    primary: "#33e",
+    ...system.colors,
+    modes: {
+      dark: {
+        ...deep.colors,
+      },
+    },
   },
   links: {
     bold: {
@@ -46,29 +46,29 @@ export default {
       padding: 0,
       borderRadius: 10,
       boxShadow: "0 0 8px rgba(0, 0, 0, 0.125)",
-      backgroundColor: "white",
+      backgroundColor: lighten('background', 0.1),
       textDecoration: "none",
-      ":hover":{
-        backgroundColor: "silver"
-      }
+      ":hover": {
+        backgroundColor: darken('background', 0.1),
+      },
     },
     compact: {
       padding: 0,
       borderRadius: 5,
       border: "1px solid",
       borderColor: "muted",
-      backgroundColor: "white",
+      backgroundColor: lighten('background', 0.1),
       textDecoration: "none",
-      ":hover":{
-        backgroundColor: "silver"
-      }
+      ":hover": {
+        backgroundColor: darken('background', 0.1),
+      },
     },
   },
-  layout:{
-    container:{
-      ":hover":{
-        backgroundColor: "silver"
-      }
-    }
-  }
+  layout: {
+    container: {
+      ":hover": {
+        backgroundColor: darken('background', 0.1),
+      },
+    },
+  },
 }

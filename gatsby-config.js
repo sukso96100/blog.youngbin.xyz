@@ -14,13 +14,7 @@ module.exports = {
     },
   },
   plugins: [
-    {
-      resolve: "gatsby-plugin-theme-ui",
-      options: {
-        prismPreset: "github",
-        preset: "@theme-ui/preset-funk",
-      },
-    },
+    "gatsby-plugin-theme-ui",
     {
       resolve: `gatsby-source-filesystem`,
       options: {

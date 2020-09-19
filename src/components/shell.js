@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link, graphql, StaticQuery } from "gatsby"
+import { navigate, graphql, StaticQuery } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faGithub,
@@ -11,13 +11,14 @@ import {
   faHome,
   faTags,
   faSearch,
+  faAdjust
 } from "@fortawesome/free-solid-svg-icons"
-import { Heading, Text, Grid } from "theme-ui"
+import { Heading, Text, Grid, useColorMode } from "theme-ui"
 import SEO from "../components/seo"
 
-// import Search from "../components/search"
 
 export default function Shell(props) {
+  const [colorMode, setColorMode] = useColorMode()
   return (
     <StaticQuery
       query={socialQuery}
@@ -47,30 +48,31 @@ export default function Shell(props) {
               <div>
                 {[
                   {
-                    label: social.web.title,
-                    path: "/",
+                    label: "Home",
+                    onClick:()=> navigate("/"),
                     icon: <FontAwesomeIcon icon={faHome} />,
                   },
                   {
-                    label: social.web.title,
-                    path: "/tags",
+                    label: "Tags",
+                    onClick:()=> navigate("/tags"),
                     icon: <FontAwesomeIcon icon={faTags} />,
                   },
-
                   {
                     label: "Search",
-                    path: "/",
+                    onClick:()=> navigate("/"),
                     icon: <FontAwesomeIcon icon={faSearch} />,
+                  },
+                  {
+                    label: "Light/Dark Mode",
+                    onClick:()=> setColorMode(colorMode === 'default' ? 'dark' : 'default'),
+                    icon: <FontAwesomeIcon icon={faAdjust} />,
                   },
                 ].map((item, index) => (
                   <a
-                    href={item.path}
                     style={{
-                      textDecoration: "none",
-                      color: "black",
                       padding: 8,
                     }}
-                  >
+                    onClick={item.onClick}>
                     {item.icon}
                   </a>
                 ))}

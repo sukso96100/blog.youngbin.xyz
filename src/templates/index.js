@@ -35,7 +35,7 @@ class BlogIndex extends React.Component {
               <PostCard post={node} />
             ))}
           </Grid>
-          <Grid width={[3, 3, 3]}>
+          <Grid width={[3, 3, 3]} style={{marginTop: 16}}>
             {prev && (
               <Container p={4} bg="muted" onClick={() => navigate(prev)} style={{textAlign: 'left'}}>
                 <FontAwesomeIcon icon={faArrowLeft} />
