@@ -59,7 +59,7 @@ export default function Shell(props) {
                   },
                   {
                     label: "Search",
-                    onClick:()=> navigate("/"),
+                    onClick:()=> navigate("/search"),
                     icon: <FontAwesomeIcon icon={faSearch} />,
                   },
                   {
