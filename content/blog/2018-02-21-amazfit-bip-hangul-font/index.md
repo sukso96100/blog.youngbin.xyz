@@ -6,7 +6,7 @@ tags: ["amazfit-bip", "smartwatch", "gadget", "china", "font", "hangul", "korean
 image: "./amazfit-kr-font.png"
 ---
 
-![amazfit-bip.jpg](https://sukso96100.github.io/blogimgs/amazfit-bip.jpg)
+![amazfit-bip.jpg](amazfit-bip.jpg)
 
 > [Steemit 에서도 이 글을 보실 수 있습니다.](https://steemit.com/kr/@youngbin/amazfit-bip)
 
@@ -47,7 +47,7 @@ python3 bipfont.py unpack Mili_chaohu.ft
 
 폰트가 해제 되면, `bmp` 디렉토리가 생성되면서 그 안에 각 글자별 이미지가 생성됩니다. 영문 알파벳 문자와 중국어 간체자 문자만 있는데요, 여기에 한글 문자 이미지를 작업하여 넣고 다시 패키징 하면 한글이 지원되는 폰트가 됩니다. 각 이미지 파일 이름을 보면 5자의 숫자와 알파벳으로 되어 있는데요. 앞의 4자는 해당 이미지 파일이 보여주는 문자의 유니코드 값 입니다. 가장 뒤 한자리는 무슨 규칙으로 숫자가 정해지는지 잘 모르겠네요. 폰트 패키징 스크립트 보면 바이트 값을 읽어들여서 16으로 나눈 나머지를 사용하고 있는데 무슨 의미인지 잘 모르겠습니다.
 
-![amazfit-kr-font.png](https://sukso96100.github.io/blogimgs/amazfit-kr-font.png)
+![amazfit-kr-font.png](amazfit-kr-font.png)
 
 한글 글자 이미지를 생성해 봅시다. 저는 Python pillow (PIL 호환되는 라이브러리) 로 간단한 스크립트를 작성 했고, 스크립트와 폰트파일을 이용해 일괄적으로 생성 했습니다. [여기](https://github.com/sukso96100/amazfit-bip-kr/blob/master/ttf2bmp.py)에서 제가 사용한 스크립트를 보실 수 있습니다. 저의 경우는 한글 자모(U+1100~U+11FF)와 한글 글자마디(U+AC00~U+D7AF)에 해당하는 파일만 생성하였습니다. 기존 글자 이미지 파일 중 이미 한글 자모에 해당하는 파일이 있는데요, 대부분이 파일명 마지막 자리가 4여서 그냥 스크립트에서 파일 생성시 뒤에 4를 붙이도록 했습니다. 4가 아닌 글자는 따로 비교해서 파일명 수정 작업을 했습니다.
 
@@ -70,7 +70,7 @@ python3 bipfont.py pack Mili_chaohu_kr.ft
 
 이제 Amazfit Bip 에서 한글이 잘 출력되는 것을 확인하실 수 있습니다.
 
-![amazfit-bip-kr-in-action.jpg](https://sukso96100.github.io/blogimgs/amazfit-bip-kr-in-action.jpg)
+![amazfit-bip-kr-in-action.jpg](amazfit-bip-kr-in-action.jpg)
 
 
 ## 폰트 펌웨어 받기

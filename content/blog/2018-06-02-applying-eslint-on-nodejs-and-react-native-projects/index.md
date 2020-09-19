@@ -279,7 +279,7 @@ eslint app.js routes/*
 만약 코드 품질 개선을 위해 고쳐야 할 부분이 너무 많다면, `--fix` 옵션을 넣어, ESLint 가 자동으로 미리 설정한 규칙에 따라 모두 수정하도록 할 수 있습니다.
 설정에 따라 사진처럼 인덴트 처리부터 키워드 사용까지 자동으로 전부 다 고쳐줍니다. 그렇다고 모든 파일을 완벽히 고쳐 주지는 않는데, ESLint 가 고쳐주지 못한 부분은 아쉽게도 직접 고쳐줘야 합니다.
 
-![ESLint auto fix example](https://sukso96100.github.io/blogimgs/apply-eslint-1.png)
+![ESLint auto fix example](apply-eslint-1.png)
 
 ## React Native 프로젝트에서 사용하기
 React Native 에서 사용하려면, 몇가지 패키지를 추가로 설치하고 설정값도 몇가지 더 추가 해줘야 합니다.
@@ -449,8 +449,8 @@ lint: # lint 라는 작업 정의
 
 적용 후, 사진처럼 각 커밋마다 CI 작동하여 ESLint 가 코드 검사를 수행하는 것을 볼 수 있습니다.
 
-![travis-ci](https://sukso96100.github.io/blogimgs/apply-eslint-2.png)
-![travis-ci](https://sukso96100.github.io/blogimgs/apply-eslint-3.png)
+![travis-ci](apply-eslint-2.png)
+![travis-ci](apply-eslint-3.png)
 
 ## 마무리
 이렇게 해서 ESLint 를 두 JS 프로젝트에 적용 해 보고, CI 연동까지 간단히 해 보았습니다. ESLint 를 적용하면서 ESLint 보고에 따라 수정 작업(autofix 랑 필요에 따라 수동 수정 까지)도 같이 했는데요, 하고 나니 확실히 원래 코드보다 보기도 좋고, 일관성도 좋아져서 코드가 많이 개선 되었습니다. 규칙 검사가 자동이니 이제 코드 리뷰 하는 시간도 어느정도 단축이 가능해 질 듯 합니다. 여러분들도 JavaSciprt 프로젝트를 하신다면, 그리고 그 프로젝트가 팀 프로젝트라면 ESLint 를 한번 적용해 보시기 바랍니다. 코드도 깔끔히 잘 정리해 주고, 많이 하는 실수 등도 잘 잡아줘서, 한번 적용 해 두면 많은 시간 절약이 가능할 겁니다.
