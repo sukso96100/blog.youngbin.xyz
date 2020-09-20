@@ -1,7 +1,12 @@
 backend:
-  name: git-gateway
-  branch: master
+  name: test-repo
+  # name: git-gateway
+  # branch: master
+publish_mode: editorial_workflow
 
+locale: 'ko'
+site_url: https://blog.youngbin.xyz
+display_url: https://blog.youngbin.xyz
 media_folder: static/img
 public_folder: /img
 slug:

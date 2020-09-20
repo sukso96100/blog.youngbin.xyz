@@ -45,14 +45,14 @@ class BlogPostTemplate extends React.Component {
           </Heading>
           <Text>{post.frontmatter.date}</Text>
           <div>
-          {post.frontmatter.tags.map(item => (
-            <Badge
-              onClick={() => navigate(`/tags/${kebabCase(item)}`)}
-              sx={{ margin: 1 }}
-            >
-              {item}
-            </Badge>
-          ))}
+            {post.frontmatter.tags.map(item => (
+              <Badge
+                onClick={() => navigate(`/tags/${kebabCase(item)}`)}
+                sx={{ margin: 1 }}
+              >
+                {item}
+              </Badge>
+            ))}
           </div>
           {coverImage}
           <Divider />
@@ -62,9 +62,11 @@ class BlogPostTemplate extends React.Component {
           </div>
 
           <Disqus
-            identifier={post.id}
-            title={post.title}
-            url={`${siteUrl}${this.props.location.pathname}`}
+            config={{
+              url: `${siteUrl}${this.props.location.pathname}`,
+              identifier: post.id,
+              title: post.title,
+            }}
           />
           <Grid width={[1, 2]}>
             {previous && (
