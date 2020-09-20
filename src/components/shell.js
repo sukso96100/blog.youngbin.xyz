@@ -39,7 +39,7 @@ export default function Shell(props) {
               }}
             >
               <div style={{ flex: 1 }}>
-                <Heading>{props.title}</Heading>
+                <Heading onClick={() => navigate("/")}>{props.title}</Heading>
                 <Text style={{ marginTop: 8 }}>
                   {data.site.siteMetadata.description}
                 </Text>
