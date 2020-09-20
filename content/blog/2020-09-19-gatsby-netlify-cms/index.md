@@ -2,6 +2,7 @@
 title: Gatsby 블로그에 Netlify CMS 연동하기
 date: 2020-09-19T14:44:36.765Z
 description: 이제 글 하나 쓰려고 클론, 커밋, 푸시 할 필요가 없다.
+image: './스크린샷-2020-09-19-오후-11.37.04-2-.png'
 tags:
   - notes
   - web
@@ -46,9 +47,28 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
-      - {label: 'Tags', name: 'tags', widget: 'list'}
+      - { label: 'Tags', name: 'tags', widget: 'list' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
 ```
+필요하다면, `slug`(게시물 주소) 에 대한 규칙과, 게시물 마다 커버 이미지도 들어간다면 해당 필드도 넣어주자.
+필자의 블로그는 게시물 주소 형식이 `년-월-일-영문-문장` 형식이여서, `encoding` 을 `ascii`, `sanitize_replacement` 는 `-`로, `collections` 에 `slug` 부분을 `"{{year}}-{{month}}-{{day}}-{{slug}}"` 로 지정하였다.
+그리고 `fields` 부분에 `widget` 타입이 `image`인 필드도 하나 추가 하였다.
+
+```yaml
+...
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+...
+collections:
+  - name: 'blog'
+    ...
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      ...
+      - { label: "Cover Image", name: "image", widget: "image", required: false }
+``` 
 
 그리고, gatsby-config.js 의 plugin 부분에 `gatsby-plugin-netlify-cms`를 추가한다.
 
@@ -100,8 +120,9 @@ New Blog 를 누르면 게시물 작성 화면이 나온다.
 
 ![](스크린샷-2020-09-20-오전-12.47.50.png)
 
-이제 블로그 글 하나 쓰자고 클론, 커밋, 푸시를 할 필요가 없게 되었다. 커밋이 많으면 그만큼 저장공간 차지도 많아서 클론에 시간이 오래 걸리는데, 그런 불편함도 좀 덜었다. 근데 문제가 하나 있다. Netlify CMS 게시물 편집기가 마치 페이스북 처럼 한글 입력이 계속 씹힌다. 이런...
+이제 블로그 글 하나 쓰자고 클론, 커밋, 푸시를 할 필요가 없게 되었다. 커밋이 많으면 그만큼 저장공간 차지도 많아서 클론에 시간이 오래 걸리는데, 그런 불편함도 좀 덜었다. 근데 문제가 하나 있다. Netlify CMS 게시물 편집기가 마치 페이스북 처럼 한글 입력이 계속 씹힌다. 이런... 한국어 로케일도 아직 없는데, 나중에 시간나면 한번 PR열어서 추가 해줘야 곘다.
 
 ## 참고자료
 
 * [Netlify CMS - Platform guides - Gatsby](https://www.netlifycms.org/docs/gatsby/)
+* [Netlify CMS - Configuration Options](https://www.netlifycms.org/docs/configuration-options)
