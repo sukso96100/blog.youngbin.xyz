@@ -119,7 +119,74 @@ New Blog 를 누르면 게시물 작성 화면이 나온다.
 
 ![](스크린샷-2020-09-19-오후-11.37.04-2-.png)
 
-이제 블로그 글 하나 쓰자고 클론, 커밋, 푸시를 할 필요가 없게 되었다. 커밋이 많으면 그만큼 저장공간 차지도 많아서 클론에 시간이 오래 걸리는데, 그런 불편함도 좀 덜었다. 근데 문제가 하나 있다. Netlify CMS 게시물 편집기가 마치 페이스북 처럼 한글 입력이 계속 씹힌다. 이런... 한국어 로케일도 아직 없는데, 나중에 시간나면 한번 PR열어서 추가 해줘야 곘다.
+이제 블로그 글 하나 쓰자고 클론, 커밋, 푸시를 할 필요가 없게 되었다. 커밋이 많으면 그만큼 저장공간 차지도 많아서 클론에 시간이 오래 걸리는데, 그런 불편함도 좀 덜었다. 근데 문제가 하나 있다. Netlify CMS 게시물 편집기가 마치 페이스북 처럼 한글 입력이 계속 씹힌다. 이런... 한국어 로케일도 아직 없는데, 나중에 시간나면 한번 PR열어서 추가 해줘야 겠다.
+
+## 한국어 로케일 적용하기
+
+어제(2020.9.20) 필자가 한국어 로케일을 추가하는 PR 을 제출해서 병합 되었고, 해당 업데이트가 포함된 새 버전도 나왔다. `netlify-cms-app` 버전을 `2.12.24` 이상으로 하고, 몇가지 로케일 관련 설정만 해 주면 된다.
+
+`config.yml` 에서 locale 값을 `'ko'` 로 설정하자
+
+```yaml
+backend:
+  name: git-gateway
+  branch: master
+
+locale: 'ko' # locale 값 'ko' 로 설정
+site_url: https://blog.youngbin.xyz
+...
+```
+
+`gatsby-config.js` 의 `plugins` 부분에서 기존 `gatsby-plugin-netlify-cms` 설정을 수정하여, 커스텀 JS 모듈을 로드하도록 수정하자.
+
+```javascript
+/* 
+  기존 코드
+*/
+module.exports = {
+  siteMetadata: {
+    title: `YoungbinLab Blog`,
+    ...
+    },
+  plugins: [
+    ...
+    `gatsby-plugin-netlify-cms`, // 이렇게 추가하면 된다.
+    ...
+    ]
+ }
+ /* 
+   수정된 코드
+ */
+ module.exports = {
+  siteMetadata: {
+    title: `YoungbinLab Blog`,
+    ...
+    },
+  plugins: [
+    ...
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`, // 커스텀 모듈 설정
+      },
+    }, 
+    ...
+    ]
+ }
+```
+
+마지막으로, `src` 폴더에 `cms` 폴더를 만들고, 그 안에 `cms.js` 파일을 생성한 후 아래와 같은 로케일을 한국어로 설정하는 내용을 넣는다.
+
+```javascript
+import CMS from 'netlify-cms-app';
+import { ko } from 'netlify-cms-locales';
+
+CMS.registerLocale('ko', ko);
+```
+
+다했다. 커밋하고 푸시한 다음 들어가 보면 이제 페이지가 한국어로 나오는 것을 확인할 수 있다.
+
+![](2020-09-21-9.05.43.png)
 
 ## 참고자료
 
