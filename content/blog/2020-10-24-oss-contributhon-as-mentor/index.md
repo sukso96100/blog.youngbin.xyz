@@ -118,7 +118,7 @@ Editor 를 "편집기", "에디터" 두 단어를 혼용해서 번역 하는 경
 
 ![](20200801_174038.jpg)
 
-참고 링크
+## 참고 링크
 - [오픈소스 컨트리뷰톤 소개](https://www.oss.kr/contributhon)
 - [Launchpad - Ubuntu Korean Translators 팀 페이지](https://launchpad.net/~ubuntu-l10n-ko)
 - [우분투 한국어 번역팀 규정](https://wiki.ubuntu.com/UbuntuKoreanTranslators)
