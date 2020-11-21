@@ -43,6 +43,7 @@ class BlogPostTemplate extends React.Component {
           <Heading as="h1">
             {post.frontmatter.title || post.fields.slug}
           </Heading>
+          <Text>{post.frontmatter.description}</Text>
           <Text>{post.frontmatter.date}</Text>
           <div>
             {post.frontmatter.tags.map(item => (
