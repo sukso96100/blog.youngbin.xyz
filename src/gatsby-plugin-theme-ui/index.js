@@ -16,6 +16,11 @@ export default {
     },
     code: {
       ...prism,
+    },
+    a: {
+      color: "text",
+      textDecoration: "underline",
+      textDecorationStyle: "dotted"
     }
   },
   colors: {
