@@ -16,13 +16,13 @@ tags:
 
 # 목차
 이 글은 내용이 길어서 둘로 나눠져 있다. 아래 목차를 참고하여 읽는것을 권장한다.
-- [1부. 코드 자동 생성을 통한 개발시간 단축 👈](2020-11-15-quick-aspnet-dev-azmanaged-deploy-part1/)
+- [1부. 코드 자동 생성을 통한 개발시간 단축 👈](/2020-11-15-quick-aspnet-dev-azmanaged-deploy-part1/)
   - 서론
   - 그냥 데이터만 간단히 쌓아주는 백엔드
   - ASP.NET Core 백엔드 만들기
   - Open API 명세로 코드를, 코드에서 다시 API 문서 생성하기.
   - EF Core ORM 코드도 자동으로 생성하기
-- [2부. 관리형 서비스로 빠르게 구축하고 배포하기](2020-11-15-quick-aspnet-dev-azmanaged-deploy-part2/)
+- [2부. 관리형 서비스로 빠르게 구축하고 배포하기](/2020-11-15-quick-aspnet-dev-azmanaged-deploy-part2/)
   - 배포
   - 인증기능 구현하기
   - 이메일 발송
