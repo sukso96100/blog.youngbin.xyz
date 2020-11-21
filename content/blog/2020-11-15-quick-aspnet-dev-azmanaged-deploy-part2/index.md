@@ -99,7 +99,7 @@ dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
 
 `Statup.cs` 에서 종속성 주입으로 몇가지 설정을 해야 한다. 먼저 `ConfigureServices()` 에 [`AddDefaultIdentity()` 메소드를 호출하여 쿠키 기반 인증 서비스를 설정한다.](https://docs.microsoft.com/ko-kr/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionuiextensions.adddefaultidentity?view=aspnetcore-5.0#definition) 
 
-```csharp
+```cs
 public void ConfigureServices(IServiceCollection services)
 {
     ...
@@ -111,7 +111,7 @@ public void ConfigureServices(IServiceCollection services)
 
 추가로 각종 인증 정책(암호 정책, 계정 잠금 정책, 사용자 정책 등)을 아래와 같이 설정할 수 있다.  [이 문서](https://docs.microsoft.com/ko-kr/dotnet/api/microsoft.aspnetcore.identity.identityoptions?view=aspnetcore-5.0) 를 참고해서 원하는 인증 정책을 찾아 설정할 수 있다.
 
-```csharp
+```cs
 public void ConfigureServices(IServiceCollection services)
 {
     ...
@@ -143,7 +143,7 @@ public void ConfigureServices(IServiceCollection services)
 ```
 쿠키 기반 인증이니, 쿠키 보안 정책도 설정해 주자. 쿠키 인증 정책 옵션은 [이 문서](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions?view=aspnetcore-1.1) 를 참고하면 된다.
 
-```csharp
+```cs
 public void ConfigureServices(IServiceCollection services)
 {
     ...
@@ -163,7 +163,7 @@ public void ConfigureServices(IServiceCollection services)
 
 이번에는 `Configure()` 메소드에 `UseAuthentication()`과 `UseAuthorization()`를 호출해서 인증(Authentication) 및 허가(Authorization) 미들웨어를 설정해 준다.
 
-```csharp
+```cs
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
   ...
@@ -175,7 +175,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 
 기존 `DatabaseContext.cs` 를 수정하여 ASP.NET Identity 와 연동하자. 기존 `DbContext`를상속 하던 클래스를 `IdentityDbContext`를 상속하도록 수정한다.
 
-```csharp
+```cs
 // 기존
 namespace IO.Swagger.Models
 {
@@ -197,7 +197,7 @@ namespace IO.Swagger.Models
 기본적인 설정은 되었고, 이제 회원가입, 로그인, 로그아웃, 계정 복구 등 각종 인증 관련 API 를 구현해 보자. 인증을 위한 컨트롤러를 구현해서 작업할 것이다.
 먼저 아래 코드 처럼, 로그인 관리에 필요한 `SignInManager`, 사용자 관리에 필요한 `UserManager` 를 종속성 주입으로 주입받는다.
 
-```csharp
+```cs
 namespace IO.Swagger.Controllers
 {
 
@@ -224,7 +224,7 @@ namespace IO.Swagger.Controllers
 이제 API 함수 하나 만들고, 필요한 데이터를 URL 파라메터나 요청 Body 로 받아서 `SignInManager`의 메소드나 `UserManager`의 메소드를 호출해 주면 된다. 
 회원 가입 API 를 예제로 코드를 작성해 보자. 우선 회원가입 데이터 양식을 DTO 코드로 만들어 정의하자. [`DataAnnotation` 특성을 이용하여 유효성 검사를 할 수 있다.](https://docs.microsoft.com/ko-kr/dotnet/api/system.componentmodel.dataannotations?view=net-5.0)
 
-```csharp
+```cs
 namespace IO.Swagger.Models.Dto
 {
     public class SignUpDto
@@ -245,7 +245,7 @@ namespace IO.Swagger.Models.Dto
 ```
 그리고 이러한 형태의 데이터를 받아 처리하는 API 를 구현하자. 회원가입은 [`UserManager`의 `CreateAsync()`를 호출하면 된다.](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.identity.usermanager-1.createasync?view=aspnetcore-5.0#definition) 그리고 해당 메소드가 반환한 객체의 `Succeeded` 값이 `true` 인지 확인하여 성공 여부를 확인한다.
 
-```csharp
+```cs
 ...
 public class AuthController : ControllerBase
 {
@@ -338,7 +338,7 @@ DB 연결 문자열 설정할 때 처럼, `appsettings.json` 에 값을 넣고 �
 
 ```
 
-```csharp
+```cs
 ...
 public void ConfigureServices(IServiceCollection services)
 {
@@ -355,7 +355,7 @@ public void ConfigureServices(IServiceCollection services)
 
 앞에서 구현한 회원가입 API 에 이메일 인증 메일 발송 코드를 추가해 보자. 우선 컨트롤러 클래스에 FluentEmail 객체를 주입받아 저장하고.
 
-```csharp
+```cs
 public class AuthController : ControllerBase
 {
     private readonly UserManager<IdentityUser> _userManager;
@@ -378,7 +378,7 @@ public class AuthController : ControllerBase
 그리고 인증 토큰을 발급하여, 가입한 사람의 이메일로 전송하는 코드를 추가하자. 가입 성공시에만 전송해야 하니, `result.Succeeded` 가 `true` 일때 메일 발송하도록 하면 된다.
 이메일 인증 토큰 발급은 `UserManager`의 [`GenerateEmailConfirmationTokenAsync()`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.identity.usermanager-1.generateemailconfirmationtokenasync?view=aspnetcore-5.0#Microsoft_AspNetCore_Identity_UserManager_1_GenerateEmailConfirmationTokenAsync__0_) 메소드를 호출하여 생성한다.
 
-```csharp
+```cs
 ...
 [HttpPost("signup")]
 public async Task<IActionResult> SignUp(SignUpDto signUpForm)

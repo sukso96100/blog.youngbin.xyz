@@ -96,7 +96,7 @@ public class ThirdController {
 }
 ```
 
-```csharp
+```cs
 // C#, ASP.NET
 namespace StudentApi.Controllers
 {
@@ -312,7 +312,7 @@ java -jar swagger-codegen-cli.jar generate \
 그러면 위와 같은 프로젝트와 코드가 생성된다. 이 글에서 코드를 다 보여주긴 어려우니, `StudentsApi.cs` 컨트롤러 파일만 한번 보자.
 
 
-```csharp
+```cs
 using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
@@ -453,7 +453,7 @@ namespace IO.Swagger.Controllers
 프로그램 실행 시 각종 서비스와 플러그인 등을 구성하는 `Startup.cs` 의 `ConfigureServices()`, `Configure()` 를 보면 이를 확인할 수 있다.
 
 
-```csharp
+```cs
 ...
 public void ConfigureServices(IServiceCollection services)
 {
@@ -556,7 +556,7 @@ dotnet ef dbcontext scaffold "Server=mydemoserver.mysql.database.azure.com; Port
 ```
 생성된 파일 중 `Students.cs` 만 열어 보자면, 아래와 같이 생성되어 있음을 확인할 수 있다.
 
-```csharp
+```cs
 using System;
 using System.Collections.Generic;
 
@@ -576,7 +576,7 @@ namespace IO.Swagger.Models
 `DatabaseContext.cs`는 열어보면, `OnConfiguring`메소드에 앞서 명령행에서 같이 입력한 연결 문자열이 그대로 들어가 있는 것을 볼 수 있을 것이다. 당연하게도 저 상태로 배포하는 것이 아니라 설정 파일이나 환경 변수로 분리해야 한다. ASP.NET 의 경우 `appsettings.json` 에 DB 연결 문자열 등 설정값을 저장한다.
 
 
-```csharp
+```cs
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -597,7 +597,7 @@ namespace IO.Swagger.Models
 ```
 그리고 `Startup.cs`의 `ConfigureServices()` 메소드에 DB 컨텍스트를 종속성 주입으로 설정해 준다. 이제 `DatabaseContext.cs`의 `OnConfiguring()`메소드는 더이상 필요하지 않으니, 통째로 지워준다.
 
-```csharp
+```cs
 ...
 public void ConfigureServices(IServiceCollection services)
 {
@@ -615,7 +615,7 @@ public void ConfigureServices(IServiceCollection services)
 생성자에서 `Startup.cs` 에서 설정한 DB Context 를 주입받도록 생성자를 작성하고, 주입받은 DB Context 로 질의를 하거나 쓰기 작업을 해서 데이터를 반환하도록 작성하면 된다.
 아래 예시에서는 DB Context 주입받는 생성자와 `GET /Students/{id}` API 구현한 예제만 넣어 보았다.
 
-```csharp
+```cs
 namespace IO.Swagger.Controllers
 { 
     // EF Core Database context
