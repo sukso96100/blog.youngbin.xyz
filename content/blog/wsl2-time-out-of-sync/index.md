@@ -1,5 +1,5 @@
 ---
-title: WSL2 Time out of sync
+title: WSL2 시간 동기화 문제 임시방편 조치하기
 date: 2020-12-09T10:25:52.761Z
 description: 컴퓨터를 절전모드에서 깨웠을 때 WSL2 시간이 안 맞는 문제 임시방편으로 해결해보기
 image: 2020-12-09-144003.png
