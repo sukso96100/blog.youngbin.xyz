@@ -5,6 +5,46 @@ import Highlight, { defaultProps } from 'prism-react-renderer'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import { mdx } from '@mdx-js/react'
 import dracula from 'prism-react-renderer/themes/dracula';
+import Prism from 'prismjs/components/prism-core';
+
+const langs = [
+  "markup",
+  "bash",
+  "clike",
+  "c",
+  "cpp",
+  "css",
+  "css-extras",
+  "javascript",
+  "jsx",
+  "js-extras",
+  "coffeescript",
+  "diff",
+  "git",
+  "go",
+  "graphql",
+  "handlebars",
+  "less",
+  "makefile",
+  "markdown",
+  "objectivec",
+  "ocaml",
+  "python",
+  "reason",
+  "sass",
+  "scss",
+  "sql",
+  "stylus",
+  "tsx",
+  "typescript",
+  "wasm",
+  "yaml",
+  "csharp",
+  "java"]
+langs.forEach(lang => {
+  require(`prismjs/components/prism-${lang}`)
+})
+
 
 export default ({ children, className, live, render }) => {
   const language = className.replace(/language-/, '')
@@ -36,7 +76,7 @@ export default ({ children, className, live, render }) => {
   }
 
   return (
-    <Highlight {...defaultProps} code={children.trim()} language={language} theme={dracula}>
+    <Highlight {...defaultProps} Prism={Prism} code={children.trim()} language={language} theme={dracula}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre className={className} 
             style={{ ...style, padding: '20px', overflowX: 'scroll', borderRadius: '5px'}}>
