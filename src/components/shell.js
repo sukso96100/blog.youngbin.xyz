@@ -7,7 +7,7 @@ import {
 } from "@chakra-ui/react"
 import { Icon } from '@chakra-ui/icons'
 import {
-  RiPriceTag3Line, RiSearchLine, RiUser3Line, RiContrastLine,
+  RiPriceTag3Line, RiSearchLine, RiUser3Line, RiContrastLine, RiRssLine,
   RiFacebookCircleLine, RiGithubLine, RiTwitterLine, RiGlobalLine
 } from "react-icons/ri";
 
@@ -34,6 +34,11 @@ export default function Shell(props) {
                       label: "Tags",
                       onClick: () => navigate("/tags"),
                       icon: <Icon as={RiPriceTag3Line} />,
+                    },
+                    {
+                      label: "Subscribe to RSS",
+                      onClick: () => navigate("/rss.xml"),
+                      icon: <Icon as={RiRssLine} />
                     },
                     {
                       label: "Search",

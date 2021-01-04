@@ -129,12 +129,12 @@ module.exports = {
               }
             `,
             output: "/rss.xml",
-            title: "RSS Feed for YoungbinLab Blog",
+            title: `RSS Feed for Youngbin Han's Blog`,
             // optional configuration to insert feed reference in pages:
             // if `string` is used, it will be used to create RegExp and then test if pathname of
             // current page satisfied this regular expression;
             // if not provided or `undefined`, all pages will have feed reference inserted
-            match: "^/blog/",
+            // match: "^/blog/",
           },
         ],
       },
@@ -142,7 +142,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `YoungbinLab Blog`,
+        name: `Youngbin Han's Blog`,
         short_name: `YoungbinLab`,
         start_url: `/`,
         background_color: `white`,
