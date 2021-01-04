@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `YoungbinLab Blog`,
+    title: `Youngbin Han's Blog`,
     author: `Youngbin Han`,
     copyright: "(C) 2013-Present Youngbin Han",
-    description: `Youngbin Han's personal records.`,
+    description: `Youngbin Han's records of \npersonal, technical, life and other stuffs`,
     siteUrl: `https://blog.youngbin.xyz/`,
     social: {
       coffee: "sukso96100",
@@ -13,7 +13,20 @@ module.exports = {
       web: { title: "youngbin.xyz", url: "https://youngbin.xyz" },
     },
   },
+  flags:{
+    QUERY_ON_DEMAND: true,
+    FAST_DEV: true,
+    // FAST_REFRESH: true,
+    PARALLEL_SOURCING: true
+  },
   plugins: [
+    {
+      resolve: "@chakra-ui/gatsby-plugin",
+      options: {
+        isResettingCSS: true,
+        isUsingColorMode: true,
+      },
+    },
     {
       resolve: `gatsby-plugin-netlify-cms`,
       options: {
@@ -26,7 +39,6 @@ module.exports = {
         shortname: `youngbinhan`
       }
     },
-    "gatsby-plugin-theme-ui",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -53,12 +65,7 @@ module.exports = {
               wrapperStyle: `margin: 10px;`
             },
           },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              // wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
-          },
+          `gatsby-remark-responsive-iframe`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],

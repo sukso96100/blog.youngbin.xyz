@@ -3,20 +3,21 @@ import { navigate, graphql } from "gatsby"
 
 import Shell from "../components/shell"
 import PostCard from "../components/postCard"
-import { Grid, Heading, Input } from "theme-ui"
+import { SimpleGrid, Input, Heading } from "@chakra-ui/react"
+
 import * as JsSearch from 'js-search';
 
 
 
 export default class SearchPage extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       searchResults: []
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     var REGEX = /\s+/; // Split on spaces
     const tokenizer = {
       tokenize(text) {
@@ -37,7 +38,7 @@ export default class SearchPage extends React.Component {
     search.addDocuments(posts);
     this.search = search;
   }
-  runSearch(keyword){
+  runSearch(keyword) {
     this.setState({
       searchResults: this.search.search(keyword)
     })
@@ -61,16 +62,14 @@ export default class SearchPage extends React.Component {
             paddingBottom: 80,
           }}
         >
-          <div style={{marginBottom: 8}}>
-            <Heading>Search</Heading>
-            <Input placeholder="Type keyword..." onChange={event=>this.runSearch(event.target.value)}/>
-          </div>
-          
-          <Grid gap={3} columns={[1, 2, 3]}>
+          <Heading margin="5">Search</Heading>
+          <Input variant="filled" placeholder="Type keyword..." mb="5"
+            onChange={event => this.runSearch(event.target.value)} />
+          <SimpleGrid columns={[1, 2, 3]} spacing="20px">
             {this.state.searchResults.map(({ node }, index) => (
               <PostCard post={node} />
             ))}
-          </Grid>
+          </SimpleGrid>
         </div>
       </Shell>
     )

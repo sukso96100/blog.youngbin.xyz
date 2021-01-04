@@ -2,10 +2,10 @@ import React from "react"
 import { navigate, graphql } from "gatsby"
 
 import Shell from "../components/shell"
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { SimpleGrid, IconButton, Center, Button, Stack, Heading } from "@chakra-ui/react"
+import { Icon } from '@chakra-ui/icons'
+import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 import PostCard from "../components/postCard"
-import { Grid, Text, Container } from "theme-ui"
 
 class BlogIndex extends React.Component {
   render() {
@@ -20,38 +20,23 @@ class BlogIndex extends React.Component {
         title={siteTitle}
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
       >
-        <div
-          style={{
-            marginLeft: "auto",
-            marginRight: "auto",
-            maxWidth: 1200,
-            padding: 16,
-            paddingBottom: 80,
-          }}
-        >
-          <Grid gap={3} columns={[1, 2, 3]}>
-            {posts.map(({ node }, index) => (
-              <PostCard post={node} />
-            ))}
-          </Grid>
-          <Grid width={[3, 3, 3]} style={{marginTop: 16}}>
+        <Heading my="10" whiteSpace="pre-wrap">{data.site.siteMetadata.description}</Heading>
+        <SimpleGrid columns={[1, 2, 3]} spacing="20px">
+          {posts.map(({ node }, index) => (
+            <PostCard post={node} />
+          ))}
+        </SimpleGrid>
+        <Center margin="5">
+          <Stack direction="row" spacing={2}>
             {prev && (
-              <Container p={4} bg="muted" onClick={() => navigate(prev)} style={{textAlign: 'left'}}>
-                <FontAwesomeIcon icon={faArrowLeft} />
-              </Container>
+              <IconButton aria-label="Previous" icon={<Icon as={RiArrowLeftSLine} />} onClick={() => navigate(prev)} />
             )}
-            <Container p={4} bg="muted" style={{textAlign: 'center'}}>
-              <Text>
-                {currentPage}/{numPages}
-              </Text>
-            </Container>
+            <Button> {currentPage}/{numPages}</Button>
             {next && (
-              <Container p={4} bg="muted" onClick={() => navigate(next)} style={{textAlign: 'right'}}>
-                <FontAwesomeIcon icon={faArrowRight} />
-              </Container>
+              <IconButton aria-label="Next" icon={<Icon as={RiArrowRightSLine} />} onClick={() => navigate(next)} />
             )}
-          </Grid>
-        </div>
+          </Stack>
+        </Center>
       </Shell>
     )
   }
@@ -64,6 +49,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        description
       }
     }
     allMdx(

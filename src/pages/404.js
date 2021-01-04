@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Heading, Text, Badge, Image, Divider, Grid, Button } from "theme-ui"
+import { Text, Badge, Heading, Button } from "@chakra-ui/react"
 
 // Utilities
 import kebabCase from "lodash/kebabCase"
@@ -30,7 +30,7 @@ const NotFoundPage = ({
       <Text>Nothing was found here!</Text>
       <br />
       <Link to={"/"} style={{ textDecoration: "none" }}>
-        <Button>Move to blog home</Button>
+        <Button>Move to home</Button>
       </Link>
     </div>
   </Shell>

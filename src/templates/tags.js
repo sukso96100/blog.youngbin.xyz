@@ -5,9 +5,9 @@ import PropTypes from "prop-types"
 import { Link, graphql } from "gatsby"
 import PostCard from "../components/postCard"
 import Shell from "../components/shell"
-import { Heading, Text, Badge, Button, Divider, Grid, Container } from "theme-ui"
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Icon } from '@chakra-ui/icons'
+import { RiArrowLeftSLine } from "react-icons/ri";
+import { Text, Box, SimpleGrid, Badge, Heading, Button } from "@chakra-ui/react"
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
@@ -15,36 +15,21 @@ const Tags = ({ pageContext, data }) => {
   return (
     <Shell title={data.site.siteMetadata.title}>
 
-        <div
-          style={{
-            marginLeft: "auto",
-            marginRight: "auto",
-            maxWidth: 1200,
-            padding: 16,
-          }}
-        >
-          <Link to="/tags/" style={{ textDecoration: "none" }}>
-            <Text><FontAwesomeIcon icon={faArrowLeft}/> All tags</Text>
-          </Link>
-          <Heading>Posts tagged with</Heading>
-          <Badge sx={{ margin: 1 }}>{tag}</Badge>
-            <Text>{totalCount} Posts</Text>
-        </div>
-        <div
-          style={{
-            marginLeft: "auto",
-            marginRight: "auto",
-            maxWidth: 1000,
-            padding: 16,
-          }}
-        >
-          <Grid
-              gap={3}
-              columns={[ 1, 2, 3 ]}>
-              {edges.map(({ node }, index) => <PostCard post={node}/>)}
-            </Grid>
-         
-        </div>
+      <Box margin="5">
+        <Link to="/tags/">
+          <Button leftIcon={<Icon as={RiArrowLeftSLine} />} size="sm">
+            <Text>All tags</Text>
+          </Button>
+        </Link>
+        <Heading>Posts tagged with</Heading>
+        <Badge sx={{ margin: 1 }}>{tag}</Badge>
+        <Text>{totalCount} Posts</Text>
+      </Box>
+      <Box>
+        <SimpleGrid columns={[1, 2, 3]} spacing="20px">
+          {edges.map(({ node }, index) => <PostCard post={node} />)}
+        </SimpleGrid>
+      </Box>
     </Shell>
   )
 }

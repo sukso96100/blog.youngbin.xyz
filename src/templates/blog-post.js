@@ -6,8 +6,41 @@ import BuyMeACoffee from "../components/coffee"
 import kebabCase from "lodash/kebabCase"
 import Disqus from "gatsby-plugin-disqus"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { Heading, Text, Badge, Image, Divider, Grid, Container } from "theme-ui"
+import {
+  Text, useColorModeValue, Box, Divider, Image, Badge, SimpleGrid, Heading, Center
+} from "@chakra-ui/react"
 
+function NavCard(props) {
+  const bgColor = useColorModeValue("white", "gray.800")
+  const bgPress = useColorModeValue("gray.50", "gray.900")
+  return (
+    <Box maxW="xl" maxH="md" borderRadius="lg" overflow="hidden" boxShadow="md" borderWidth="1px"
+      bg={bgColor} onClick={() => navigate(props.fields.slug)} _hover={{ backgroundColor: bgPress }}>
+      <Box p="6">
+        <Box d="flex" alignItems="baseline">
+          <Box
+            color="gray.500"
+            fontWeight="semibold"
+            letterSpacing="wide"
+            fontSize="xs"
+            textTransform="uppercase"
+          >
+            <Text>{props.label}</Text>
+          </Box>
+        </Box>
+
+        <Box
+          mt="1"
+          fontWeight="semibold"
+          as="h4"
+          lineHeight="tight"
+          isTruncated>
+          {props.frontmatter.title}
+        </Box>
+      </Box>
+    </Box>
+  )
+}
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.mdx
@@ -21,8 +54,8 @@ class BlogPostTemplate extends React.Component {
         src={post.frontmatter.image.childImageSharp.fluid.src}
       />
     ) : (
-      <div></div>
-    )
+        <div></div>
+      )
     return (
       <Shell location={this.props.location} title={siteTitle}>
         <SEO
@@ -56,12 +89,14 @@ class BlogPostTemplate extends React.Component {
             ))}
           </div>
           {coverImage}
-          <Divider />
-          <MDXRenderer>{post.body}</MDXRenderer>
-          <div style={{ textAlign: "center" }}>
+          <Divider/>
+          <MDXRenderer>
+            {post.body}
+          </MDXRenderer>
+          <Divider/>
+          <Center margin="5">
             <BuyMeACoffee username={buymeacoffee} />
-          </div>
-
+          </Center>
           <Disqus
             config={{
               url: `${siteUrl}${this.props.location.pathname}`,
@@ -69,28 +104,14 @@ class BlogPostTemplate extends React.Component {
               title: post.title,
             }}
           />
-          <Grid width={[1, 2]}>
+          <SimpleGrid columns={[1, null, 2]} spacing="20px" margin="5">
             {previous && (
-              <Container
-                p={4}
-                bg="muted"
-                onClick={() => navigate(previous.fields.slug)}
-              >
-                <Text>Previous:</Text>
-                <Heading>{previous.frontmatter.title}</Heading>
-              </Container>
+              <NavCard {...previous} label="Previous:" />
             )}
             {next && (
-              <Container
-                p={4}
-                bg="muted"
-                onClick={() => navigate(next.fields.slug)}
-              >
-                <Text>Next:</Text>
-                <Heading>{next.frontmatter.title}</Heading>
-              </Container>
+              <NavCard {...next} label="Next:" />
             )}
-          </Grid>
+          </SimpleGrid>
         </div>
       </Shell>
     )

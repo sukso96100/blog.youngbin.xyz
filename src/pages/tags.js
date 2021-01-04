@@ -7,7 +7,8 @@ import kebabCase from "lodash/kebabCase"
 // Components
 import { navigate, graphql } from "gatsby"
 import Shell from "../components/shell"
-import { Heading, Text, Badge, Grid, Container } from "theme-ui"
+import {Text, Button, SimpleGrid, Badge, Heading} from "@chakra-ui/react"
+
 
 const TagsPage = ({
   data: {
@@ -28,18 +29,17 @@ const TagsPage = ({
         paddingBottom: 64,
       }}
     >
-      <Heading>All Tags</Heading>
-      <Grid gap={3} columns={[2, 3, 4]} sx={{marginTop: 10}}>
-        {group.map(tag => (
-          <Container
-          sx={{padding: 2}}
+      <Heading margin="5">All Tags</Heading>
+      <SimpleGrid columns={[1, 2, 3]} spacing="20px">
+      {group.map(tag => (
+          <Button
             onClick={() => navigate(`/tags/${kebabCase(tag.fieldValue)}/`)}
           >
             <Badge sx={{ margin: 1 }}>{tag.fieldValue}</Badge>
             <Text>{tag.totalCount} Posts</Text>
-          </Container>
+          </Button>
         ))}
-      </Grid>
+      </SimpleGrid>
     </div>
   </Shell>
 )
