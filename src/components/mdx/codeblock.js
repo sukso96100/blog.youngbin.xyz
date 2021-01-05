@@ -47,7 +47,7 @@ langs.forEach(lang => {
 
 
 export default ({ children, className, live, render }) => {
-  const language = className.replace(/language-/, '')
+  const language = (!className || className=="")? "": className.replace(/language-/, '')
 
   if (live) {
     return (
