@@ -3,7 +3,7 @@ module.exports = {
     title: `Youngbin Han's Blog`,
     author: `Youngbin Han`,
     copyright: "(C) 2013-Present Youngbin Han",
-    description: `Youngbin Han's records of \npersonal, technical, life and other stuffs`,
+    description: `Youngbin Han's records of personal, technical, life and other stuffs`,
     siteUrl: `https://blog.youngbin.xyz/`,
     social: {
       coffee: "sukso96100",

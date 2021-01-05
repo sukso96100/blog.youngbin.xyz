@@ -20,7 +20,7 @@ class BlogIndex extends React.Component {
         title={siteTitle}
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
       >
-        <Heading my="10" whiteSpace="pre-wrap">{data.site.siteMetadata.description}</Heading>
+        <Heading my="10" maxW="3xl">{data.site.siteMetadata.description}</Heading>
         <SimpleGrid columns={[1, 2, 3]} spacing="20px">
           {posts.map(({ node }, index) => (
             <PostCard post={node} />
