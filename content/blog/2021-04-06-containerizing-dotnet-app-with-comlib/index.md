@@ -297,6 +297,7 @@ Windows Server Core 이미지는 어떻게 할 수 없지만, Visual Studio Buil
 이미지를 분리하기 위해, Dockerfile 도 2개로 분리하고, 이미지 빌드도 2번 합니다.
 
 > vsbuildtools.Dockerfile
+
 ```dockerfile
 FROM mcr.microsoft.com/dotnet/sdk:5.0-windowsservercore-ltsc2019 AS vsbuildtoools
 
@@ -330,6 +331,7 @@ docker build -t vsbuildtools:latest -f vsbuildtools.Dockerfile
 하나는 Visual Studio Build Tools 를 설치하여 이미지로 빌드하도록 작성하고, `vsbuildtools:latest` 태그를 달아 빌드합니다.
 
 > app.Dockerfile
+
 ```dockerfile
 FROM vsbuildtools:latest AS build
 
