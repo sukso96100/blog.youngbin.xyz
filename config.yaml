@@ -17,6 +17,9 @@ params:
           url: "twitter.com/sukso96100"
     cover:
         linkFullImages: true
+    ShowShareButtons: true
+    ShowToc: true
+    ShowPostNavLinks: true
 menu:
     main:
         - identifier: categories
