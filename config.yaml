@@ -2,7 +2,7 @@ baseURL: "/"
 languageCode: "ko-kr"
 title: "Youngbin Han's blog"
 theme: github.com/adityatelange/hugo-PaperMod
-
+disqusShortname: youngbinhan
 params:
     defaultTheme: auto
     homeInfoParams:
@@ -20,6 +20,9 @@ params:
     ShowShareButtons: true
     ShowToc: true
     ShowPostNavLinks: true
+    comments: true
+    
+
 menu:
     main:
         - identifier: categories
