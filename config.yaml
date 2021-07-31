@@ -1,0 +1,29 @@
+baseURL: "/"
+languageCode: "ko-kr"
+title: "Youngbin Han's blog"
+theme: github.com/adityatelange/hugo-PaperMod
+
+params:
+    defaultTheme: auto
+    homeInfoParams:
+        Title: Youngbin Han's blog
+        Content: Youngbin Han's records of personal, technical, life and other stuffs
+    socialIcons: # optional
+        - name: "github"
+          url: "github.com/sukso96100"
+        - name: "facebook"
+          url: "fb.me/hanyoungbin"
+        - name: "twitter"
+          url: "twitter.com/sukso96100"
+    cover:
+        linkFullImages: true
+menu:
+    main:
+        - identifier: categories
+          name: categories
+          url: /categories/
+          weight: 10
+        - identifier: tags
+          name: tags
+          url: /tags/
+          weight: 20
