@@ -3,6 +3,8 @@ languageCode: "ko-kr"
 title: "Youngbin Han's blog"
 theme: github.com/gethugothemes/bookworm-light
 disqusShortname: youngbinhan
+permalinks: 
+  blog: /:filename
 params:
   mainSections: ["blog"]
   search: true
