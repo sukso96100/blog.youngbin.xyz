@@ -1,4 +1,5 @@
 ---
+author: "Youngbin Han"
 description: ''
 date: 2018-02-21
 title: "Amazfit Bip(米动手表 青春版) 한글 폰트 작업"

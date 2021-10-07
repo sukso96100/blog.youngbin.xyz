@@ -1,4 +1,5 @@
 ---
+author: "Youngbin Han"
 description: ''
 date: 2018-02-07
 title: "1회 EOS.IO 서울 개발자 밋업 참가 후기"

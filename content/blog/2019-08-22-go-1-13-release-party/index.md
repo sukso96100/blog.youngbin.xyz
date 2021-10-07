@@ -1,4 +1,5 @@
 ---
+author: "Youngbin Han"
 description: ''
 date: 2019-08-22
 title: "Go 1.13 Release Party 참석 후기"

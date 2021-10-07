@@ -1,4 +1,5 @@
 ---
+author: "Youngbin Han"
 description: ''
 date: 2015-11-07
 title: "AWS EC2 인스턴스 생성하기"

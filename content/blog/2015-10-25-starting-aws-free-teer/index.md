@@ -1,4 +1,5 @@
 ---
+author: "Youngbin Han"
 description: ''
 date: 2015-10-25
 title: "AWS 프리티어 가입하기"

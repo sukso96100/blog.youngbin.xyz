@@ -1,4 +1,5 @@
 ---
+author: "Youngbin Han"
 description: ''
 date: 2016-03-25
 title: "Let's Encrypt 를 이용해 Dokku 앱 HTTPS 연결 지원하기"

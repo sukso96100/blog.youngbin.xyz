@@ -1,4 +1,5 @@
 ---
+author: "Youngbin Han"
 description: ''
 date: 2015-11-16
 title: "Ubuntu Server 에 Docker 설치하고 설정하기."

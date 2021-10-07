@@ -1,4 +1,5 @@
 ---
+author: "Youngbin Han"
 description: ''
 date: 2019-09-09
 title: "3년 묶은 Node.js 기반 백엔드를 Golang 으로 옮기다."

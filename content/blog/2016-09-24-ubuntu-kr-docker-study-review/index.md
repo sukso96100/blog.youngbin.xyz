@@ -1,4 +1,5 @@
 ---
+author: "Youngbin Han"
 description: ''
 image: "./docker_study_meetup.jpg"
 date: 2016-09-24

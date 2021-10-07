@@ -1,4 +1,5 @@
 ---
+author: "Youngbin Han"
 description: ''
 date: 2016-10-20
 title: "캐노니컬 라이브패치 서비스 사용하기"

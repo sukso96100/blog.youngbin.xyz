@@ -1,4 +1,5 @@
 ---
+author: "Youngbin Han"
 description: ''
 date: 2015-12-12
 title: "상하이 여행 - 준비(1)"

@@ -1,4 +1,5 @@
 ---
+author: "Youngbin Han"
 description: ''
 date: 2015-12-22
 title: "아치리눅스에서 SSD TRIM 사용하기"

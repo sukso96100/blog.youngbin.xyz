@@ -1,4 +1,5 @@
 ---
+author: "Youngbin Han"
 description: ''
 image: "./cloud-computing-day-with-aws-0.jpg"
 date: 2016-11-09

@@ -1,4 +1,5 @@
 ---
+author: "Youngbin Han"
 description: ''
 date: 2015-12-13
 title: "AUR 에 아치리눅스 패키지 올리기"

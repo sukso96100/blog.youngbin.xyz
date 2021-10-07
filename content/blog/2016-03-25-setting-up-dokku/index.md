@@ -1,4 +1,5 @@
 ---
+author: "Youngbin Han"
 description: ''
 date: 2016-03-25
 title: "Dokku 설치 및 설정하기"

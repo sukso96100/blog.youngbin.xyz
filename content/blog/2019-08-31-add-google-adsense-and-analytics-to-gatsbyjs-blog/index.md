@@ -1,4 +1,5 @@
 ---
+author: "Youngbin Han"
 description: ''
 date: 2019-08-31
 title: "GastbyJS 블로그에 Google Adsense 와 Analytics 달기"

@@ -1,4 +1,5 @@
 ---
+author: "Youngbin Han"
 description: ''
 date: 2018-05-01
 title: "Report for hosting Ubuntu 18.04 LTS Release Party in Korea"

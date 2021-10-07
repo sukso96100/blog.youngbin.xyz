@@ -1,4 +1,5 @@
 ---
+author: "Youngbin Han"
 description: ''
 date: 2018-06-02
 title: "Node.js 프로젝트와 React Native 프로젝트에 ESLint 적용해 보기"

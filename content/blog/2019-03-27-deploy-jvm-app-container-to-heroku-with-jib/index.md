@@ -1,4 +1,5 @@
 ---
+author: "Youngbin Han"
 description: ''
 date: 2019-03-27
 title: "Jib을 이용하여 JVM앱을 Heroku에 컨테이너로 배포하기"
