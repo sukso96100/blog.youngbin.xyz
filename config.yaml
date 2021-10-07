@@ -46,11 +46,18 @@ params:
 
 menu:
   main:
-    - identifier: categories
-      name: categories
-      url: /categories/
-      weight: 10
     - identifier: tags
-      name: tags
+      name: Tags
       url: /tags/
+      weight: 10
+    - identifier: website
+      name: youngbin.xyz
+      url: https://youngbin.xyz
       weight: 20
+
+outputs: 
+  home: ["HTML", "RSS", "JSON"]
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
