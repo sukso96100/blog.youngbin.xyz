@@ -1,35 +1,53 @@
 baseURL: "/"
 languageCode: "ko-kr"
 title: "Youngbin Han's blog"
-theme: github.com/adityatelange/hugo-PaperMod
+theme: github.com/gethugothemes/bookworm-light
 disqusShortname: youngbinhan
 params:
-    defaultTheme: auto
-    homeInfoParams:
-        Title: Youngbin Han's blog
-        Content: Youngbin Han's records of personal, technical, life and other stuffs
-    socialIcons: # optional
-        - name: "github"
-          url: "github.com/sukso96100"
-        - name: "facebook"
-          url: "fb.me/hanyoungbin"
-        - name: "twitter"
-          url: "twitter.com/sukso96100"
-    cover:
-        linkFullImages: true
-    ShowShareButtons: true
-    ShowToc: true
-    ShowPostNavLinks: true
-    comments: true
-    
+  mainSections: ["blog"]
+  search: true
+  author: Youngbin Han
+  variables:
+    font_primary: "Mulish"
+    h1: "64px"
+    h1_lg: "52px"
+    h1_md: "42px"
+    h2: "38px"
+    h2_md: "30px"
+    h3: "30px"
+    h3_md: "24px"
+    h4: "24px"
+    h5: "18px"
+    h6: "16px"
+    white: "#ffffff"
+    black: "#000000"
+    dark: "#152035"
+    gray: "#747577"
+    light: "#FAFAFA"
+    color_primary: "#01AD9F"
+  plugins:
+    css:
+      - link: plugins/bootstrap/bootstrap.min.css
+      - link: plugins/line-awesome/css/line-awesome.min.css
+      - link: >-
+          https://fonts.googleapis.com/css2?family=Mulish:wght@500;600;700;800;900&display=swap
+    js:
+      - link: plugins/jquery/jquery.min.js
+      - link: plugins/bootstrap/bootstrap.min.js
+      - link: plugins/instagram-feed/instagram-feed.js
+      - link: plugins/search/fuse.min.js
+      - link: plugins/search/mark.js
+      - link: plugins/search/search.js
+
+
 
 menu:
-    main:
-        - identifier: categories
-          name: categories
-          url: /categories/
-          weight: 10
-        - identifier: tags
-          name: tags
-          url: /tags/
-          weight: 20
+  main:
+    - identifier: categories
+      name: categories
+      url: /categories/
+      weight: 10
+    - identifier: tags
+      name: tags
+      url: /tags/
+      weight: 20
