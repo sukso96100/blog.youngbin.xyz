@@ -41,6 +41,18 @@ params:
       - link: plugins/search/fuse.min.js
       - link: plugins/search/mark.js
       - link: plugins/search/search.js
+  social:
+    - icon: lab la-facebook-f
+      url: 'https://www.facebook.com/hanyoungbin'
+    - icon: lab la-twitter
+      url: 'https://www.twitter.com/sukso96100'
+    - icon: lab la-instagram
+      url: 'https://www.instagram.com/hanyoungbin'
+    - icon: lab la-linkedin-in
+      url: 'https://www.linkedin.com/in/youngbin-han/'
+    - icon: lab la-github
+      url: 'https://github.com/sukso96100'
+
 
 
 
