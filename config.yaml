@@ -2,10 +2,10 @@ baseURL: "/"
 languageCode: "ko-kr"
 title: "Youngbin Han's blog"
 theme: github.com/gethugothemes/bookworm-light
-disqusShortname: youngbinhan
 permalinks: 
   blog: /:filename
 params:
+  utterances: sukso96100/blog.youngbin.xyz
   mainSections: ["blog"]
   search: true
   author: Youngbin Han

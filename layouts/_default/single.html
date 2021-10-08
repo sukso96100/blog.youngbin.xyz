@@ -81,7 +81,14 @@
           </div>
         </div>
         <div class="col-lg-10">
-          {{ template "_internal/disqus.html" . }}
+          <script src="https://utteranc.es/client.js"
+                  repo="{{.Site.Params.utterances}}"
+                  issue-term="pathname"
+                  theme="github-light"
+                  crossorigin="anonymous"
+                  label="comments"
+                  async>
+          </script>
         </div>
       </div>
     </div>
