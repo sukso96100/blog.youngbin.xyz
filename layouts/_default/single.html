@@ -61,7 +61,7 @@
           <div class="media d-block d-sm-flex text-center text-sm-left">
             {{ with .Site.GetPage (.Params.Author | urlize | lower) }}
             <a href="{{.Permalink}}">
-                <img loading="lazy" style="max-width: 200px; max-height: 200px;"
+                <img loading="lazy" style="max-width: 150px; max-height: 150px;"
                     class="img-fluid rounded-circle mr-0 mr-sm-4 mb-4" src="{{.Params.image | absURL}}" 
                     alt="{{ .Title }}">
             </a>
@@ -79,6 +79,9 @@
             </div>
             {{ end }}
           </div>
+        </div>
+        <div class="col-lg-10">
+          {{ template "_internal/disqus.html" . }}
         </div>
       </div>
     </div>
