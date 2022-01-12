@@ -11,11 +11,11 @@
     
 
     <!-- OGP card -->
-    <meta property="og:image" content='{{.Permalink}}{{.Params.image}}' />
-    <meta property="og:image:secure_url" content='{{.Permalink}}{{.Params.image}}' />
+    <meta property="og:image" content='{{.Site.BaseURL}}{{.Permalink}}{{.Params.image}}' />
+    <meta property="og:image:secure_url" content='{{.Site.BaseURL}}{{.Permalink}}{{.Params.image}}' />
     <!-- Twitter card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content='{{.Permalink}}{{.Params.image}}' />
+    <meta name="twitter:image" content='{{.Site.BaseURL}}{{.Permalink}}{{.Params.image}}' />
   
     {{ "<!-- mobile responsive meta -->" | safeHTML}}
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
