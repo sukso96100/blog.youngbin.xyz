@@ -1,0 +1,29 @@
+<head>
+    <meta charset="utf-8">
+    <title>{{ .Title }}</title>
+    <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}" />
+    <meta property="og:site_name" content="{{ .Site.Title }}" />
+  
+    <meta name="author" content="{{ site.Params.author }}">
+    <meta name="description" content="{{ with .Params.description }} {{.}} {{else}} {{ with site.Params.description }} {{.}} {{end}} {{end}}">
+
+    <!-- Twitter card -->
+    
+
+    <!-- OGP card -->
+    <meta property="og:image" content='{{.Permalink}}{{.Params.image}}' />
+    <meta property="og:image:secure_url" content='{{.Permalink}}{{.Params.image}}' />
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content='{{.Permalink}}{{.Params.image}}' />
+  
+    {{ "<!-- mobile responsive meta -->" | safeHTML}}
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+    <!-- favicon -->
+    {{ partialCached "favicon" . }}
+  
+    {{ "<!-- CSS Plugins -->" | safeHTML}}
+    {{ partialCached "style.html" . }}
+  
+  </head>
