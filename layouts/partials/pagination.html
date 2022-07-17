@@ -1,10 +1,10 @@
 {{ $pag := $.Paginator }}
 {{ if gt $pag.TotalPages 1 -}}
-<div class="btn-group">
+<div class="btn-group justify-center">
   {{ with $pag.First -}}
-  <a href="{{ .URL }}"><button class="btn">First</button></a>
+  <button class="btn" onclick="location.href={{ .URL }}">First</button>
   {{ end -}}
-  <a {{ if $pag.HasPrev }}href="{{ $pag.Prev.URL }}"{{ end }}><button class="btn {{ if not $pag.HasPrev }} btn-disabled{{ end }}">Prev</button></a>
+  <button class="btn {{ if not $pag.HasPrev }} btn-disabled{{ end }}" {{ if $pag.HasPrev }}onclick="location.href={{ $pag.Prev.URL }}"{{ end }}>Prev</button>
   {{- $ellipsed := false -}}
   {{- $shouldEllipse := false -}}
   {{- range $pag.Pagers -}}
@@ -20,14 +20,14 @@
     {{- $ellipsed = true -}}
   {{- end -}}
   {{- if $showNumber }}
-  <a href="{{ .URL }}"><button class="btn {{ if eq . $pag }}btn-active{{ end }}">{{ .PageNumber }}</button></a>
+  <button class="btn {{ if eq . $pag }}btn-active{{ end }}" onclick="location.href={{ .URL }}">{{ .PageNumber }}</button>
   {{- else if $shouldEllipse }}
   <button class="btn">…</button>
   {{- end -}}
   {{- end }}
-  <a {{ if $pag.HasNext }}href="{{ $pag.Next.URL }}"{{ end }}><button class="btn {{ if not $pag.HasNext }} btn-disabled{{ end }}">Next</button></a>
+  <button class="btn {{ if not $pag.HasNext }} btn-disabled{{ end }}" {{ if $pag.HasNext }}onclick="location.href={{ $pag.Next.URL }}"{{ end }}><a ></a>Next</a></button>
   {{- with $pag.Last }}
-  <a href="{{ .URL }}"><button class="btn">Last</button></a>
+  <button class="btn" onclick="location.href={{ .URL }}">Last</button>
   {{- end }}
 </div>
 {{ end }}
