@@ -1,29 +1,12 @@
-<head>
-    <meta charset="utf-8">
-    <title>{{ .Title }}</title>
-    <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}" />
-    <meta property="og:site_name" content="{{ .Site.Title }}" />
-  
-    <meta name="author" content="{{ site.Params.author }}">
-    <meta name="description" content="{{ with .Params.description }} {{.}} {{else}} {{ with site.Params.description }} {{.}} {{end}} {{end}}">
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Twitter card -->
-    
+{{ $styles := resources.Get "/css/style.css" | postCSS }}
 
-    <!-- OGP card -->
-    <meta property="og:image" content='{{.Site.BaseURL}}{{.Permalink}}{{.Params.image}}' />
-    <meta property="og:image:secure_url" content='{{.Site.BaseURL}}{{.Permalink}}{{.Params.image}}' />
-    <!-- Twitter card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content='{{.Site.BaseURL}}{{.Permalink}}{{.Params.image}}' />
-  
-    {{ "<!-- mobile responsive meta -->" | safeHTML}}
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-  
-    <!-- favicon -->
-    {{ partialCached "favicon" . }}
-  
-    {{ "<!-- CSS Plugins -->" | safeHTML}}
-    {{ partialCached "style.html" . }}
-  
-  </head>
+{{ if .Site.IsServer }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}"/>
+{{ else }}
+  {{ $styles := $styles | minify | fingerprint | resources.PostProcess }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}"/>
+{{ end }}

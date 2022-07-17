@@ -1,0 +1,33 @@
+{{ $pag := $.Paginator }}
+{{ if gt $pag.TotalPages 1 -}}
+<div class="btn-group">
+  {{ with $pag.First -}}
+  <a href="{{ .URL }}"><button class="btn">First</button></a>
+  {{ end -}}
+  <a {{ if $pag.HasPrev }}href="{{ $pag.Prev.URL }}"{{ end }}><button class="btn {{ if not $pag.HasPrev }} btn-disabled{{ end }}">Prev</button></a>
+  {{- $ellipsed := false -}}
+  {{- $shouldEllipse := false -}}
+  {{- range $pag.Pagers -}}
+  {{- $right := sub .TotalPages .PageNumber -}}
+  {{- $showNumber := or (le .PageNumber 3) (eq $right 0) -}}
+  {{- $showNumber := or $showNumber (le .TotalPages 5) -}}{{/* Issue #7523 */}}
+  {{- $showNumber := or $showNumber (and (gt .PageNumber (sub $pag.PageNumber 2)) (lt .PageNumber (add $pag.PageNumber 2))) -}}
+  {{- if $showNumber -}}
+    {{- $ellipsed = false -}}
+    {{- $shouldEllipse = false -}}
+  {{- else -}}
+    {{- $shouldEllipse = not $ellipsed -}}
+    {{- $ellipsed = true -}}
+  {{- end -}}
+  {{- if $showNumber }}
+  <a href="{{ .URL }}"><button class="btn {{ if eq . $pag }}btn-active{{ end }}">{{ .PageNumber }}</button></a>
+  {{- else if $shouldEllipse }}
+  <button class="btn">…</button>
+  {{- end -}}
+  {{- end }}
+  <a {{ if $pag.HasNext }}href="{{ $pag.Next.URL }}"{{ end }}><button class="btn {{ if not $pag.HasNext }} btn-disabled{{ end }}">Next</button></a>
+  {{- with $pag.Last }}
+  <a href="{{ .URL }}"><button class="btn">Last</button></a>
+  {{- end }}
+</div>
+{{ end }}

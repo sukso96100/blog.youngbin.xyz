@@ -1,46 +1,16 @@
 baseURL: "/"
 languageCode: "ko-kr"
 title: "Youngbin Han's blog"
-theme: github.com/gethugothemes/bookworm-light
+# theme: github.com/gethugothemes/bookworm-light
 permalinks: 
   blog: /:filename
+paginate: 10
+summaryLength: 50
 params:
   utterances: sukso96100/blog.youngbin.xyz
   mainSections: ["blog"]
   search: true
   author: Youngbin Han
-  variables:
-    font_primary: "Mulish"
-    h1: "64px"
-    h1_lg: "52px"
-    h1_md: "42px"
-    h2: "38px"
-    h2_md: "30px"
-    h3: "30px"
-    h3_md: "24px"
-    h4: "24px"
-    h5: "18px"
-    h6: "16px"
-    white: "#ffffff"
-    black: "#000000"
-    dark: "#152035"
-    gray: "#747577"
-    light: "#FAFAFA"
-    color_primary: "#01AD9F"
-  plugins:
-    css:
-      - link: plugins/bootstrap/bootstrap.min.css
-      - link: >-
-          https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css
-      - link: >-
-          https://fonts.googleapis.com/css2?family=Mulish:wght@500;600;700;800;900&display=swap
-    js:
-      - link: plugins/jquery/jquery.min.js
-      - link: plugins/bootstrap/bootstrap.min.js
-      - link: plugins/instagram-feed/instagram-feed.js
-      - link: plugins/search/fuse.min.js
-      - link: plugins/search/mark.js
-      - link: plugins/search/search.js
   social:
     - icon: lab la-facebook-f
       url: 'https://www.facebook.com/hanyoungbin'
