@@ -1,0 +1,41 @@
+{{ define "main" }}
+<main class="container mx-auto px-4 py-10">
+    {{- partial "header.html" . -}}
+    <div class="hero min-h-[50vh]">
+        {{if .Params.image}}<div class="hero-overlay bg-opacity-60"></div>{{end}}
+        <div class="hero-content text-center">
+          <div class="max-w-2xl">
+            <h1 class="mb-5 text-5xl font-bold">{{ .Title }}</h1>
+          </div>
+        </div>
+      </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row-dense gap-4 py-4">
+        {{ $pages := .Paginator.Pages }}
+        {{ range where $pages "Type" "in" site.Params.mainSections }}
+        <div class="card w-full bg-base-100 shadow-xl h-100">
+            {{ if .Params.image }}
+            <figure><img src="{{ .RelPermalink }}{{.Params.image}}" alt="Shoes" class="object-cover w-full h-48" /></figure>
+            {{ end}}
+            <div class="card-body">
+                <h2 class="card-title">
+                    {{.Title}}
+                </h2>
+                <p>{{.Date.Format "2006-01-02"}}</p>
+                {{ if .Params.image }}
+                <p>{{.Summary | truncate 100}}</p>
+                {{ else }}
+                <p>{{.Summary}}</p>
+                {{ end }}
+                <div class="card-actions justify-end">
+                    <a href="{{ .RelPermalink }}"><button class="btn btn-primary">Read more</button></a>
+                </div>
+            </div>
+        </div>
+        {{ end }}
+        
+    </div>
+    {{- partial "pagination.html" . -}}
+
+
+</main>
+{{ end }}
