@@ -10,5 +10,19 @@
       <p>{{.Site.Params.copyrights}}</p>
     </div>
   </footer>
+  <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({ element: "#search" });
+    });
+    document.getElementById("searchToggle").addEventListener("click", function(event) {
+        console.log("Search toggle clicked");
+        let target = document.getElementById("search");
+        if (target.style.display == "none") {
+            target.style.display = "block";
+        } else {
+            target.style.display = "none";
+        }
+    });
+    </script>
 </body>
 </html>
