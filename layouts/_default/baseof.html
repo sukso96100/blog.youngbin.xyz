@@ -1,28 +1,62 @@
 <!DOCTYPE html>
 <html lang="{{ .Language.Lang }}">
+
 <head>
     {{ partial "head.html" . }}
 </head>
+
 <body>
-{{ block "main" . }}{{ end }}
-<footer class="footer footer-center p-4 bg-base-300 text-base-content">
-    <div>
-      <p>{{.Site.Params.copyrights}}</p>
-    </div>
-  </footer>
-  <script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-        new PagefindUI({ element: "#search" });
-    });
-    document.getElementById("searchToggle").addEventListener("click", function(event) {
-        console.log("Search toggle clicked");
-        let target = document.getElementById("search");
-        if (target.style.display == "none") {
-            target.style.display = "block";
-        } else {
-            target.style.display = "none";
+    {{ block "main" . }}{{ end }}
+    <footer class="footer footer-center p-4 bg-base-300 text-base-content">
+        <div>
+            <p>{{.Site.Params.copyrights}}</p>
+        </div>
+    </footer>
+    <script>
+        let fuse = undefined;
+
+        async function initSearchIndex() {
+            let res = await fetch('/index.json');
+            let data = await res.json();
+            fuse = new Fuse(data, { // fuse.js options; check fuse.js website for details
+                shouldSort: true,
+                location: 0,
+                distance: 100,
+                threshold: 0.4,
+                minMatchCharLength: 2,
+                keys: [
+                    'title',
+                    'permalink',
+                    'summary'
+                ]
+            });
         }
-    });
+
+        document.getElementById("searchToggle").addEventListener("click", function (event) {
+            console.log("Search toggle clicked");
+            let target = document.getElementById("search");
+            if (target.style.display == "none") {
+                target.style.display = "block";
+            } else {
+                target.style.display = "none";
+            }
+        });
+
+        document.getElementById("searchinput").addEventListener("keydown", function (event) {
+            console.log(event.target.value);
+            if(!fuse){
+                initSearchIndex();
+            }
+            let result = fuse.search(event.target.value);
+            let resultTarget = document.getElementById("searchresults");
+            let resultHtml = "";
+            console.log(result)
+            for (let i = 0; i < result.length; i++) {
+                resultHtml += `<li><a href="${result[i].item.permalink}">${result[i].item.title}<br/>${result[i].item.contents.substring(0, 100)}</a></li>`;
+            }
+            resultTarget.innerHTML = resultHtml;
+        })
     </script>
 </body>
+
 </html>
