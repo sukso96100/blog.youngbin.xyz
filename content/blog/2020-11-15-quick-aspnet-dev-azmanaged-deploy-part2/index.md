@@ -3,7 +3,7 @@ author: "Youngbin Han"
 title: "ASP.NET앱 개발과 Azure 관리형 서비스로 배포하기 - 2. 관리형 서비스로 빠르게 구축하고 배포하기"
 description: Azure 의 여러 관리형 서비스로 빠르게 배포하고 연동하여 인프라 구축하기. 
 image: azarch.png
-date: 2020-11-15 11:00
+date: 2020-11-15T11:00:00.000Z
 tags:
   - azure
   - azuredevops

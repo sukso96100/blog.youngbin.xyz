@@ -3,7 +3,7 @@ author: "Youngbin Han"
 title: "ASP.NET앱 개발과 Azure 관리형 서비스로 배포하기 - 1. 코드 자동 생성을 통한 개발시간 단축"
 description: Swagger Codegen, Swashbuckle, EF Core Scaffold 등을 통한 코드 생성을 활용해 시간 단축하기.
 image: somethingmissing0.png
-date: 2020-11-15 11:00
+date: 2020-11-15T11:00:00.000Z
 tags:
   - azure
   - azuredevops
