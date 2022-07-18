@@ -1,17 +1,14 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
     content: ['./layouts/**/*.html', './content/**/*.md'],
-    // theme: {
-    //     extend: {
-    //         typography: {
-    //             DEFAULT: {
-    //                 css: {
-    //                     "code::before": { content: '' },
-    //                     "code::after": { content: '' }
-    //                 }
-    //             }
-    //         }
-    //     }
-    // },
+    theme: {
+        extend: {
+            fontFamily: {
+                sans: ['Pretendard', ...defaultTheme.fontFamily.sans],
+            },
+        }
+    },
     daisyui: {
         logs: false,
     },
