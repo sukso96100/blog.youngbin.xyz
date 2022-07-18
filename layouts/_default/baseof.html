@@ -52,7 +52,15 @@
             let resultHtml = "";
             console.log(result)
             for (let i = 0; i < result.length; i++) {
-                resultHtml += `<li><a href="${result[i].item.permalink}">${result[i].item.title}<br/>${result[i].item.contents.substring(0, 100)}</a></li>`;
+                resultHtml += 
+                `<li>
+                    <a href="${result[i].item.permalink}">
+                        <p>
+                            <b>${result[i].item.title}</b><br/>
+                            ${result[i].item.contents.substring(0, 100)}...
+                        </p>
+                    </a>
+                </li>`;
             }
             resultTarget.innerHTML = resultHtml;
         })
