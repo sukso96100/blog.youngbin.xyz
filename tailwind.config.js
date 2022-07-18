@@ -5,7 +5,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Pretendard', ...defaultTheme.fontFamily.sans],
+                sans: ['"Pretendard JP"', ...defaultTheme.fontFamily.sans],
             },
         }
     },
