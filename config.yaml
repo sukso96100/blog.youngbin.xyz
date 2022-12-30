@@ -23,10 +23,9 @@ params:
       url: 'https://www.linkedin.com/in/youngbin-han/'
     - icon: lab la-github
       url: 'https://github.com/sukso96100'
-
-
-
-
+  adsense:
+    client: 'ca-pub-7051197638651710'
+    adslot: 4463380264
 menu:
   main:
     - identifier: tags
