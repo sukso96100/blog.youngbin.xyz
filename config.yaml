@@ -33,10 +33,14 @@ menu:
       name: Tags
       url: /tags/
       weight: 10
+    - identifier: rss 
+      name: Subscribe (RSS)
+      url: /index.xml
+      weight: 20
     - identifier: website
       name: youngbin.xyz
       url: https://youngbin.xyz
-      weight: 20
+      weight: 30
 
 outputs: 
   home: ["HTML", "RSS", "JSON"]
