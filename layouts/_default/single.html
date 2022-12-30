@@ -22,7 +22,7 @@
     <article class="prose md:prose-lg lg:prose-xl max-w-none">
       {{ .Content }}
     </article>
-    { partial "adsense.html" . }}
+    {{ partial "adsense.html" . }}
     <div>
       <script src="https://utteranc.es/client.js"
               repo="{{.Site.Params.utterances}}"
