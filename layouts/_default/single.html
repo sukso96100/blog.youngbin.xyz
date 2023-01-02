@@ -22,7 +22,6 @@
     <article class="prose md:prose-lg lg:prose-xl max-w-none">
       {{ .Content }}
     </article>
-    {{ partial "adsense.html" . }}
     <div>
       <script src="https://utteranc.es/client.js"
               repo="{{.Site.Params.utterances}}"
@@ -33,6 +32,7 @@
               async>
       </script>
     </div>
+    {{ partial "adsense.html" . }}
     {{ $related := .Site.RegularPages.Related . | first 3 }}
     {{ with $related }}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row-dense gap-4 py-4">
