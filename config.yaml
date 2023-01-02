@@ -25,7 +25,7 @@ params:
       url: 'https://github.com/sukso96100'
   adsense:
     client: 'ca-pub-7051197638651710'
-    adslot: 4463380264
+    adslot: '4463380264'
 menu:
   main:
     - identifier: tags
