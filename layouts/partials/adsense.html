@@ -23,11 +23,11 @@
     </div>
     <script>
         let adsection = document.getElementsByClassName("adsbygoogle")[0];
+        let adfallback = document.getElementById("adfallback");
+        adfallback.style.display = "none";
         if (window.getComputedStyle(adsection).display == "none") {
-            document.getElementById("adbody").display = "none";
-            document.getElementById("adfallback").display = "block";
-        } else {
-            document.getElementById("adfallback").display = "none";
-        }
+            document.getElementById("adbody").style.display = "none";
+            adfallback.style.display = "block";
+        } 
     </script>
 </div>
