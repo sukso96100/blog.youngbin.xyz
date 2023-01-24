@@ -75,12 +75,12 @@ image: 'taxid.jpg'
 
 > 참고로 정관에 단체의 약칭과 영문 명칭도 명시 해 두면, 나중에 은행에서 계좌 개설시 정관을 근거로 하여 영문 명칭을 넣을 수 있는 등 유용한 부분이 많으니 정관에 명시 해 두면 좋다.
 
-- 서울 NPO 지원센터에서 제공한 정관 예시: [DOCX](bylaws_sample.docs) | [ODF](bylaws_sample.odt) | [PDF](bylaws_sample.pdf)
+- 서울 NPO 지원센터에서 제공한 정관 예시: [DOCX](bylaws_sample.docx) | [ODF](bylaws_sample.odt) | [PDF](bylaws_sample.pdf)
 
 ## 단체 발기인 총회 회의록
 단체 설립, 정관 심의, 발기인, 대표자 선임 및 운영위원 구성의 근거가 되는 자료이다. 대략 아래와 같은 사항을 포함하고, 회의록 하단에 발기인의 이름과 서명(또는 도장 날인)을 넣으면 된다.
-서명은 실물로 인쇄된 것에 펜으로 직접 서명해도 되고, 모두싸인 같은 전자계약으로 서명을 받거나, 배경이 투명한 서명 이미지를 삽입하거나, Google Docs 의 그림 삽입 기능을 활용해도 무방하다.
-홈택스 제출시 PDF 파일로 제출하기 때문에 서명만 잘 확인되면 무방한 것으로 보인다. 우분투한국커뮤니티의 경우, 발기인으로 참여하신 분들이 Google Docs 그림 삽입 기능으로 서명 하시거나, 가지고 계신 서명 이미지를 삽입하는 방식으로 진행했다. 
+서명은 실물로 인쇄된 것에 펜으로 직접 서명해도 되고, 모두싸인 같은 전자계약으로 서명을 받거나, 배경이 투명한 서명 이미지를 삽입하거나, Google docx 의 그림 삽입 기능을 활용해도 무방하다.
+홈택스 제출시 PDF 파일로 제출하기 때문에 서명만 잘 확인되면 무방한 것으로 보인다. 우분투한국커뮤니티의 경우, 발기인으로 참여하신 분들이 Google docx 그림 삽입 기능으로 서명 하시거나, 가지고 계신 서명 이미지를 삽입하는 방식으로 진행했다. 
 
 - 회의 일시 및 장소
 - 회의 참여 인원
@@ -88,19 +88,19 @@ image: 'taxid.jpg'
 
 우분투한국커뮤니티에서 사용한 발기인 총회 회의록에서 개인 정보만 제거한 양식을 첨부하였으니 이를 활용하여 작성하면 된다.
 
-- 발기인 총회 회의록 예시: [DOCX](meeting_note.docs) | [ODF](meeting_note.odt) | [PDF](meeting_note.pdf)
+- 발기인 총회 회의록 예시: [DOCX](meeting_note.docx) | [ODF](meeting_note.odt) | [PDF](meeting_note.pdf)
 
 ## 회원 명부
 발기인 회원 정보가 담긴 문서를 준비하면 된다. 보통 회원 명부에는 발기인으로 참여하는 사람의 이름, 생년월일(또는 주민등록번호/외국인 등록번호), 주민등록지 주소, 연락처(휴대전화), 회원 유형 등의 정보가 들어간다. 회원 명부 양식을 첨부 하였으니, 이를 활용하여 준비하면 된다.
 
-- 회원 명부 양식: [DOCX](member_list.docs) | [ODF](member_list.odt) | [PDF](member_list.pdf)
+- 회원 명부 양식: [DOCX](member_list.docx) | [ODF](member_list.odt) | [PDF](member_list.pdf)
 
 ## 직인
 직인은 직인 실물을 제출하는 것은 아니고, 사용인장계 양식에 직인을 날인하고 발기인 대표자 이름과 서명을 넣은 것을 제출하면 된다. 우분투한국커뮤니티의 경우 은행 거래할 때 거래 인감으로 사용할 실물 직인도 필요하니, 온라인으로 직인을 하나 주문해서 인쇄한 사용인장계 양식에 날인하고, 대표자인 내 이름과 서명을 넣었다.
 
 마찬가지로 사용인장계 양식을 첨부 하였으니, 이를 활용하여 준비하면 된다.
 
-- 사용인장계 양식: [DOCX](stamp.docs) | [ODF](stamp.odt) | [PDF](stamp.pdf)
+- 사용인장계 양식: [DOCX](stamp.docx) | [ODF](stamp.odt) | [PDF](stamp.pdf)
 
 ## 주소지 증빙
 준비가 가장 힘든 부분 중 하니인 주소지 증빙 서류이다. 여러 방법으로 주소지 증빙을 준비할 수 있다.
@@ -125,7 +125,7 @@ image: 'taxid.jpg'
 
 무상사용승낙서를 작성 하는 경우, 우분투한국커뮤니티에서 사용했던 양식을 첨부 하였으니 참고하여 계약서를 작성하면 된다.
 
-- 무상사용승낙서(전대차 계약) 양식 예시: [DOCX](office_rent.docs) | [ODF](office_rent.odt) | [PDF](office_rent.pdf)
+- 무상사용승낙서(전대차 계약) 양식 예시: [DOCX](office_rent.docx) | [ODF](office_rent.odt) | [PDF](office_rent.pdf)
 
 ## 법인으로 보는 단체의 대표자 등의 선임(변경)신고서
 세법에 의해 지정된 양식을 작성하면 된다. 해당 양식은 [여기를 클릭하여 내려받을 수 있다.](https://www.law.go.kr/LSW//flDownload.do?flSeq=109166479&flNm=%5B%EB%B3%84%EC%A7%80+%EC%A0%9C6%ED%98%B8%EC%9D%984%EC%84%9C%EC%8B%9D%5D+%EB%B2%95%EC%9D%B8%EC%9C%BC%EB%A1%9C+%EB%B3%B4%EB%8A%94+%EB%8B%A8%EC%B2%B4%EC%9D%98+%EB%8C%80%ED%91%9C%EC%9E%90+%EB%93%B1%EC%9D%98+%EC%84%A0%EC%9E%84%28%EB%B3%80%EA%B2%BD%29%EC%8B%A0%EA%B3%A0%EC%84%9C%0A)
