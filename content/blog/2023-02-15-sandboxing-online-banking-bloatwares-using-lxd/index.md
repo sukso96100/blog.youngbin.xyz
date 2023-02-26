@@ -63,3 +63,77 @@ lxc exec jammy -- su --login ubuntu
 # jammy 컨테이너에서 apt update 명령 실행
 lxc exec jammy -- apt update
 ```
+
+## GUI 앱 실행하기
+LXD 컨테이너를 만들었으니, GUI 앱을 하나 설치해서 실행 해 보자. 여기서는 `gedit` 이라는 텍스트 편집기를 설치 해 보겠다. 설치 하려 명령을 입력하면, 실행에 필요한 의존성까지 함께 설치 되는것을 볼 수 있다.
+
+```bash
+sudo apt install gedit
+```
+
+![](gedit-install.png)
+
+그러나 실행은 되지 않는다. GUI 앱을 표시할 디스플레이 서버에 접속할 수 없기 때문이다. 
+
+```bash
+ubuntu@jammy:~$ gedit
+
+(gedit:5309): Gtk-WARNING **: 12:25:20.909: cannot open display: 
+```
+
+그래서 환경을 만들어 주어야 하는데, 컨테이너 내부에 Wayland, XOrg 같은 디스플레이 서버 관련된 것을 설치 더 설치 할 필요는 없고, 호스트에 있는 Wayland 와 XOrg 소켓에 연결하도록 설정하면 된다. 여기서는 우분투 데스크톱 Wayland 환경에 만들어진 LXD 컨테이너에 설정 한다고 가정하고, Wayland와 XWayland 소켓 연결을 설정 해 보자.
+
+
+
+먼저, 호스트에서 컨테이너 내부 사용자 uid 값을 매핑 하고, 컨테이너에 디스크 타입의 디바이스를 추가해서, 호스트의 Wayland 및 XWayland 소켓을 컨테이너에서 사용할 수 있도록 설정한다.
+
+```bash
+lxc config set jammy raw.idmap="both 1000 1000"
+lxc config device add jammy wayland-socket disk source=/run/user/1000/wayland-0 path=/mnt/wayland-socket
+lxc config device add jammy xwayland-socket disk source=/tmp/.X11-unix/X0 path=/mnt/xwayland-socket
+```
+
+이후, 컨테이너 내부에서 Wayland, XWayland 소켓 연결에 쓰이는 디렉터리를 생성하고. 호스트와 연결할 때 쓸 소켓에 링크한다.
+
+```bash
+uid=$(id -u)
+run_dir=/run/user/$uid
+mkdir -p $run_dir && chmod 700 $run_dir && chown $uid:$uid $run_dir
+ln -sf /mnt/wayland-socket $run_dir/wayland-0
+ln -sf /mnt/xwayland-socket /tmp/.X11-unix/X0
+```
+
+마지막으로, 생성한 소켓 경로를 GUI 앱 실행 시 사용하도록 아래처럼 환경 변수를 설정 해 주자. 
+```bash
+export WAYLAND_DISPLAY=wayland-0
+export XDG_RUNTIME_DIR=/run/user/1000
+export DISPLAY=:0
+export XSOCKET=/tmp/.X11-unix/X1
+```
+
+그리고 다시 `gedit` 를 실행 하면, 이번에는 정상적으로 Gedit 텍스트 편집기가 나오는 것을 볼 수 있다.
+![](gedit-in-lxd.png)
+
+## IME 설정하기
+하지만 컨테이너 내부에 IME와 한글 글꼴이 설치 안 되어 있어서, 한글 입력이 잘 안되거나, 입력 되어도 깨지는 것을 볼 수 있다.
+호스트가 GNOME Wayland 및 iBus 가 설치된 환경인 상태에서 Wayland 지원이 있는 Gedit 을 열면, 호스트의 GNOME, IBus 통합 때문인지 한글 입력이 되는것을 볼 수 있다. 하지만 한글이 깨지는 것을 볼 수 있다.
+
+![](gedit-hangul-broken.png)
+
+기존적으로 XOrg 모드로 실행되는 Chrome 브라우저의 경우, 아예 한글 입력으로 전환이 안 된다. XOrg 앱은 시스템에 설치된 각 위젯 툴킷(GTK, QT 등)별 IME 클라이언트 라이브러리를 통해 IME와 연동되는데, 컨테이너 내부에 설치 안 되어 있으니 어쩌면 당연하다 할 수 있겠다.
+
+한글 입력을 위한 IME 설치 및 설정은 기존에 리눅스 데스크톱에서 하는 방법 그대로 컨테이너 내부에서 해 주면 된다. 여기서는 IBus 와 `ibus-hangul` 및 Noto Sans KR 글꼴을 설치하여 설정 해 보겠다. 먼저 아래 명령으로 필요한 패키지를 설치하자.
+
+```bash
+sudo apt install ibus ibus-hangul fonts-noto-cjk language-selector-gnome
+```
+
+이후, iBus 를 `im-config` 명령으로 기본 입력기로 설정하고, `dbus-run-session` 명령으로 iBus 데몬을 시작한다. 
+다음으로, `ibus-setup` 명령으로 실행하면, IME 입력 언어/엔진을 설정할 수 있다.
+```bash
+im-config -n ibus
+dbus-run-session ibus-daemon -drx
+ibus-setup
+```
+`ibus-setup` 을 실행하면, 아래와 같은 화면이 나오는데. Input Method 탭 - Add - "Hangul" 검색 - "Korean" 누르면 하위에 있는 "Hangul" 을 추가하여, `ibus-hangul` 을 사용하도록 설정하면 된다.
+![](ibus-setup.png)
