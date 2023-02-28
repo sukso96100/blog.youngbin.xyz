@@ -8,7 +8,6 @@ paginate: 10
 summaryLength: 50
 params:
   copyrights: Copyright © 2022 - Present Youngbin Han
-  utterances: sukso96100/blog.youngbin.xyz
   giscus:
     repo: sukso96100/blog.youngbin.xyz
     repoId: MDEwOlJlcG9zaXRvcnkxODYyMDAzMDc
