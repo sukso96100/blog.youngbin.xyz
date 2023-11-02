@@ -1,7 +1,7 @@
 ---
 title: "인도네시아에서 열린 LibreOffice Conf X UbuCon Asia 2023 행사에 다녀와서"
 author: "Youngbin Han"
-date: 2023-04-23T10:50:36+09:00
+date: 2023-11-01T10:50:36+09:00
 draft: false
 description: 글로벌 팀의 구성원으로서 행사를 준비하고 참여해 본 후기
 image: groupphoto.jpg
