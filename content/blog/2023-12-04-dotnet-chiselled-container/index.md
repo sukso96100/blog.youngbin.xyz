@@ -4,7 +4,7 @@ author: "Youngbin Han"
 date: 2023-12-04T10:50:36+09:00
 draft: false
 description: Ubuntu 기반의 Distroless 컨셉 컨테이너 이미지인 Chiselled Ubuntu Container 에 대해 알아봅니다.
-image: groupphoto.jpg
+image: slice-of-ubuntu.png
 tags:
  - dotnet
  - ubuntu
