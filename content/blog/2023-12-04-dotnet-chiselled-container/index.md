@@ -13,7 +13,7 @@ tags:
  - chiselled
 ---
 
-> 본 글은 [클라우드메이트 기술블로그](https://cloudmt.imweb.me/TechBlog/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=17088538&t=board)에도 기고 된 글 입니다.
+> 본 글은 [클라우드메이트 기술블로그](https://www.cloudmt.co.kr/TechBlog/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=17088538&t=board)에도 기고 된 글 입니다.
 
 오늘날 많은 조직에서 웹 애플리케이션을 컨테이너 이미지로 만들어 Kubernetes와 같은 컨테이너를 호스팅 할 수 있는 환경에 배포하고 있는데요. 이러한 환경에서 탄력적인 배포를 위해 컨테이너 이미지를 최대한 경량화 하여 만들고 있기도 합니다. [다만 이 글을 보시면 아시겠지만, 컨테이너 이미지 경량화를 처음 해 본다면 쉽지많은 않을 것이고. 고려할 사항도 어느정도 있습니다.](https://tech.cloudmt.co.kr/2022/11/08/container-imagesize-diet/) 최근에는 이를 위한 다양한 솔루션이나 베이스 컨테이너 이미지 또한 많이 나오고 있습니다. 특히 요즘은 Alpine Linux와 같이 처음부터 경량 컨테이너를 위한 OS나 Google의 Distroless처럼 경량화된 컨테이너 이미지 이면서도 프로그래밍 언어 툴체인이나 런타임을 넣어 두어서 쉽게 사용 가능한 컨테이너 이미지도 있습니다.
 
