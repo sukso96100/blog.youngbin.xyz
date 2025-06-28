@@ -2,9 +2,9 @@
 title: "Open Collective 로 글로벌 행사 자금 관리 해 보기"
 author: "Youngbin Han"
 date: 2024-10-22T10:50:36+09:00
-draft: true
+draft: false
 description: UbuCon Asia 2024 행사 자금 관리에 Open Collective 를 활용 해 본 후기
-image: slice-of-ubuntu.png
+image: pay-request-review.png
 tags:
  - dotnet
  - ubuntu
@@ -66,6 +66,12 @@ Open Source Collective에 지원하는 것은 생각보다 어렵지는 않았�
 
 ![](./oc-tx-ex.png)
 
+그리고, Open Source Collective 에 자금이 들어온 것이 확인되면, 처음에 지원 시 동의한 [Fiscal sponsorship 약관](https://docs.oscollective.org/welcome-and-introduction-to-osc/terms-of-fiscal-sponsorship)에 따라서 Open Source Collective 에서 Fiscal sponsorship 수수료를 부과해 가져가게 된다. 이러한 수수료는 Fiscal sponsorship 을 제공하는 단체마다 부과 방법이나 수수료 비율 등에 차이가 있지만, 보통은 수입이 발생하면 수입의 5~15% 를 수수료로 공제한다. Open Source Collective 의 경우 10% 를 공제 해 간다. 
+
+수입의 10%를 수수료 부과하는 것은 비싸다고 생각 할 수도 있지만, 단체에서 후원 계약에 필요한 모든 행정 처리(계약서 작성, 견적서 발행, 인보이스 발행, 자금 들어오면 그에 맞는 회계 처리, 세금 신고 등등) 는 물론, 이후 각종 비용 처리 (준비위원 경비 Wise.com 이체로 환급, 각종 업체에 대금 은행 해외송금하여 처리 등등) 등 복잡한 것 모두 대신 해 준다고 생각하면, 합리적인 비용 이라고도 생각할 수 있다.
+
+단체를 직접 만들어 운영 하였으면, 사무실 임대, 각종 서류 준비해서 단체 등록, 주기적인 부가세와 법인세 신고, 세무대리인 비용(특히 세무기장 의뢰하면 매달 고정적으로 10만원 정도 비용이 발생) 등등 시작부터 운영하는데 상당한 부담을 가지고 고생하면서 해야 하는 것 그냥 처음부터 신경조차 쓰지 않아도 되게 되는 것이다.
+
 ## 비용 지출하기
 원래 OSC에서는 가상 카드를 발급해서 카드 결제도 가능 했었는데, 지금은 해당 방법은 불가하고 두가지 방법으로 비용 지출이 가능했다.
 
@@ -90,3 +96,11 @@ UbuCon Asia 의 경우, "UbuCon Asia Committee" Collective 아래에 "UbuCon Asi
 이벤트에 남아있는 자금은 대시보드 고급 설정 메뉴에 "Empty Event Balance" 기능이 있어서, 여기서 버튼 클릭 한번으로 상위 Collective로 이전할 수 있었다. (아래 사진처럼 생겼다. 참고로 아래 사진은 이미 Empty Event Balance 실행 후)  이렇게 하면 남은 자금을 다음 년도 행사 준비할 때 사용할 수 있게 된다. 다음 년도 행사 준비를 시작하면, Collective 아래에 또 이벤트 만들고, 후원사로부터 자금 조달해서 쓰다가 만약 부족하면 상위 Collective 에서 자금 가져와다가 사용하는 방식으로 가능할 수 있겠다. 
 
 ![](./transfer.png)
+
+그리고 이렇게 이전되어 보관된 자금은, 다음 해 행사 때 사용할 수 있다. 그동안 매년 다른 로컬팀이 자금을 관리하다 보니, 다음 로컬팀에 남은 자금을 이월 하는 것이 불가능한 문제가 이렇게 해결이 되었다. 그리고 이제 매년 항상 0원부터 시작하지 않아도 되게 되었다.
+
+## 자금 흐름이 한국에만 한정되지 않고 여러 나라간에 발생 한다면 고려 해볼만한 선택
+
+Open Collective 그리고 Open Source Collective 를 통한 프로젝트나 컨퍼런스 등에 대한 자금 관리는 자금 흐름이 한국에만 한정되지 않고 여러 나라간에 발생 한다면, 부담없이 고려 해 볼 수 있는 선택이라고 할 수 있다. 온라인으로 지정된 양식으로 지원해서 어렵지 않게 시작할 수 있기 때문이다. 하지만 자금 흐름이 한국으로 국한되면(특히 비용 지출), 아무래도 해외 송금 등 수수료나 환율 등 때문에 꼭 좋은 선택만은 아닐수도 있다.
+
+Open Source Collective 이외에도 [다양한 단체가 Open Collective 플랫폼을 통해 Fiscal sponsorship을 제공하고 있다.](https://opencollective.com/search?q=&isHost=true) The Social Change Nest, Open Collective Europe 등이 대표적으로 있고, 지원 요건이 어렵지 않은 단체도 있으니, 한번 찾아보고 비교해 보면서 선택 하는 것도 좋을 것 같다. 
