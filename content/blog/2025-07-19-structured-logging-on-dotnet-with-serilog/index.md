@@ -4,7 +4,7 @@ author: "Youngbin Han"
 date: 2025-07-19T23:00:00+09:00
 draft: false
 description: Serilog 등을 활용하여 구조화된 로깅 적용하면 나중에 찾아 분석하기에도 용이하다!
-image: pay-request-review.png
+image: image(4).png
 tags:
 - serilog
 - logging
@@ -212,7 +212,7 @@ public class RIRequestController : ControllerBase
 }
 ```
 
-RITA를 개발 할 때는, 아래의 코드처럼, Serilog의 DiagnosticContext를 활용하면 하나의 HTTP 요청에 대한 모든 정보를 단일 로그 이벤트에 통합하는 방식으로 작업 하였습니다. 이 방식을 사용하면 컨트롤러 각 메소드에서는 필요할 때 필요할 때 마가 로그 컨텍스트에 정보를 추가할 수 있습니다. 코드로 봐서는 기존 로깅 방법과 비슷해 보이지만, 실제로는 정보 추가를 위한 메소드 호출 때 마다 로그가 새로 출력 되는것이 아니라, HTTP요청을 모두 처리하고 반환할 때, 하나의 로그에 모든 정보가 통합되어 출력된다는 점에서 다릅니다.앞서 추가한
+RITA를 개발 할 때는, 아래의 코드처럼, Serilog의 DiagnosticContext를 활용하면 하나의 HTTP 요청에 대한 모든 정보를 단일 로그 이벤트에 통합하는 방식으로 작업 하였습니다. 이 방식을 사용하면 컨트롤러 각 메소드에서는 필요할 때 필요할 때 마가 로그 컨텍스트에 정보를 추가할 수 있습니다. 코드로 봐서는 기존 로깅 방법과 비슷해 보이지만, 실제로는 정보 추가를 위한 메소드 호출 때 마다 로그가 새로 출력 되는것이 아니라, HTTP요청을 모두 처리하고 반환할 때, 하나의 로그에 모든 정보가 통합되어 출력된다는 점에서 다릅니다.
 
 ```csharp
 [ApiController]
