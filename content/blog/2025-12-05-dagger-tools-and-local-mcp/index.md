@@ -40,4 +40,63 @@ func (m *MyWorkflow) AddAzDevOpsPRComment(
 }
 ```
 
-이를 LLM이 사용하게 하려면, LLM이 사용할 Env 객체에 이 Dagger Function 을 제공하는 모듈 (여기서는 `MyWorkflow`) 를 넘겨주거나, 현재 환경을 넣어주는 방법이 있다. 크게 2가지 방법이 있다. 하나는 `dag.CurrentModule()`을 사용해서 현재 사용중인 모듈 정보를 넣어주는 법, 또 하나는 현재 모듈이 실행중인 환경까지 모두 다 넘겨주는 방법이다.
+이를 LLM이 사용하게 하려면 여러 방법이 있는데, 모두 기본적으로 Env 객체에 함수나 모둘을 설치 해 주는 방식이다.
+
+첫번째는 `WithCurrentModule`을 사용해서, 현재 사용중인 모듈을 Env에 설치하는 것이다. 그러면 모듈 안의 함수를 LLM이 툴 호출에 사용할 수 있게 된다.
+```go
+func (m *MyWorkflow) MyDaggerFunction(diff string, prTitle string, prDesc string) string {
+	environment := dag.Env().
+		WithCurrentModule().
+		...
+
+	work := dag.LLM().
+  	WithEnv(environment).
+		WithPrompt(`
+			LLM 에 전달 할 프롬프트
+			`)
+
+}
+```
+
+두번째는 `CurrentEnv` 를 사용해서, 워크플로우 실행 환경을 그대로 사용하는 것이다. 물론 여기에는 별도로 작성한 Dagger Function 도 포함된다.
+```go
+func (m *MyWorkflow) MyDaggerFunction(diff string, prTitle string, prDesc string) string {
+	environment := dag.CurrentEnv().
+		...
+
+	work := dag.LLM().
+  	WithEnv(environment).
+		WithPrompt(`
+			LLM 에 전달 할 프롬프트
+			`)
+
+}
+```
+
+LLM 에서 툴 호출 시 정확한 방법으로 호출할 수 있도록, 호출 방법을 잘 전달하는 것도 중요하다. 호출 방법 전달은 간단하다. 그냥 주석을 함수 이름과 매개변수 등에 적절히 넣어주면 된다. 이렇게 주석을 달면 Dagger 에서는 이를 [Inline Documentation](https://docs.dagger.io/extending/documentation/)으로 보고 처리하여, LLM에도 정보를 같이 전달하게 된다.
+```go
+type ThreadContext struct {
+	// Path to the file to add inline comment 
+	FilePath 				 		string
+	// Start Line number on the file to add inline comment
+	LineStart 					int
+	// Char offset within the Start Line on the file to add inline comment
+	LineStartCharOffset int
+	// End Line number on the file to add inline comment
+	LineEnd 						int
+	// Char offset within the End Line on the file to add inline comment
+	LineEndCharOffset 	int
+}
+// AddAzDevOpsPRComment is used to add comment on pull request.
+// Use this tool to add your own comment on specific azure devops pull request.
+func (m *MyWorkflow) AddAzDevOpsPRComment(
+	ctx context.Context,
+	// Comment text of your pull request comment.
+	comment string,
+	// Reference to line of a specific file you want to add inline comment.
+	threadContext *ThreadContext
+) (*MyWorkflow, error) {
+	...
+	return m
+}
+```
