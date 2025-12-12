@@ -1,10 +1,10 @@
 ---
 title: "Dagger 에서 LLM 사용시 추가 도구 붙이기"
 author: "Youngbin Han"
-date: 2025-11-19T01:00:00+09:00
+date: 2025-12-13T01:00:00+09:00
 draft: false
 description: Dagger Function을 LLM에서 Tool로 호출 할 수 있도록 붙이고, 로컬 MCP도 Dagger에 붙이기
-image: prompt-optimize.png
+image: mcp.png
 tags:
 - dagger
 - golang
@@ -42,7 +42,7 @@ func (m *MyWorkflow) AddAzDevOpsPRComment(
 
 이를 LLM이 사용하게 하려면 여러 방법이 있는데, 모두 기본적으로 Env 객체에 함수나 모둘을 설치 해 주는 방식이다.
 
-첫번째는 `WithCurrentModule`을 사용해서, 현재 사용중인 모듈을 Env에 설치하는 것이다. 그러면 모듈 안의 함수를 LLM이 툴 호출에 사용할 수 있게 된다.
+첫번째는 `WithCurrentModule`을 사용해서, 현재 사용중인 모듈을 Env에 설치하는 것이다. 그러면 모듈 안의 함수를 LLM이 툴 호출에 사용할 수 있게 된다. 만약, 현재 LLM이 실행되는 모듈 (여기서는 `MyWorkflow`가 아닌 다른 외부 모듈을 설치 하려면 `Env.WithModule`을 사용할 수 있다.)
 ```go
 func (m *MyWorkflow) MyDaggerFunction(diff string, prTitle string, prDesc string) string {
 	environment := dag.Env().
@@ -100,3 +100,73 @@ func (m *MyWorkflow) AddAzDevOpsPRComment(
 	return m
 }
 ```
+
+이러한 방법으로, LLM 이 사용할 환경에 모듈을 설치하고 실행하면, 아래처럼 LLM 에서 필요에 따라 모듈 설치를 통해 노출된 Dagger Function 을 호출하게 된다.
+![](./tool-call.png)
+
+정상적으로 호출되는 경우도 있지만, 비정상적인 매개변수를 넣어 호출 되거나 호출 실패하는 경우도 자주 있다. 이런 경우 도움이 될 만한 것은, 우선 LLM 에서 사용할 Dagger Function 에 주석을 좀 더 명확하게 넣어주는 것도 있고, 매개변수가 조금 복잡하다면 단순화 하는 것도 방법이다. 예를 들어 바로 위에서 본 `AddAzDevOpsPRComment`은 아래와 같이 구조체 없이 좀 더 단순하게 넣어볼 수 있다.
+```go
+// AddAzDevOpsPRComment is used to add comment on pull request.
+// Use this tool to add your own comment on specific azure devops pull request.
+func (m *MyWorkflow) AddAzDevOpsPRComment(
+	ctx context.Context,
+	// Comment text of your pull request comment.
+	comment string,
+	// Path to the file to add inline comment 
+	FilePath 				 		string
+	// Start Line number on the file to add inline comment
+	LineStart 					int
+	// Char offset within the Start Line on the file to add inline comment
+	LineStartCharOffset int
+	// End Line number on the file to add inline comment
+	LineEnd 						int
+	// Char offset within the End Line on the file to add inline comment
+	LineEndCharOffset 	int
+) (*MyWorkflow, error) {
+	...
+	return m
+}
+```
+
+## MCP 서버 붙이기
+Dagger 에서는 최근 출시된 [0.19 버전 부터 MCP 서버를 Dagger 에 붙이는 것을 지원한다.](https://dagger.io/blog/dagger-0-19) (최근에 나와서 그런지 아직 공식 문서에는 설명이 없는 것 같기도 하다.) LLM 객체에서 사용 가능한 새 메소드인 `WithMCPServer` 호출해서 설정하는 방식이다.
+
+필자가 만든 워크플로에는 Probe 라는 코드베이스 검색 도구를 MCP 서버로 붙였는데, 이를 예로 들어 MCP 서버 연동 방법에 대해 알아보면 아래와 같다.
+
+```go
+probeContainer := dag.Container().
+		From("ghcr.io/***/probe-oci:latest").
+		WithMountedDirectory("/mnt", source).
+		WithWorkdir("/mnt").
+		WithEnvVariable("PROBE_DEFAULT_PATHS", "/mnt")
+
+	probeMCPService := probeContainer.
+		AsService(dagger.ContainerAsServiceOpts{Args: []string{"probe", "mcp"}})
+```
+먼저 MCP 서버를 포함한 컨테이너 이미지로 컨테이너를 하나 만들어 준다. 그리고 `AsService`를 호출하여 워크플로의 다른 컨테이너 등에서 네트워크 통신을 할 수 있는 서비스 형태로 사용할 수 있도록 한다. 매개변수로는 컨테이너를 시작할 때 실행할 명령어를 넣는데, 여기서는 MCP 서버 시작을 위한 명령어를 넣어준다.
+
+```go
+...
+work := dag.LLM().
+		WithEnv(environment).
+		WithMCPServer("probe", probeMCPService).
+		WithPrompt(`
+			LLM 에 전달 할 프롬프트
+			`)
+```
+
+그리고 이를, LLM 객체를 만들 때 `WithMCPServer` 를 호출해서 이름을 함께 지정해서 설정하면 된다. 여기서는 "probe" 로 설정 하였다. 프롬프트 상에서 `probe 도구를 사용하여 작업을 수행하라` 와 같은 형태로 지시를 넣어서, LLM이 MCP 서버를 사용하도록 할 수 있다.
+
+![](./mcp.png)
+
+그러면 위와 같이 MCP 서버도 필요에 따라 호출되는 것을 확인할 수 있다.
+
+## 정리
+아무튼, 이렇게 하여 MCP 서버를 붙여서 코드 리뷰에 필요한 관련된 다른 코드도 좀 더 빠르게 읽도록 하고, 인라인 코멘트를 달도록 하는 기능도 붙여 보았다.
+
+이번 글을 작성하며 참고한 자료는 아래와 같다.
+
+- [Dagger 0.19: performance, new APIs, build-an-agent!](https://dagger.io/blog/dagger-0-19)
+- [Dagger - Services](https://docs.dagger.io/getting-started/types/service)
+- [Dagger - Inline Documentation](https://docs.dagger.io/extending/documentation)
+- [Dagger - LLM Integration - Tool use](https://docs.dagger.io/features/llm#tool-use)
