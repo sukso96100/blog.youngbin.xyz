@@ -29,7 +29,7 @@ tags:
 ## 몇년간 죽어있다가 부활한 조직
 [2019년 말에서 2020년 초 쯤에, 우분투 커뮤니티의 의사결정 조직이 모두 공중분해된 적이 있었다.](https://discourse.ubuntu.com/t/future-of-ubuntu-community/17593) 다른 조직 (예를 들면 Community Council)은 대부분 몇달 정도 후에 복구가 되었는데, LoCo Council 의 경우 그 이후로도 2-3년간 복구가 잘 되지가 않았다. 많은 수의 지역 커뮤니티가 과거에는 활발했지만, 지금은 그렇지 않은 경우가 많은 것이 원인인지는 몰라도 충분한 입후보자를 받아서 구성원 선출이 어려웠던 것 같기도 하였고, 대신 [Local Community Research Committee](https://discourse.ubuntu.com/t/local-communities-research-committee/20186/) 도 운영이 되었는데, 이것도 성과가 크게 있지는 않았던 것 같다. 그럼에도 논의를 시작하는데는 도움이 되었던 것 같다. 
 
-아무튼, LoCo Council 을 다시 만들자는 논의는 2022년에 Ubuntu Summit 에서 잠깐 참가자들 끼리 논의가 되었다가, [2023년 초 부터 논의가 본격적으로 시작이 되었다.](https://discourse.ubuntu.com/t/loco-council-and-loco-teams-resurrection/33545) 1년 가까이 논의를 진행한 끝에, Community Council 에서 LoCo Council 구성원을 선출하여 다시 구성하기로 결정을 하였다. 그리고 Ubuntu Summit 2023 폐회식 때, LoCo Council 구성원 선거에 출마할 후보자 접수 하겠다고 발표가 되었다.
+아무튼, LoCo Council 을 다시 만들자는 논의는 2022년에 Ubuntu Summit 에서 잠깐 참가자들 끼리 논의가 되었다가, [2023년 초 부터 논의가 본격적으로 시작이 되었다.](https://discourse.ubuntu.com/t/loco-council-and-loco-teams-resurrection/33545) 1년 가까이 논의를 진행한 끝에, [Community Council 에서 LoCo Council 구성원을 선출하여 다시 구성하기로 결정을 하였다.](https://new.ubottu.com/meetingology/logs/ubuntu-meeting/2023/ubuntu-meeting.2023-09-26-20.14.html) 그리고 Ubuntu Summit 2023 폐회식 때, LoCo Council 구성원 선거에 출마할 후보자 접수 하겠다고 발표가 되었다.
 
 ![](./ubuntusummit2023.jpg)
 
@@ -41,3 +41,9 @@ tags:
 아무튼 그렇게 출마하였고, 투표한 많은 Ubuntu Member 분들이 선택해 주신 덕에 [당선이 되어 LoCo Council 구성원으로 임기를 시작하게 되었다.](https://discourse.ubuntu.com/t/new-ubuntu-loco-council/41515)
 
 ![](./result2024.png)
+
+## 첫 일거리
+다른 LoCo Council 구성원 분들과 회의를 잡고, 앞으로 어떤 활동을 할지 논의 하는것이 먼저였다. 블로그 글로 정리한다고 여기저기 찾아보니, [첫 회의는 2024년 2월 9일에 IRC로 진행을 하였었다.](https://new.ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-02-09-12.26.html) 주로 LoCo Council 정기 회의는 얼마나 자주 하고, 어느 시간대에 할 것인지, LoCo Council 구성원간 연락과 의사소통은 어떻게 할 것인지, 개선된 LoCo 재인증 프로세스, 다시 부활한 LoCo Council 어떻게 홍보할지, 활동중인 LoCo나 이름만 있고 활동은 없어서 사실상 사라진 것이나 다름없는 LoCo 연락 해 보고 어떻게 할 것인지 등등 논의를 하였다.
+
+## LoCo Handover Process
+2024년에 LoCo Council 활동 하면서 나온 주요 성과가 아닐까 싶다.
