@@ -46,4 +46,6 @@ tags:
 다른 LoCo Council 구성원 분들과 회의를 잡고, 앞으로 어떤 활동을 할지 논의 하는것이 먼저였다. 블로그 글로 정리한다고 여기저기 찾아보니, [첫 회의는 2024년 2월 9일에 IRC로 진행을 하였었다.](https://new.ubottu.com/meetingology/logs/ubuntu-meeting/2024/ubuntu-meeting.2024-02-09-12.26.html) 주로 LoCo Council 정기 회의는 얼마나 자주 하고, 어느 시간대에 할 것인지, LoCo Council 구성원간 연락과 의사소통은 어떻게 할 것인지, 개선된 LoCo 재인증 프로세스, 다시 부활한 LoCo Council 어떻게 홍보할지, 활동중인 LoCo나 이름만 있고 활동은 없어서 사실상 사라진 것이나 다름없는 LoCo 연락 해 보고 어떻게 할 것인지 등등 논의를 하였다.
 
 ## LoCo Handover Process
-2024년에 LoCo Council 활동 하면서 나온 주요 성과가 아닐까 싶다.
+2024년에 LoCo Council 활동 하면서 나온 주요 성과가 아닐까 싶다. 임기를 시작했을 당시, Local Community 가 다시 조금씩 활성화가 되고 있는 시기였는데, 기존에 운영하던 사람들이 다시 활성화 시키거나 아니면 이를 이어 받아서 하는 경우도 있었지만, 이전 세대와 관계가 없는 새로운 사람들이 나타나서 운영하고 싶어하는 경우도 여럿 있었다. 대부분의 LoCo는 10년 이상 활동이 없는 상태고 운영진 연락도 불가한 상태였어서 어쩌면 자연스럽게 나타나는 현상 이였던 것 같다. [대표적인 경우가 에콰도르 로컬 커뮤니티의 경우였다.](https://discourse.ubuntu.com/t/reactivation-of-the-ubuntu-ecuador-community/45740)
+
+다만, 그렇다고 LoCo Council 에서 자기 지역의 LoCo 를 되살려서 운영하고 싶어하는 새로운 새대의 사람들에게 그냥 바로 인계를 해 줄수는 없어서 이에 대한 기준과 인계 프로세스를 만들기로 하였다.
