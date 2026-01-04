@@ -4,7 +4,7 @@ author: "Youngbin Han"
 date: 2025-12-31T01:00:00+09:00
 draft: false
 description: 2024년 선출 때 부터 2025년 말 까지, 무슨 활동을 하였는가 
-image: ubuntusummit2023.png
+image: ubuntusummit2023.jpg
 tags:
 - ubuntu
 - community
