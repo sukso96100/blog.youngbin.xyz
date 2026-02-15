@@ -12,6 +12,7 @@
 {{ end }}
 
 <title>{{ .Page.Title }} | {{ .Site.Title }}</title>
+{{ partial "opengraph.html" . }}
 
 <!-- Pagefind search index -->
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>

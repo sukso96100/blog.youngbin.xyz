@@ -1,0 +1,45 @@
+{{- $title := .Title -}}
+{{- $description := "" -}}
+{{- with .Description -}}
+  {{- $description = . -}}
+{{- else if .IsPage -}}
+  {{- $description = .Summary -}}
+{{- else if .Site.Params.description -}}
+  {{- $description = .Site.Params.description -}}
+{{- else -}}
+  {{- $description = .Site.Title -}}
+{{- end -}}
+{{- $description = $description | plainify | truncate 200 -}}
+
+{{- $image := "" -}}
+{{- $imageSource := "" -}}
+{{- with .Params.image -}}
+  {{- $imageSource = . -}}
+{{- else if .Params.images -}}
+  {{- $imageSource = index .Params.images 0 -}}
+{{- else if .Site.Params.image -}}
+  {{- $imageSource = .Site.Params.image -}}
+{{- end -}}
+{{- if $imageSource -}}
+  {{- with $.Page.Resources.GetMatch $imageSource -}}
+    {{- $image = .Permalink -}}
+  {{- else -}}
+    {{- $image = $imageSource | absURL -}}
+  {{- end -}}
+{{- end -}}
+
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+<meta property="og:title" content="{{ $title }}" />
+<meta property="og:description" content="{{ $description }}" />
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+{{- if $image }}
+<meta property="og:image" content="{{ $image }}" />
+{{- end }}
+
+<meta name="twitter:card" content="{{ if $image }}summary_large_image{{ else }}summary{{ end }}" />
+<meta name="twitter:title" content="{{ $title }}" />
+<meta name="twitter:description" content="{{ $description }}" />
+{{- if $image }}
+<meta name="twitter:image" content="{{ $image }}" />
+{{- end }}
