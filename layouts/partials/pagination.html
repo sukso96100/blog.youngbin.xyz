@@ -1,6 +1,7 @@
 {{ $pag := $.Paginator }}
 {{ if gt $pag.TotalPages 1 -}}
-<div class="btn-group justify-center">
+<div class="text-center">
+  <div class="btn-group">
   {{ with $pag.First -}}
   <button class="btn" onclick="location.href={{ .URL }}">First</button>
   {{ end -}}
@@ -29,5 +30,6 @@
   {{- with $pag.Last }}
   <button class="btn" onclick="location.href={{ .URL }}">Last</button>
   {{- end }}
+  </div>
 </div>
 {{ end }}
