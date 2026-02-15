@@ -3,8 +3,9 @@ languageCode: "ko-kr"
 title: "Youngbin Han's blog"
 # theme: github.com/gethugothemes/bookworm-light
 permalinks: 
-  blog: /:filename
-paginate: 10
+  blog: /:contentbasename
+pagination:
+  pagerSize: 10
 summaryLength: 50
 params:
   copyrights: Copyright © 2022 - Present Youngbin Han

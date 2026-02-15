@@ -1,7 +1,7 @@
 {{- $title := .Title -}}
 {{- $description := "" -}}
-{{- with .Description -}}
-  {{- $description = . -}}
+{{- if .Description -}}
+  {{- $description = .Description -}}
 {{- else if .IsPage -}}
   {{- $description = .Summary -}}
 {{- else if .Site.Params.description -}}
@@ -13,8 +13,8 @@
 
 {{- $image := "" -}}
 {{- $imageSource := "" -}}
-{{- with .Params.image -}}
-  {{- $imageSource = . -}}
+{{- if .Params.image -}}
+  {{- $imageSource = .Params.image -}}
 {{- else if .Params.images -}}
   {{- $imageSource = index .Params.images 0 -}}
 {{- else if .Site.Params.image -}}
