@@ -221,3 +221,47 @@ if (app.Environment.IsDevelopment())
 app.MapControllers();
 app.Run();
 ```
+
+ProblemDetailsFactory 를 활용할 수도 있다. `ControllerBase` 를 상속하는 클래스에서 `Problem` 메소드 사용도 좋지만, 필드를 확장해야 하는 경우 ProblemDetailsFactory 를 사용하면 유연하게 처리할 수 있다.
+
+```csharp
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+
+[ApiController]
+[Route("api/[controller]")]
+public class OrdersController : ControllerBase
+{
+    private readonly ProblemDetailsFactory _problemDetailsFactory;
+
+    public OrdersController(ProblemDetailsFactory problemDetailsFactory)
+    {
+        _problemDetailsFactory = problemDetailsFactory;
+    }
+
+    [HttpGet("{id:guid}")]
+    public IActionResult GetOrder(Guid id)
+    {
+        var order = FindOrder(id);
+        if (order is null)
+        {
+            // Generates a ProblemDetails object populated with framework defaults
+            var problem = _problemDetailsFactory.CreateProblemDetails(
+                HttpContext,
+                statusCode: StatusCodes.Status404NotFound,
+                title: "Order Not Found",
+                detail: $"No order was found with ID '{id}'."
+            );
+
+            // Add custom extensions if needed
+            problem.Extensions["orderId"] = id;
+
+            return NotFound(problem);
+        }
+
+        return Ok(order);
+    }
+
+    private static object? FindOrder(Guid id) => null;
+}
+```
