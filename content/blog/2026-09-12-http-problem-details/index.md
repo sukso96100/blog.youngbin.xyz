@@ -2,7 +2,7 @@
 title: "HTTP Problem Details"
 author: "Youngbin Han"
 date: 2026-09-13T16:00:00+09:00
-draft: true
+draft: false
 description: HTTP API 에서 오류 응답을 제공하는 표준에 대해 알아보기
 # image: masade.jpeg
 tags:
@@ -222,7 +222,7 @@ app.MapControllers();
 app.Run();
 ```
 
-ProblemDetailsFactory 를 활용할 수도 있다. `ControllerBase` 를 상속하는 클래스에서 `Problem` 메소드 사용도 좋지만, 필드를 확장해야 하는 경우 ProblemDetailsFactory 를 사용하면 유연하게 처리할 수 있다.
+ProblemDetailsFactory 를 활용할 수도 있다. `ControllerBase` 를 상속하는 클래스에서 `Problem` 메소드 사용도 좋지만, 필드를 확장해야 하는 경우 ProblemDetailsFactory 를 사용하면 유연하게 처리할 수 있다. 아래 예시처럼 `orderId` 확장 필드를 넣을 수도 있고, 일반적으로 가장 많이 넣는 확장 필드 중 하나가 `code` 이다. 여기에 서비스에서 정의 한 오류코드를 제공하여, FE 쪽에서 분기처리를 하여 필요한 메시지를 보여주거나 아니면 사용자를 다른 화면으로 보내주는 용도로 많이 사용한다. 
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;
@@ -265,3 +265,161 @@ public class OrdersController : ControllerBase
     private static object? FindOrder(Guid id) => null;
 }
 ```
+
+아직 적용을 하지는 않았지만, 회사에서 개발하는 서비스 중 IAM 서비스는 Golang 과 Gin 으로 개발되어 있다. 그래서 이 경우에 어떻게 하는지도 간단히 알아 보았다. Gin 의 경우에는 ASP.NET Core 처럼 ProblemDetails 기능을 내장하고 있지는 않고 있다. 그래서 직접 구현할 수도 있고(정해진 JSON 스키마 구조 따르고, `Content-Type` 헤더 설정하는 정도), 다른 사람들이 만들어 둔 패키지를 활용 할 수도 있다.
+
+직접 구현하는 경우, 예를 들면 아래와 같은 형태로 구현할 수 있다.
+
+```go
+package main
+
+import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
+
+// RFC 7807 / RFC 9457 구조를 따르는 ProblemDetails 구조체
+type ProblemDetails struct {
+	Type     string         `json:"type"`
+	Title    string         `json:"title"`
+	Status   int            `json:"status"`
+	Detail   string         `json:"detail,omitempty"`
+	Instance string         `json:"instance,omitempty"`
+	Invalid  map[string]any `json:"invalid-params,omitempty"` // Custom extension
+}
+
+// RFC 7807 / RFC 9457 형식의 응답을 application/problem+json 의 content-type 으로 반환하는 함수
+func RenderProblemDetails(c *gin.Context, pd ProblemDetails) {
+	c.Header("Content-Type", "application/problem+json")
+	c.JSON(pd.Status, pd)
+}
+
+func main() {
+	r := gin.Default()
+
+	r.GET("/accounts/:id", func(c *gin.Context) {
+		id := c.Param("id")
+
+		if id != "123" {
+			RenderProblemDetails(c, ProblemDetails{
+				Type:     "https://api.example.com/errors/not-found",
+				Title:    "Account Not Found",
+				Status:   http.StatusNotFound,
+				Detail:   "No account exists with the provided ID.",
+				Instance: c.Request.URL.Path,
+			})
+			return
+		}
+
+		c.JSON(http.StatusOK, gin.H{"id": id, "name": "John Doe"})
+	})
+
+	r.Run(":8080")
+}
+````
+
+[그리고 오류를 처리하는 미들웨어 패턴을 활용하여](https://gin-gonic.com/en/docs/middleware/error-handling-middleware/), 컨트롤러에서 처리하지 못한 에러가 반환되면 처리 하는 미들웨어를 만들어서 사용 할 수도 있다.
+
+아래 예시의 `ProblemDetailsMiddleware` 미들웨어는, `gin.Context` 에 `Error` 가 있는 지 확인하고, 각종 케이스에 따라서 ProblemDetails 형식의 응답을 반환하는 로직이 들어가 있다.
+
+아래와 같은 케이스의 오류를 처리한다.
+
+1. 유효성 검사 오류
+2. 일반적인 Go 오류
+3. Panic 발생 후 Recover 되었을 때 이에 대한 오류 처리 
+
+```go
+package main
+
+import (
+	"errors"
+	"fmt"
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+	"github.com/go-playground/validator/v10"
+)
+
+// ProblemDetails represents an RFC 7807 / RFC 9457 payload
+type ProblemDetails struct {
+	Type     string         `json:"type"`
+	Title    string         `json:"title"`
+	Status   int            `json:"status"`
+	Detail   string         `json:"detail,omitempty"`
+	Instance string         `json:"instance,omitempty"`
+	Invalid  map[string]any `json:"invalid-params,omitempty"`
+}
+
+// ProblemDetailsMiddleware catches all c.Errors and panics
+func ProblemDetailsMiddleware() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		// Recovery block to catch panics and format them as 500 Problem Details
+		defer func() {
+			if r := recover(); r != nil {
+				pd := ProblemDetails{
+					Type:     "https://api.example.com/errors/internal-server-error",
+					Title:    http.StatusText(http.StatusInternalServerError),
+					Status:   http.StatusInternalServerError,
+					Detail:   fmt.Sprintf("An unexpected panic occurred: %v", r),
+					Instance: c.Request.URL.Path,
+				}
+				c.Header("Content-Type", "application/problem+json")
+				c.AbortWithStatusJSON(http.StatusInternalServerError, pd)
+			}
+		}()
+
+		// Process downstream request handlers
+		c.Next()
+
+		// If no errors were logged to the context, return cleanly
+		if len(c.Errors) == 0 {
+			return
+		}
+
+		// Grab the last registered error on the context
+		err := c.Errors.Last().Err
+
+		var pd ProblemDetails
+
+		// 1. Check for Gin/go-playground validation errors (from c.ShouldBind)
+		var ve validator.ValidationErrors
+		if errors.As(err, &ve) {
+			invalidParams := make(map[string]any)
+			for _, fe := range ve {
+				invalidParams[fe.Field()] = fmt.Sprintf("failed on rule '%s'", fe.Tag())
+			}
+
+			pd = ProblemDetails{
+				Type:     "https://api.example.com/errors/validation-error",
+				Title:    "Unprocessable Entity",
+				Status:   http.StatusUnprocessableEntity,
+				Detail:   "One or more request fields failed validation.",
+				Instance: c.Request.URL.Path,
+				Invalid:  invalidParams,
+			}
+		} else {
+			// 2. Fallback for generic Go errors
+			status := c.Writer.Status()
+			if status == http.StatusOK || status == 0 {
+				status = http.StatusInternalServerError
+			}
+
+			pd = ProblemDetails{
+				Type:     "about:blank",
+				Title:    http.StatusText(status),
+				Status:   status,
+				Detail:   err.Error(),
+				Instance: c.Request.URL.Path,
+			}
+		}
+
+		// Write the RFC 7807 problem details response
+		c.Header("Content-Type", "application/problem+json")
+		c.JSON(pd.Status, pd)
+	}
+}
+```
+## 글을 마치며
+
+아무튼 이번 글에서는 오랜만에 회사 일 하다가 새로 배운 것을 간단히 정리 해 보았다. 오류 응답에 대한 형식은 글을 정리 하면서도 느낀 것이지만, 꼭 나 아니면 회사 동료 뿐만 아니라, 웹 개발을 하는 다른 개발자도 어쩌면 당연하게도 항상 고민하던 것이고, 덕분에 이런 표준이 나온것도 알게 되었다. 개인적으로 회사 프로젝트이든 개인 프로젝트 개발을 하며 느끼는 기술적인 고민은 물론 나도 하지만 다른 개발자도 많이 하는 것이라는 생각을 자주 한다. 그래서 프레임워크에서 혹시 기능을 제공하지는 않나 아니면 다른 사람들은 어떻게 해결하나 자료를 자주 찾아보곤 하는데, 이번에는 HTTP Problem Details 가 그런 것이였고, 업무에도 잘 적용 해 볼 수 있게 되었다.
